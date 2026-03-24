@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-UAS Technology - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+        .section-title{text-align:center;margin-bottom:3rem}.section-title h2{font-size:2.5rem;color:var(--accent);margin-bottom:0.5rem}.section-title p{color:var(--text-dim)}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem}
+        .card{background:var(--secondary);border-radius:15px;padding:2rem;border:1px solid rgba(0,212,255,0.2);transition:all 0.3s}
+        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,0.1)}
+        .card h3{color:var(--accent);margin-bottom:1rem}.card p{color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.8rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.2)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .hero{height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,var(--primary),var(--secondary));margin-top:60px}
+        .hero h1{font-size:3rem;margin-bottom:1rem}.hero h1 span{color:var(--accent)}
+        .hero p{color:var(--text-dim);font-size:1.2rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2)}
+        @media(max-width:768px){.hero h1{font-size:2rem}.cards{grid-template-columns:1fr}.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/fpv/">FPV Technology</a>
+            <a href="/c-uas/">Counter-UAS</a>
+            <a href="/forum/">Forum</a>
+            <a href="/history/">History</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Counter-UAS <span>Technology</span></h1>
+        <p>Detect · Identify · Track · Defeat — Complete technical breakdown</p>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>System Architecture</h2></div>
+        <div class="card">
+            <p>A Counter-UAS (C-UAS) system consists of four layers working together:</p>
+            <table>
+                <tr><th>Layer</th><th>Function</th><th>Technologies</th></tr>
+                <tr><td>Detection</td><td class="spec">Find the drone</td><td>Radar, RF, EO/IR, Acoustic</td></tr>
+                <tr><td>Identification</td><td class="spec">What is it?</td><td>AI, Signal Analysis, Threat Assessment</td></tr>
+                <tr><td>Tracking</td><td class="spec">Follow it</td><td>Radar Track, EO Track, Prediction</td></tr>
+                <tr><td>Defeat</td><td class="spec">Stop it</td><td>Jamming, Laser, HPM, Kinetic</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Detection Technology</h2></div>
+        <div class="cards">
+            <div class="card">
+                <h3>Radar Systems</h3>
+                <table>
+                    <tr><th>Product</th><th>Range</th><th>Price</th></tr>
+                    <tr><td>Echodyne EchoGuard</td><td class="spec">3.5km</td><td>$30-50K</td></tr>
+                    <tr><td>Echodyne EchoShield</td><td class="spec">10km</td><td>$80-120K</td></tr>
+                    <tr><td>RADA RPS-82</td><td class="spec">5km</td><td>$50-80K</td></tr>
+                    <tr><td>Robin Radar IRIS</td><td class="spec">2km</td><td>$40-60K</td></tr>
+                </table>
+                <p style="margin-top:1rem">Types: Pulse Doppler (long range), FMCW (compact), Phased Array (fast scan)</p>
+            </div>
+            <div class="card">
+                <h3>RF Detection</h3>
+                <table>
+                    <tr><th>Product</th><th>Models Detected</th><th>Price</th></tr>
+                    <tr><td>DroneShield RFAI™</td><td class="spec">150+</td><td>$20-40K</td></tr>
+                    <tr><td>DedroneTracker</td><td class="spec">AI-based</td><td>$25-50K</td></tr>
+                </table>
+                <p style="margin-top:1rem">Passive listening to control signals. Can detect encrypted drones. Can locate the operator!</p>
+            </div>
+            <div class="card">
+                <h3>EO/IR Systems</h3>
+                <table>
+                    <tr><th>Product</th><th>Type</th><th>Price</th></tr>
+                    <tr><td>Bosch MIC 7100i</td><td class="spec">HD PTZ Camera</td><td>$5-10K</td></tr>
+                    <tr><td>FLIR HDC Ranger UC</td><td class="spec">Thermal</td><td>$20-40K</td></tr>
+                    <tr><td>OpenWorks Vision Flex</td><td class="spec">EO + IR</td><td>$10-20K</td></tr>
+                </table>
+                <p style="margin-top:1rem">Visible light + thermal imaging. AI-powered detection and tracking.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Defeat Technology</h2></div>
+        <div class="cards">
+            <div class="card">
+                <h3>Soft Kill: Electronic Warfare</h3>
+                <table>
+                    <tr><th>Type</th><th>Band</th><th>Effect</th></tr>
+                    <tr><td>GPS Jamming</td><td class="spec">L1/L2/L5</td><td>Lost navigation</td></tr>
+                    <tr><td>RC Jamming</td><td class="spec">2.4/5.8/900MHz</td><td>Lost control</td></tr>
+                    <tr><td>Video Jamming</td><td class="spec">5.8GHz</td><td>Lost video</td></tr>
+                </table>
+                <p style="margin-top:1rem">Products: DroneGun MKIII ($30-50K), DroneGun Tactical ($50-80K)</p>
+            </div>
+            <div class="card">
+                <h3>Hard Kill: Laser Weapons</h3>
+                <table>
+                    <tr><th>Product</th><th>Power</th><th>Price</th></tr>
+                    <tr><td>Raytheon DE-SHORAD</td><td class="spec">50kW</td><td>$5M+</td></tr>
+                    <tr><td>Rafael Iron Beam</td><td class="spec">100kW</td><td>$10M+</td></tr>
+                    <tr><td>CETC Low Altitude Guard</td><td class="spec">10-30kW</td><td>$2M+</td></tr>
+                </table>
+                <p style="margin-top:1rem">High-energy laser destroys drone in seconds. Operational in 2025-2026.</p>
+            </div>
+            <div class="card">
+                <h3>Hard Kill: HPM & Kinetic</h3>
+                <table>
+                    <tr><th>Type</th><th>Product</th><th>Price</th></tr>
+                    <tr><td>HPM</td><td class="spec">Epirus Leonidas</td><td>$500K+</td></tr>
+                    <tr><td>Interceptor Drone</td><td class="spec">Anduril Anvil</td><td>$10-50K</td></tr>
+                    <tr><td>Net Capture</td><td class="spec">SkyWall</td><td>$5-20K</td></tr>
+                </table>
+                <p style="margin-top:1rem">HPM creates wide-area electromagnetic pulse. Interceptor drones physically collide.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>System Configurations</h2></div>
+        <div class="cards">
+            <div class="card">
+                <h3>Man-Portable</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Components</td><td class="spec">RF Detector + Jammer Gun</td></tr>
+                <tr><td>Range</td><td class="spec">1-5km</td></tr>
+                <tr><td>Cost</td><td class="spec">$50-80K</td></tr>
+                <tr><td>Use</td><td class="spec">VIP protection, patrol</td></tr></table>
+            </div>
+            <div class="card">
+                <h3>Fixed Site - Short Range</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Components</td><td class="spec">Radar + RF + EO + C2</td></tr>
+                <tr><td>Range</td><td class="spec">1-3km</td></tr>
+                <tr><td>Cost</td><td class="spec">$150-250K</td></tr>
+                <tr><td>Use</td><td class="spec">Infrastructure, events</td></tr></table>
+            </div>
+            <div class="card">
+                <h3>Fixed Site - Long Range</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Components</td><td class="spec">Full System + Laser/HPM</td></tr>
+                <tr><td>Range</td><td class="spec">10km+</td></tr>
+                <tr><td>Cost</td><td class="spec">$1M+</td></tr>
+                <tr><td>Use</td><td class="spec">Border, strategic assets</td></tr></table>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Market Analysis</h2></div>
+        <div class="cards">
+            <div class="card">
+                <h3>Global Market</h3>
+                <table>
+                    <tr><th>Year</th><th>Market Size</th></tr>
+                    <tr><td>2025</td><td class="spec">$50 Billion</td></tr>
+                    <tr><td>2030 (projected)</td><td class="spec">$150+ Billion</td></tr>
+                    <tr><td>CAGR</td><td class="spec">25-30%</td></tr>
+                </table>
+            </div>
+            <div class="card">
+                <h3>By Region (2025-2030)</h3>
+                <table>
+                    <tr><th>Region</th><th>Growth</th></tr>
+                    <tr><td>North America</td><td class="spec">$17.9B → $52.2B</td></tr>
+                    <tr><td>Europe</td><td class="spec">$12.4B → $41.6B</td></tr>
+                    <tr><td>Asia Pacific</td><td class="spec">$10.5B → $38.9B</td></tr>
+                </table>
+            </div>
+            <div class="card">
+                <h3>Key Players</h3>
+                <table>
+                    <tr><th>Company</th><th>Country</th><th>Specialty</th></tr>
+                    <tr><td>DroneShield</td><td>Australia</td><td>Portable jammers</td></tr>
+                    <tr><td>Echodyne</td><td>USA</td><td>Compact radar</td></tr>
+                    <tr><td>Anduril</td><td>USA</td><td>AI + interceptor</td></tr>
+                    <tr><td>Rafael</td><td>Israel</td><td>Laser weapons</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Technology Trends (2025-2030)</h2></div>
+        <div class="cards">
+            <div class="card"><h3>AI Integration</h3><p>Machine learning for automatic target recognition, threat assessment, and autonomous engagement.</p></div>
+            <div class="card"><h3>Directed Energy</h3><p>Laser and HPM costs dropping. More operational deployments. Counter-swarm capable.</p></div>
+            <div class="card"><h3>Networked Defense</h3><p>Multiple sites sharing data. Wide-area coverage. Distributed sensor networks.</p></div>
+            <div class="card"><h3>Counter-AI</h3><p>Defeating autonomous drones that don't rely on RF signals. New detection methods needed.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/" style="color:var(--accent)">Home</a> | <a href="/fpv/" style="color:var(--accent)">FPV Technology</a></p>
+    </footer>
+</body>
+</html>
