@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development History - AutoSensor Tech | FPV & Counter-UAS Timeline</title>
+    <meta name="description" content="Comprehensive timeline of FPV drone and counter-UAS technology development from 2005 to 2026.">
+    <link rel="alternate" hreflang="ru" href="/ru/history/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0a1628;
+            --secondary: #1a2d4a;
+            --accent: #00d4ff;
+            --accent2: #ff6b35;
+            --text: #e0e6ed;
+            --text-dim: #8899aa;
+            --card-bg: #132238;
+            --border: rgba(0, 212, 255, 0.15);
+            --success: #00e676;
+            --warning: #ffc107;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent2); }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .page-header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Timeline */
+        .timeline-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+            position: relative;
+        }
+
+        /* Central line */
+        .timeline-wrapper::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent));
+            transform: translateX(-50%);
+        }
+
+        /* Era Section */
+        .era {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        /* Era marker (center) */
+        .era-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Era title (full width, above) */
+        .era-title-block {
+            text-align: center;
+            padding: 0 80px;
+            margin-bottom: 2.5rem;
+            margin-top: 1rem;
+        }
+        .era-title-block h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        .era-title-block .era-years {
+            color: var(--accent2);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Event cards — alternate left/right */
+        .event {
+            width: 44%;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .event.left {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        .event.right {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* Connector dot on line */
+        .event::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .event.left::after { right: -7%; transform: translateX(50%); }
+        .event.right::after { left: -7%; transform: translateX(-50%); }
+
+        /* Connector line to card */
+        .event::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            height: 2px;
+            background: var(--border);
+            width: 5%;
+        }
+        .event.left::before { right: 0; }
+        .event.right::before { left: 0; }
+
+        .event-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .event-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+        .event-card h4 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .event-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        .event-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .tag-fpv { background: rgba(0, 212, 255, 0.15); color: var(--accent); }
+        .tag-military { background: rgba(255, 107, 53, 0.15); color: var(--accent2); }
+        .tag-cuas { background: rgba(0, 230, 118, 0.15); color: var(--success); }
+        .tag-market { background: rgba(255, 193, 7, 0.15); color: var(--warning); }
+        .tag-tech { background: rgba(156, 39, 176, 0.15); color: #ce93d8; }
+
+        /* Highlight card */
+        .event-card.highlight {
+            border-color: var(--accent2);
+            background: linear-gradient(135deg, var(--secondary), rgba(255, 107, 53, 0.08));
+        }
+
+        /* Stat callout within timeline */
+        .stat-callout {
+            text-align: center;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+        }
+        .stat-callout .stat-num {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-callout .stat-label {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        /* Summary section */
+        .summary-section {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+        .summary-section h2 {
+            text-align: center;
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .summary-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        .summary-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .summary-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .summary-card h4 { color: var(--accent); margin-bottom: 0.5rem; }
+        .summary-card p { color: var(--text-dim); font-size: 0.9rem; }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        footer p { color: var(--text-dim); font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline-wrapper::before { left: 20px; }
+            .era-marker {
+                left: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+            }
+            .era-title-block {
+                padding-left: 60px;
+                text-align: left;
+            }
+            .era-title-block h2 { font-size: 1.4rem; }
+            .event {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+            }
+            .event::after {
+                left: -37px !important;
+                right: auto !important;
+                transform: none !important;
+            }
+            .event::before {
+                left: -23px !important;
+                right: auto !important;
+                width: 23px;
+            }
+            .page-header h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .stat-callout .stat-num { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/forum/">Forum</a>
+            <a href="/history/">History</a>
+            <a href="/#tech">Technology</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>📜 Development History</h1>
+        <p>Two decades of FPV drone and counter-UAS technology — from hobbyist basement builds to the defining weapon of modern warfare</p>
+    </div>
+
+    <div class="timeline-wrapper">
+
+        <!-- ERA 1: Early FPV (2005–2010) -->
+        <div class="era">
+            <div class="era-marker">📡</div>
+            <div class="era-title-block">
+                <h2>Early FPV</h2>
+                <div class="era-years">2005 – 2010</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-fpv">FPV Origins</span>
+                    <h4>First-Person-View Flights</h4>
+                    <p>Hobbyists mount small analog cameras and 5.8GHz video transmitters to RC planes, achieving the first real-time FPV flights. Video quality is poor, range is under 1 km.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Hardware</span>
+                    <h4>Camera + VTX Setups</h4>
+                    <p>Basic CCD board cameras paired with 200mW–600mW analog VTX units. FatShark goggles emerge as the go-to FPV display. Latency: 30–50ms.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-fpv">Multirotor</span>
+                    <h4>First FPV Quadcopters</h4>
+                    <p>Early multirotor frames adapted for FPV. Heavy, wooden or aluminum frames. Flight times under 8 minutes. Gyro stabilization via KK boards.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Control</span>
+                    <h4>2.4GHz RC Takes Over</h4>
+                    <p>Spread-spectrum 2.4GHz radios (Futaba, Spektrum) replace old 72MHz FM systems, improving reliability and enabling longer range.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 2: FPV Goes Mainstream (2010–2015) -->
+        <div class="era">
+            <div class="era-marker">🚁</div>
+            <div class="era-title-block">
+                <h2>FPV Goes Mainstream</h2>
+                <div class="era-years">2010 – 2015</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-fpv">Multirotor</span>
+                    <h4>The Multirotor Revolution</h4>
+                    <p>Affordable brushless motors, LiPo batteries, and MEMS IMUs converge to create stable, flyable multirotors. DJI, 3DR, and dozens of startups launch consumer drones.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-market">Market</span>
+                    <h4>GoPro + Quadcopter Combinations</h4>
+                    <p>GoPro Hero 3 becomes the de-facto aerial camera. YouTube aerial footage goes viral, driving mainstream consumer interest in FPV and drones.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-market">Milestone</span>
+                    <h4>DJI Phantom Era Begins</h4>
+                    <p>DJI Phantom 1 (2013) makes drones accessible to anyone. Millions sold. DJI becomes the dominant drone manufacturer globally.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-fpv">Racing</span>
+                    <h4>FPV Racing Emerges</h4>
+                    <p>First informal FPV races in parks and abandoned buildings. Pilots modify DJI-style frames for speed. The competitive FPV scene is born.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">C-UAS</span>
+                    <h4>Early Counter-Drone Awareness</h4>
+                    <p>As consumer drones proliferate, security agencies begin exploring countermeasures. First RF jammers adapted from military EW systems for drone defeat.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 3: Racing & Freestyle (2015–2018) -->
+        <div class="era">
+            <div class="era-marker">🏁</div>
+            <div class="era-title-block">
+                <h2>Racing & Freestyle</h2>
+                <div class="era-years">2015 – 2018</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Frames</span>
+                    <h4>Mini Quad Revolution (250mm)</h4>
+                    <p>250mm carbon fiber frames become the racing standard. Lightweight, crash-resistant, purpose-built for speed and agility. Arms race in frame design begins.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Software</span>
+                    <h4>Betaflight Development</h4>
+                    <p>Betaflight firmware (forked from Cleanflight) revolutionizes flight controller tuning. PID optimization, rates customization, and filter settings enable pilots to unlock extreme performance.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-market">Leagues</span>
+                    <h4>FPV Racing Leagues Form</h4>
+                    <p>Drone Racing League (DRL) and Drone Champions League (DCL) launch with televised events, sponsorships, and prize purses. FPV racing becomes a spectator sport.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Standard</span>
+                    <h4>5-Inch Becomes the Standard</h4>
+                    <p>The 5-inch quad (220mm) replaces 250mm as the universal standard. Optimized prop/motor/ESC combinations produce 10:1+ thrust-to-weight ratios.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-fpv">Video</span>
+                    <h4>Analog Video Perfected</h4>
+                    <p>HS1177 and Foxeer cameras, TBS Unify VTX, and Pagoda/Lollipop antennas reach peak analog performance. FatShark Dominator V3 goggles dominate.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">C-UAS</span>
+                    <h4>Counter-UAS Industry Takes Shape</h4>
+                    <p>Companies like DroneShield, Dedrone, and Blighter emerge. First dedicated C-UAS products: RF detectors, geo-fencing, and jammer guns.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 4: Digital FPV Revolution (2019–2020) -->
+        <div class="era">
+            <div class="era-marker">💎</div>
+            <div class="era-title-block">
+                <h2>Digital FPV Revolution</h2>
+                <div class="era-years">2019 – 2020</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-tech">Breakthrough</span>
+                    <h4>DJI FPV System Launches</h4>
+                    <p>DJI releases its digital FPV system: 720p/120fps video at 28ms latency with 4km range. Analog purists resist, but the image quality gap is undeniable. The analog vs. digital debate begins.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">HD Video</span>
+                    <h4>HD Video Transmission</h4>
+                    <p>HDZero (then Shark Byte) and DJI push FPV video from 480i analog to 720p+ digital. Latency drops below 30ms — matching analog in responsiveness.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Protocol</span>
+                    <h4>ExpressLRS Development Starts</h4>
+                    <p>Open-source ExpressLRS (ELRS) project begins — a long-range, low-latency RC link protocol. Will eventually dethrone TBS Crossfire as the standard for FPV pilots.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">C-UAS</span>
+                    <h4>C-UAS Gets Serious</h4>
+                    <p>After Gatwick Airport drone incident (Dec 2018), governments worldwide invest heavily in counter-drone tech. NATO establishes C-UAS working groups.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 5: War Changes Everything (2021–2022) -->
+        <div class="era">
+            <div class="era-marker">⚔️</div>
+            <div class="era-title-block">
+                <h2>War Changes Everything</h2>
+                <div class="era-years">2021 – 2022</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-military">War</span>
+                    <h4>Russia Invades Ukraine — Feb 24, 2022</h4>
+                    <p>The largest conventional war in Europe since WWII begins. Within weeks, consumer FPV drones are repurposed as precision weapons, changing the character of warfare forever.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-military">Doctrine</span>
+                    <h4>$500 Drones vs. $5M Tanks</h4>
+                    <p>FPV drones carrying RPG-7 warheads destroy main battle tanks worth millions. Asymmetric warfare redefined. Every military in the world takes notice.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Tactics</span>
+                    <h4>FPV Kamikaze Drones in Combat</h4>
+                    <p>Ukrainian forces deploy modified FPV racing quads as one-way attack drones. Cheap, fast, precise. First-person targeting enables strikes on individual soldiers in trenches.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">C-UAS</span>
+                    <h4>Counter-UAS Development Accelerates</h4>
+                    <p>The drone threat in Ukraine triggers a global race in C-UAS technology. RF jamming, GPS spoofing, and electronic warfare systems deployed at scale for the first time against FPV drones.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Loitering</span>
+                    <h4>Iran Shahed-136 Drones Appear</h4>
+                    <p>Iranian Shahed-136 one-way attack drones deployed by Russia against Ukrainian infrastructure. Long-range, cheap, piston-engine UAVs — a different category from FPV but accelerating C-UAS investment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 6: FPV Warfare Explosion (2023) -->
+        <div class="era">
+            <div class="era-marker">💥</div>
+            <div class="era-title-block">
+                <h2>FPV Warfare Explosion</h2>
+                <div class="era-years">2023</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-military">Production</span>
+                    <h4>Ukraine Produces 10,000+ FPV Drones/Month</h4>
+                    <p>Ukraine scales domestic FPV drone production to industrial levels. Multiple manufacturers, standardized designs, front-line supply chains. Cost drops below $400 per unit.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Russia</span>
+                    <h4>Russia Deploys Lancet at Scale</h4>
+                    <p>Russian Lancet loitering munition becomes a major threat — destroying Ukrainian artillery, air defense, and vehicles. AI-assisted terminal guidance in later variants.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Strategy</span>
+                    <h4>Electronic Warfare Arms Race</h4>
+                    <p>Both sides deploy massive EW networks. Frequency-hopping protocols (like RPAS-Link) counter jamming. Drone warfare becomes a game of electronic cat-and-mouse.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">Market</span>
+                    <h4>Counter-UAS Market Booms</h4>
+                    <p>Global C-UAS spending surpasses $30B. Defense contractors, startups, and tech companies rush into the market. DroneShield, Anduril, Rafael, and dozens of others compete for contracts.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Naval</span>
+                    <h4>Sea Drones Enter the War</h4>
+                    <p>Ukraine deploys naval drones (USVs) against the Russian Black Sea Fleet. Autonomous boat attacks damage or sink multiple warships — a world first.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 7: Technology Maturity (2024) -->
+        <div class="era">
+            <div class="era-marker">🔬</div>
+            <div class="era-title-block">
+                <h2>Technology Maturity</h2>
+                <div class="era-years">2024</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Digital</span>
+                    <h4>DJI O3 / O4 Systems</h4>
+                    <p>DJI O3 Air Unit delivers 1080p/100fps at 30ms latency with 10km+ range. O4 pushes further with improved encoding. Digital FPV becomes the dominant standard.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Open Source</span>
+                    <h4>Open Source Alternatives Flourish</h4>
+                    <p>OpenIPC, HDZero, and Walksnail offer non-DJI digital FPV options. Open-source flight controllers (INAV, ArduPilot) rival commercial autopilots.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-tech">AI</span>
+                    <h4>AI Integration Begins</h4>
+                    <p>Machine learning applied to both sides: AI-powered autonomous targeting on attack drones, and AI-based detection/classification in C-UAS systems. Edge AI on drone flight controllers.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">Defense</span>
+                    <h4>Counter-Swarm Systems Develop</h4>
+                    <p>As drone swarms become viable threat scenarios, counter-swarm C-UAS emerges: HPM arrays, laser turrets, and AI-coordinated interceptor drones designed to defeat mass attacks.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Global</span>
+                    <h4>Every Major Military Adopts FPV</h4>
+                    <p>US, China, Israel, Turkey, South Korea, and others integrate FPV drones into doctrine. Drone units become standard infantry attachments.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA 8: Current State (2025–2026) -->
+        <div class="era">
+            <div class="era-marker">🚀</div>
+            <div class="era-title-block">
+                <h2>Current State</h2>
+                <div class="era-years">2025 – 2026</div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">FPV Hardware</span>
+                    <h4>DJI O4 Pro — 4K, 13km Range</h4>
+                    <p>The latest DJI O4 Pro delivers 4K video transmission at 13km range with sub-25ms latency. HD and range are no longer trade-offs.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Protocol</span>
+                    <h4>ELRS Becomes Universal Standard</h4>
+                    <p>ExpressLRS is now the default RC link for FPV — open-source, 100Hz+ packet rate, 100km+ range, tiny hardware. Crossfire and proprietary links decline.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-tech">Open Source</span>
+                    <h4>OpenIPC Digital Systems</h4>
+                    <p>OpenIPC matured into a fully open-source digital FPV platform. Community-driven, hardware-agnostic, challenging DJI's market dominance.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-cuas">Defense</span>
+                    <h4>AI-Powered C-UAS</h4>
+                    <p>Next-gen counter-UAS systems use deep learning for real-time drone classification, behavioral prediction, and autonomous engagement. Response times drop to milliseconds.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card highlight">
+                    <span class="event-tag tag-cuas">Weapons</span>
+                    <h4>Laser Weapons Operational</h4>
+                    <p>High-energy laser C-UAS systems (Iron Beam, ODIN's Eye, DragonFire) reach operational deployment. Cost-per-kill drops to $2–10 per shot vs. $100K+ for missiles.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-cuas">Defense</span>
+                    <h4>HPM Systems Deployed</h4>
+                    <p>High-Power Microwave systems (Epirus Leonidas, PHASER) deployed for area denial against drone swarms. Effective against electronics at range.</p>
+                </div>
+            </div>
+
+            <div class="event left">
+                <div class="event-card">
+                    <span class="event-tag tag-market">Market</span>
+                    <h4>$50B+ C-UAS Market</h4>
+                    <p>The global counter-UAS market exceeds $50 billion in 2025. Projected to reach $150B+ by 2030 at 25-30% CAGR. One of the fastest-growing defense sectors.</p>
+                </div>
+            </div>
+
+            <div class="event right">
+                <div class="event-card">
+                    <span class="event-tag tag-military">Autonomy</span>
+                    <h4>Autonomous Drone Warfare</h4>
+                    <p>AI-enabled drones capable of autonomous target acquisition and engagement emerge. Ethical debates intensify. Lethal Autonomous Weapons (LAWS) policy discussions accelerate at the UN.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Summary Stats -->
+    <div class="summary-section">
+        <h2>By the Numbers — 20 Years of Evolution</h2>
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="icon">📹</div>
+                <h4>Video</h4>
+                <p>480i analog → 4K digital<br>1km range → 13km+<br>50ms → 25ms latency</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">💰</div>
+                <h4>Cost</h4>
+                <p>FPV drone: $2,000 → $400<br>Counter-UAS: $50K → $10K<br>Laser kill: $100K → $2</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">🎯</div>
+                <h4>Precision</h4>
+                <p>GPS waypoints → AI targeting<br>Manual aim → Autonomous terminal<br>Area effect → Surgical strike</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">📈</div>
+                <h4>Scale</h4>
+                <p>Hobbyist builds → 10K+/month<br>Individual use → Swarm doctrine<br>$1B market → $50B+ market</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">🛡️</div>
+                <h4>Counter-UAS</h4>
+                <p>RF jammers → AI + laser + HPM<br>Manual detection → Autonomous<br>Single target → Counter-swarm</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">🌍</div>
+                <h4>Impact</h4>
+                <p>Hobby gadget → War-defining weapon<br>Toy → Strategic asset<br>Niche → Every military doctrine</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">FPV & Counter-UAS Technology Development Timeline</p>
+    </footer>
+</body>
+</html>

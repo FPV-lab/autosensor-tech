@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - AutoSensor Tech | Counter-UAS & FPV Community</title>
+    <meta name="description" content="AutoSensor Tech Community Forum - Discuss FPV technology, counter-UAS systems, military applications, DIY builds, and regulations.">
+    <link rel="alternate" hreflang="ru" href="/ru/forum/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0a1628;
+            --secondary: #1a2d4a;
+            --accent: #00d4ff;
+            --accent2: #ff6b35;
+            --text: #e0e6ed;
+            --text-dim: #8899aa;
+            --card-bg: #132238;
+            --border: rgba(0, 212, 255, 0.15);
+            --success: #00e676;
+            --warning: #ffc107;
+            --danger: #ff5252;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent2); }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .page-header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        /* Main Layout */
+        .forum-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        /* Toolbar */
+        .toolbar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .search-bar {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-bar:focus { border-color: var(--accent); }
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+        .search-wrapper::before {
+            content: '🔍';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+        }
+        .btn-new-post {
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .btn-new-post:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Categories */
+        .category-section {
+            margin-bottom: 2rem;
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: var(--secondary);
+            border-radius: 12px 12px 0 0;
+            border: 1px solid var(--border);
+            border-bottom: 2px solid var(--accent);
+        }
+        .category-icon {
+            font-size: 1.5rem;
+        }
+        .category-header h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            flex: 1;
+        }
+        .category-count {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Forum Posts */
+        .post-list {
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+        .post-item {
+            display: grid;
+            grid-template-columns: 50px 1fr auto;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+            align-items: center;
+        }
+        .post-item:last-child { border-bottom: none; }
+        .post-item:hover { background: var(--secondary); }
+        .post-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .post-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+        .post-content h4 a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .post-content h4 a:hover { color: var(--accent); }
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+        .post-meta .author { color: var(--accent); }
+        .post-meta .hot { color: var(--accent2); }
+        .post-stats {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-align: center;
+            white-space: nowrap;
+        }
+        .post-stats div { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .post-stats .num { font-size: 1rem; font-weight: bold; color: var(--text); }
+        .pin-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--accent2);
+            font-size: 0.7rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .new-badge {
+            display: inline-block;
+            background: rgba(0, 230, 118, 0.2);
+            color: var(--success);
+            font-size: 0.7rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Sidebar */
+        .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+        .sidebar-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .sidebar-card h3 {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Stats Card */
+        .forum-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .forum-stat {
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+        }
+        .forum-stat .num {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        .forum-stat .label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* Tags */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            padding: 0.3rem 0.75rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .tag:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        .tag.hot {
+            background: rgba(255, 107, 53, 0.15);
+            color: var(--accent2);
+        }
+
+        /* Online Users */
+        .online-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .online-user {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+
+        /* Rules Card */
+        .rules-list {
+            list-style: none;
+        }
+        .rules-list li {
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+        }
+        .rules-list li:last-child { border-bottom: none; }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        footer p { color: var(--text-dim); font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .forum-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar { order: -1; }
+            .post-item {
+                grid-template-columns: 40px 1fr;
+            }
+            .post-stats { display: none; }
+        }
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .toolbar { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/forum/">Forum</a>
+            <a href="/history/">History</a>
+            <a href="/#tech">Technology</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>🛡️ Community Forum</h1>
+        <p>Discuss FPV technology, counter-UAS systems, and the future of low-altitude security</p>
+    </div>
+
+    <div class="forum-container">
+        <main>
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <div class="search-wrapper">
+                    <input type="text" class="search-bar" placeholder="Search topics, posts, and users...">
+                </div>
+                <button class="btn-new-post">+ New Post</button>
+            </div>
+
+            <!-- Category 1: FPV Technology Discussion -->
+            <div class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🚁</span>
+                    <h3>FPV Technology Discussion</h3>
+                    <span class="category-count">1,247 posts</span>
+                </div>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-avatar">AK</div>
+                        <div class="post-content">
+                            <h4><a href="#">DJI O4 Pro vs O3 Air Unit — Real-World Range Testing Results</a> <span class="pin-badge">📌 Pinned</span></h4>
+                            <div class="post-meta">
+                                <span class="author">AeroKai</span>
+                                <span>2h ago</span>
+                                <span>in <strong>Video Transmission</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">89</span>replies</div>
+                            <div><span class="num">3.2k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">NX</div>
+                        <div class="post-content">
+                            <h4><a href="#">OpenIPC Digital System — Beta Test Results and Issues</a> <span class="new-badge">✨ New</span></h4>
+                            <div class="post-meta">
+                                <span class="author">NightFlyerX</span>
+                                <span>4h ago</span>
+                                <span>in <strong>Digital FPV</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">42</span>replies</div>
+                            <div><span class="num">1.8k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">DV</div>
+                        <div class="post-content">
+                            <h4><a href="#">ELRS 3.5 — ExpressLRS Telemetry Deep Dive & LQ Optimization</a></h4>
+                            <div class="post-meta">
+                                <span class="author">DroneVet</span>
+                                <span>8h ago</span>
+                                <span>in <strong>RX/TX Systems</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">31</span>replies</div>
+                            <div><span class="num">967</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">SR</div>
+                        <div class="post-content">
+                            <h4><a href="#">Analog VTX Power Output — Legal Limits by Country (Updated 2026)</a></h4>
+                            <div class="post-meta">
+                                <span class="author">SignalRider</span>
+                                <span>1d ago</span>
+                                <span>in <strong>Video Transmission</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">56</span>replies</div>
+                            <div><span class="num">2.4k</span>views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Counter-UAS Systems -->
+            <div class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🎯</span>
+                    <h3>Counter-UAS Systems</h3>
+                    <span class="category-count">893 posts</span>
+                </div>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-avatar">EW</div>
+                        <div class="post-content">
+                            <h4><a href="#">RF Jamming Effectiveness: 2.4GHz vs 5.8GHz vs 900MHz — Bench Test Data</a> <span class="pin-badge">📌 Pinned</span></h4>
+                            <div class="post-meta">
+                                <span class="author">EWEngineer</span>
+                                <span>1h ago</span>
+                                <span>in <strong>Electronic Warfare</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">134</span>replies</div>
+                            <div><span class="num">5.1k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">RZ</div>
+                        <div class="post-content">
+                            <h4><a href="#">DroneShield RfPatrol vs Echodyne EchoGuard — Comparison Review</a></h4>
+                            <div class="post-meta">
+                                <span class="author">RadarZone</span>
+                                <span>6h ago</span>
+                                <span>in <strong>Detection Systems</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">28</span>replies</div>
+                            <div><span class="num">1.3k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">LS</div>
+                        <div class="post-content">
+                            <h4><a href="#">High-Power Microwave (HPM) C-UAS — Current State of the Art 2026</a> <span class="new-badge">✨ New</span></h4>
+                            <div class="post-meta">
+                                <span class="author">LaserSight</span>
+                                <span>3h ago</span>
+                                <span>in <strong>Directed Energy</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">19</span>replies</div>
+                            <div><span class="num">780</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">SM</div>
+                        <div class="post-content">
+                            <h4><a href="#">AI-Powered Threat Classification — YOLO vs Transformer Models for Drone Detection</a></h4>
+                            <div class="post-meta">
+                                <span class="author">SmartMinds</span>
+                                <span>12h ago</span>
+                                <span>in <strong>AI & ML</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">45</span>replies</div>
+                            <div><span class="num">2.1k</span>views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Military Applications -->
+            <div class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">⚔️</span>
+                    <h3>Military Applications</h3>
+                    <span class="category-count">2,156 posts</span>
+                </div>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-avatar">BF</div>
+                        <div class="post-content">
+                            <h4><a href="#">Ukraine FPV Warfare Lessons: 2022–2026 Tactical Evolution</a> <span class="pin-badge">📌 Pinned</span></h4>
+                            <div class="post-meta">
+                                <span class="author">BattleField</span>
+                                <span>30m ago</span>
+                                <span>in <strong>Conflict Analysis</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">312</span>replies</div>
+                            <div><span class="num">12.4k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">TC</div>
+                        <div class="post-content">
+                            <h4><a href="#">Lancet Loitering Munition — Technical Analysis & Countermeasures</a></h4>
+                            <div class="post-meta">
+                                <span class="author">TacticalCom</span>
+                                <span>5h ago</span>
+                                <span>in <strong>Loitering Munitions</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">87</span>replies</div>
+                            <div><span class="num">4.6k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">SW</div>
+                        <div class="post-content">
+                            <h4><a href="#">Counter-Swarm Defense: How Many Drones Can a Modern C-UAS System Handle?</a> <span class="new-badge">✨ New</span></h4>
+                            <div class="post-meta">
+                                <span class="author">SwarmWatcher</span>
+                                <span>2h ago</span>
+                                <span>in <strong>Swarm Warfare</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">23</span>replies</div>
+                            <div><span class="num">890</span>views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Industry News -->
+            <div class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">📰</span>
+                    <h3>Industry News</h3>
+                    <span class="category-count">567 posts</span>
+                </div>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-avatar">IN</div>
+                        <div class="post-content">
+                            <h4><a href="#">Anduril Raises $1.5B for AI-Powered Counter-Drone Systems</a> <span class="hot">🔥 Hot</span></h4>
+                            <div class="post-meta">
+                                <span class="author">IndustryNews</span>
+                                <span>1h ago</span>
+                                <span>in <strong>Funding & Deals</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">67</span>replies</div>
+                            <div><span class="num">3.8k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">DP</div>
+                        <div class="post-content">
+                            <h4><a href="#">DroneShield Stock Soars After NATO Contract Win</a></h4>
+                            <div class="post-meta">
+                                <span class="author">DronePolicy</span>
+                                <span>1d ago</span>
+                                <span>in <strong>Market News</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">41</span>replies</div>
+                            <div><span class="num">2.0k</span>views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 5: DIY Builds -->
+            <div class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">🔧</span>
+                    <h3>DIY Builds</h3>
+                    <span class="category-count">3,421 posts</span>
+                </div>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-avatar">HB</div>
+                        <div class="post-content">
+                            <h4><a href="#">$200 FPV Build Guide — 5-inch Freestyle with ELRS & Analog (2026)</a> <span class="pin-badge">📌 Pinned</span></h4>
+                            <div class="post-meta">
+                                <span class="author">HomeBuilder</span>
+                                <span>6h ago</span>
+                                <span>in <strong>Build Guides</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">203</span>replies</div>
+                            <div><span class="num">8.7k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">MK</div>
+                        <div class="post-content">
+                            <h4><a href="#">DIY Directional RF Jammer — Schematic & Build Guide (Educational)</a></h4>
+                            <div class="post-meta">
+                                <span class="author">MakerKit</span>
+                                <span>1d ago</span>
+                                <span>in <strong>Electronics</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">78</span>replies</div>
+                            <div><span class="num">4.2k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">PX</div>
+                        <div class="post-content">
+                            <h4><a href="#">Custom Long-Range FPV Wing — 100km+ Range with Ardupilot</a> <span class="new-badge">✨ New</span></h4>
+                            <div class="post-meta">
+                                <span class="author">PX4Pilot</span>
+                                <span>5h ago</span>
+                                <span>in <strong>Fixed Wing</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">34</span>replies</div>
+                            <div><span class="num">1.5k</span>views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 6: Regulations & Laws -->
+            <div class="category-section">
+                <div class="category-header">
+                    <span class="category-icon">⚖️</span>
+                    <h3>Regulations & Laws</h3>
+                    <span class="category-count">412 posts</span>
+                </div>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-avatar">LG</div>
+                        <div class="post-content">
+                            <h4><a href="#">FAA Remote ID Enforcement Update — March 2026 Compliance Guide</a></h4>
+                            <div class="post-meta">
+                                <span class="author">LegalGuru</span>
+                                <span>1d ago</span>
+                                <span>in <strong>US Regulations</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">52</span>replies</div>
+                            <div><span class="num">2.8k</span>views</div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-avatar">EU</div>
+                        <div class="post-content">
+                            <h4><a href="#">EU Counter-Drone Directive 2026 — What It Means for Manufacturers</a></h4>
+                            <div class="post-meta">
+                                <span class="author">EULawWatcher</span>
+                                <span>2d ago</span>
+                                <span>in <strong>EU Regulations</strong></span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <div><span class="num">29</span>replies</div>
+                            <div><span class="num">1.4k</span>views</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Forum Stats -->
+            <div class="sidebar-card">
+                <h3>📊 Forum Statistics</h3>
+                <div class="forum-stats">
+                    <div class="forum-stat">
+                        <div class="num">8,696</div>
+                        <div class="label">Total Posts</div>
+                    </div>
+                    <div class="forum-stat">
+                        <div class="num">2,341</div>
+                        <div class="label">Members</div>
+                    </div>
+                    <div class="forum-stat">
+                        <div class="num">47</div>
+                        <div class="label">Online Now</div>
+                    </div>
+                    <div class="forum-stat">
+                        <div class="num">156</div>
+                        <div class="label">New Today</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Tags -->
+            <div class="sidebar-card">
+                <h3>🏷️ Popular Tags</h3>
+                <div class="tags-cloud">
+                    <span class="tag hot">FPV</span>
+                    <span class="tag hot">C-UAS</span>
+                    <span class="tag">ELRS</span>
+                    <span class="tag">Betaflight</span>
+                    <span class="tag hot">Ukraine</span>
+                    <span class="tag">DJI O4</span>
+                    <span class="tag">Jamming</span>
+                    <span class="tag">Laser</span>
+                    <span class="tag">Radar</span>
+                    <span class="tag">OpenIPC</span>
+                    <span class="tag">Swarm</span>
+                    <span class="tag">AI Detection</span>
+                    <span class="tag">Analog</span>
+                    <span class="tag">Digital</span>
+                    <span class="tag">Build Guide</span>
+                    <span class="tag">Remote ID</span>
+                    <span class="tag">Lancet</span>
+                    <span class="tag">HPM</span>
+                    <span class="tag">EO/IR</span>
+                    <span class="tag">5-inch</span>
+                </div>
+            </div>
+
+            <!-- Online Users -->
+            <div class="sidebar-card">
+                <h3>🟢 Online Now</h3>
+                <div class="online-list">
+                    <span class="online-user"><span class="online-dot"></span> AeroKai</span>
+                    <span class="online-user"><span class="online-dot"></span> EWEngineer</span>
+                    <span class="online-user"><span class="online-dot"></span> BattleField</span>
+                    <span class="online-user"><span class="online-dot"></span> DroneVet</span>
+                    <span class="online-user"><span class="online-dot"></span> NightFlyerX</span>
+                    <span class="online-user"><span class="online-dot"></span> SwarmWatcher</span>
+                    <span class="online-user"><span class="online-dot"></span> LaserSight</span>
+                    <span class="online-user"><span class="online-dot"></span> +40 more</span>
+                </div>
+            </div>
+
+            <!-- Community Rules -->
+            <div class="sidebar-card">
+                <h3>📋 Community Rules</h3>
+                <ul class="rules-list">
+                    <li>🎯 Stay on topic — FPV & C-UAS tech only</li>
+                    <li>🔒 No sharing classified/export-controlled info</li>
+                    <li>🤝 Be respectful — no personal attacks</li>
+                    <li>⚠️ Mark sensitive content appropriately</li>
+                    <li>🚫 No illegal activity discussions</li>
+                    <li>📝 Cite sources for technical claims</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Counter-UAS FPV Technology Community Forum</p>
+    </footer>
+</body>
+</html>
