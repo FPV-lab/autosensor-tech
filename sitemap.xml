@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>https://www.autosensor.tech/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+    <url><loc>https://www.autosensor.tech/fpv/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://www.autosensor.tech/c-uas/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://www.autosensor.tech/forum/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/history/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/fpv-basics/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/components/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/video-systems/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/radio/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/batteries/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/software/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/build-guide/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/flying/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/military/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/c-uas-tech/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/ru/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>

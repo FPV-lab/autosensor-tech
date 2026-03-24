@@ -3,279 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoSensor Tech - Технологии противодействия БПЛА</title>
-    <meta name="description" content="AutoSensor Tech - Исследования и разработки в области противодействия FPV-дронам, включая системы обнаружения, идентификации, сопровождения и подавления">
-    <meta name="keywords" content="противодействие дронам,БПЛА,C-UAS,FPV,антидрон,обнаружение,РЭБ,лазерное оружие">
+    <title>AutoSensor Tech - Технологии противодействия FPV-дронам</title>
+    <meta name="description" content="Комплексный ресурс по технологиям противодействия FPV-дронам. Обнаружение, идентификация, сопровождение и подавление систем.">
     <link rel="alternate" hreflang="en" href="/">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary: #0a1628;
-            --secondary: #1a2d4a;
-            --accent: #00d4ff;
-            --accent2: #ff6b35;
-            --text: #e0e6ed;
-            --text-dim: #8899aa;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--primary);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .lang-switch {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: 1001;
-            background: var(--secondary);
-            border-radius: 25px;
-            padding: 5px;
-            display: flex;
-            gap: 5px;
-        }
-        .lang-switch a {
-            padding: 5px 15px;
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-        .lang-switch a.active {
-            background: var(--accent);
-            color: var(--primary);
-        }
-        .lang-switch a:hover:not(.active) {
-            color: var(--accent);
-        }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .logo span { color: var(--accent2); }
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
-            animation: pulse 10s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        .hero h1 span { color: var(--accent); }
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--text-dim);
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-btn {
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-btn:hover {
-            background: var(--accent2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-        
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-        .section-title p {
-            color: var(--text-dim);
-        }
-        
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: var(--secondary);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
-        }
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .card h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        .card p {
-            color: var(--text-dim);
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            padding: 3rem 0;
-        }
-        .stat {
-            text-align: center;
-            padding: 2rem;
-            background: var(--secondary);
-            border-radius: 15px;
-        }
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--accent);
-        }
-        .stat-label {
-            color: var(--text-dim);
-            margin-top: 0.5rem;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .tech-item {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-        }
-        .tech-item h4 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--accent);
-        }
-        .timeline-item {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3rem;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-        .timeline-date {
-            color: var(--accent);
-            font-weight: bold;
-        }
-        
-        footer {
-            background: var(--secondary);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
-        }
-        footer p {
-            color: var(--text-dim);
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
-            .nav-links { display: none; }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
+        .lang-switch{position:fixed;top:80px;right:20px;z-index:1001;background:var(--secondary);border-radius:25px;padding:5px;display:flex;gap:5px}
+        .lang-switch a{padding:5px 15px;color:var(--text-dim);text-decoration:none;border-radius:20px;font-size:.85rem;transition:all .3s}
+        .lang-switch a.active{background:var(--accent);color:var(--primary)}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color .3s}.nav-links a:hover{color:var(--accent)}
+        .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(10,22,40,0.7),rgba(10,22,40,0.9)),url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1920&q=80') center/cover;position:relative}
+        .hero h1{font-size:4rem;margin-bottom:1rem;position:relative;z-index:1;text-shadow:0 2px 20px rgba(0,0,0,0.5)}.hero h1 span{color:var(--accent)}
+        .hero p{font-size:1.5rem;color:var(--text-dim);margin-bottom:2rem;position:relative;z-index:1}
+        .hero-btn{padding:1rem 2rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:50px;font-weight:bold;transition:all .3s;position:relative;z-index:1}
+        .hero-btn:hover{background:var(--accent2);transform:translateY(-3px)}
+        section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+        .section-title{text-align:center;margin-bottom:3rem}.section-title h2{font-size:2.5rem;color:var(--accent);margin-bottom:.5rem}.section-title p{color:var(--text-dim)}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+        .card{background:var(--secondary);border-radius:15px;padding:0;border:1px solid rgba(0,212,255,.2);transition:all .3s;overflow:hidden}
+        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,.1)}
+        .card img{width:100%;height:200px;object-fit:cover}
+        .card-body{padding:1.5rem}
+        .card h3{color:var(--accent);margin-bottom:1rem}.card p{color:var(--text-dim)}
+        .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding:3rem 0}
+        .stat{text-align:center;padding:2rem;background:var(--secondary);border-radius:15px}
+        .stat-number{font-size:3rem;font-weight:bold;color:var(--accent)}.stat-label{color:var(--text-dim);margin-top:.5rem}
+        .page-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
+        .page-link{background:var(--secondary);padding:1.5rem;border-radius:10px;text-align:center;border:1px solid rgba(0,212,255,.2);transition:all .3s;text-decoration:none;display:block}
+        .page-link:hover{border-color:var(--accent);transform:translateY(-3px)}
+        .page-link h4{color:var(--accent);margin-bottom:.5rem}.page-link p{color:var(--text-dim);font-size:.9rem}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin:2rem 0}
+        .gallery img{width:100%;height:250px;object-fit:cover;border-radius:10px;transition:transform .3s}
+        .gallery img:hover{transform:scale(1.02)}
+        footer{background:var(--secondary);padding:3rem 2rem;text-align:center;border-top:1px solid rgba(0,212,255,.2)}
+        @media(max-width:768px){.hero h1{font-size:2.5rem}.stats{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
     </style>
 </head>
 <body>
     <nav>
         <a href="/ru/" class="logo">Auto<span>Sensor</span> Tech</a>
         <div class="nav-links">
-            <a href="#about">О нас</a>
-            <a href="#tech">Технологии</a>
-            <a href="#solutions">Решения</a>
-            <a href="#research">Исследования</a>
+            <a href="/ru/">Главная</a>
+            <a href="/fpv/">FPV</a>
+            <a href="/c-uas/">Противодействие</a>
+            <a href="/knowledge-base/">База знаний</a>
+            <a href="/forum/">Форум</a>
+            <a href="/history/">История</a>
             <a href="#contact">Контакты</a>
         </div>
     </nav>
@@ -288,179 +65,112 @@
     <section class="hero">
         <h1>Противодействие <span>FPV</span>-дронам</h1>
         <p>Обнаружение · Идентификация · Сопровождение · Подавление — Комплексная защита на малых высотах</p>
-        <a href="#tech" class="hero-btn">Исследовать технологии →</a>
+        <a href="/c-uas/" class="hero-btn">Исследовать технологии →</a>
     </section>
 
     <section id="about">
-        <div class="section-title">
-            <h2>О AutoSensor Tech</h2>
-            <p>Исследования и разработки в области противодействия FPV-дронам</p>
-        </div>
+        <div class="section-title"><h2>О AutoSensor Tech</h2><p>Исследования и разработки в области противодействия FPV-дронам</p></div>
         <div class="cards">
             <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Миссия</h3>
-                <p>По мере широкого распространения FPV-дронов в современных военных действиях и операциях безопасности, технологии противодействия БПЛА стали критически важной инфраструктурой. Мы стремимся к развитию инноваций в области антидронных технологий.</p>
+                <img src="https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=600&q=80" alt="Обнаружение">
+                <div class="card-body">
+                    <h3>Миссия</h3>
+                    <p>По мере широкого распространения FPV-дронов в современных военных действиях и операциях безопасности, технологии противодействия БПЛА стали критически важной инфраструктурой.</p>
+                </div>
             </div>
             <div class="card">
-                <div class="card-icon">🔬</div>
-                <h3>Направления исследований</h3>
-                <p>Комплексное покрытие полного стека технологий противодействия БПЛА, включая обнаружение радарами, анализ РЧ-сигналов, оптоэлектронную идентификацию, радиоэлектронную борьбу и лазерное перехват.</p>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Технологии">
+                <div class="card-body">
+                    <h3>Направления исследований</h3>
+                    <p>Комплексное покрытие полного стека технологий: обнаружение радарами, анализ РЧ-сигналов, оптоэлектронная идентификация, радиоэлектронная борьба.</p>
+                </div>
             </div>
             <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3>Глобальный охват</h3>
-                <p>Отслеживание мировых тенденций в области противодействия БПЛА, включая последние достижения из США, Израиля, Европы и Китая.</p>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Глобальный охват">
+                <div class="card-body">
+                    <h3>Глобальный охват</h3>
+                    <p>Отслеживание мировых тенденций в области противодействия БПЛА из США, Израиля, Европы и Китая.</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="section-title"><h2>Галерея технологий</h2></div>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&q=80" alt="FPV гонки">
+            <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80" alt="Военный дрон">
+            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&q=80" alt="Радарная система">
+            <img src="https://images.unsplash.com/photo-1563201515-adbe35c669c5?w=600&q=80" alt="Наблюдение">
         </div>
     </section>
 
     <section id="stats">
         <div class="stats">
-            <div class="stat">
-                <div class="stat-number">$50B+</div>
-                <div class="stat-label">Глобальный рынок C-UAS 2025</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">30%</div>
-                <div class="stat-label">Темп роста (CAGR)</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">$150B+</div>
-                <div class="stat-label">Прогноз рынка к 2030</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">150+</div>
-                <div class="stat-label">Идентифицируемых моделей БПЛА</div>
-            </div>
+            <div class="stat"><div class="stat-number">$50 млрд+</div><div class="stat-label">Рынок C-UAS 2025</div></div>
+            <div class="stat"><div class="stat-number">30%</div><div class="stat-label">Темп роста (CAGR)</div></div>
+            <div class="stat"><div class="stat-number">$150 млрд+</div><div class="stat-label">Прогноз к 2030</div></div>
+            <div class="stat"><div class="stat-number">150+</div><div class="stat-label">Моделей БПЛА</div></div>
         </div>
     </section>
 
-    <section id="tech">
-        <div class="section-title">
-            <h2>Основной технологический стек</h2>
-            <p>Четыре столпа систем противодействия БПЛА</p>
+    <section>
+        <div class="section-title"><h2>Изучите наш контент</h2></div>
+        <div class="page-links">
+            <a href="/fpv/" class="page-link"><h4>🛩️ Технологии FPV</h4><p>Полное руководство: компоненты, системы видео, сборка, стили полёта</p></a>
+            <a href="/c-uas/" class="page-link"><h4>🛡️ Системы C-UAS</h4><p>Обнаружение, идентификация, сопровождение и подавление</p></a>
+            <a href="/knowledge-base/" class="page-link"><h4>📚 База знаний</h4><p>20 разделов: от основ до продвинутых техник</p></a>
+            <a href="/forum/" class="page-link"><h4>💬 Форум</h4><p>Обсуждения FPV, C-UAS, военных применений</p></a>
+            <a href="/history/" class="page-link"><h4>📜 История</h4><p>Хронология развития 2005-2026</p></a>
+            <a href="/" class="page-link"><h4>🇬🇧 English Version</h4><p>Полная английская версия сайта</p></a>
         </div>
+    </section>
+
+    <section>
+        <div class="section-title"><h2>Основные технологии</h2></div>
         <div class="cards">
             <div class="card">
-                <div class="card-icon">📡</div>
-                <h3>Технологии обнаружения</h3>
-                <p><strong>Радиолокационные системы</strong> — импульсный доплер / FMCW / фазированные решетки<br>
-                <strong>РЧ-обнаружение</strong> — мониторинг сигналов и анализ протоколов<br>
-                <strong>ОЭ/ИК системы</strong> — видимый свет + тепловизионное изображение<br>
-                <strong>Акустическое обнаружение</strong> — массивы микрофонов</p>
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Обнаружение">
+                <div class="card-body">
+                    <h3>📡 Обнаружение</h3>
+                    <p><strong>Радар:</strong> Импульсный доплер / FMCW / Фазированная решётка<br><strong>РЧ:</strong> Мониторинг сигналов<br><strong>ОЭ/ИК:</strong> Видимый + тепловизионный</p>
+                </div>
             </div>
             <div class="card">
-                <div class="card-icon">🧠</div>
-                <h3>Технологии идентификации</h3>
-                <p><strong>ИИ-зрение</strong> — обнаружение объектов глубоким обучением<br>
-                <strong>Анализ сигналов</strong> — распознавание спектральных характеристик<br>
-                <strong>Оценка угроз</strong> — анализ модели и поведения<br>
-                <strong>Мультисенсорный синтез</strong> — корреляция данных и слияние трасс</p>
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="ИИ">
+                <div class="card-body">
+                    <h3>🧠 Идентификация</h3>
+                    <p><strong>ИИ-зрение:</strong> Глубокое обучение<br><strong>Анализ сигналов:</strong> Спектральные отпечатки<br><strong>Оценка угроз:</strong> Анализ модели и поведения</p>
+                </div>
             </div>
             <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Технологии сопровождения</h3>
-                <p><strong>РЛС-сопровождение</strong> — непрерывное сопровождение нескольких целей<br>
-                <strong>ОЭ-сопровождение</strong> — сопровождение PTZ-гиростабилизатором<br>
-                <strong>Фильтрация Калмана</strong> — прогнозирование траектории<br>
-                <strong>Локализация оператора</strong> — обратное отслеживание сигнала</p>
+                <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80" alt="Сопровождение">
+                <div class="card-body">
+                    <h3>🎯 Сопровождение</h3>
+                    <p><strong>РЛС:</strong> Многоцелевое непрерывное сопровождение<br><strong>ОЭ:</strong> PTZ-гиростабилизатор<br><strong>Прогноз:</strong> Фильтрация Калмана</p>
+                </div>
             </div>
             <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Технологии подавления</h3>
-                <p><strong>Мягкое поражение</strong> — подавление GPS / РУ / видеоканала<br>
-                <strong>Лазерное оружие</strong> — destruction высокоэнергетическим лазером<br>
-                <strong>СВЧ-системы</strong> — высокомощное микроволновое излучение<br>
-                <strong>Кинетический перехват</strong> — сети / перехватывающие дроны</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="solutions">
-        <div class="section-title">
-            <h2>Решения</h2>
-            <p>От портативных носимых до стационарных установок</p>
-        </div>
-        <div class="tech-grid">
-            <div class="tech-item">
-                <h4>🛡️ Носимая система</h4>
-                <p>РЧ-детектор + подавитель<br>Дальность: 1-5 км | Стоимость: $50-80 тыс.</p>
-            </div>
-            <div class="tech-item">
-                <h4>🚗 Подвижный комплекс</h4>
-                <p>РЛС + РЧ + ОЭ/ИК + подавитель<br>Дальность: 3-10 км | Стоимость: $100-300 тыс.</p>
-            </div>
-            <div class="tech-item">
-                <h4>🏢 Стационарный — ближний</h4>
-                <p>РЛС + РЧ + ОЭ + СУ<br>Дальность: 1-3 км | Стоимость: $150-250 тыс.</p>
-            </div>
-            <div class="tech-item">
-                <h4>🏗️ Стационарный — средний</h4>
-                <p>РЛС + РЧ + ОЭ/ИК + подавитель + СУ<br>Дальность: 5-10 км | Стоимость: $300-500 тыс.</p>
-            </div>
-            <div class="tech-item">
-                <h4>⚔️ Стационарный — дальний</h4>
-                <p>Полная система + лазер/СВЧ<br>Дальность: 10+ км | Стоимость: $1 млн+</p>
-            </div>
-            <div class="tech-item">
-                <h4>🐝 Противоройная система</h4>
-                <p>СВЧ + ИИ-координация<br>Одновременное поражение нескольких дронов</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="research">
-        <div class="section-title">
-            <h2>Ход исследований</h2>
-            <p>Непрерывное отслеживание мировых тенденций в области противодействия БПЛА</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">2026-03-24</div>
-                <h4>Комплексное исследование FPV и C-UAS технологий</h4>
-                <p>Завершен полный анализ технологии FPV-дронов, включая компоненты, системы видеопередачи и военные применения. Углубленное исследование архитектуры C-UAS систем, охватывающее четыре технологических столпа: обнаружение, идентификация, сопровождение и подавление.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2026-03-24</div>
-                <h4>Анализ рынка и технологические тенденции</h4>
-                <p>Завершен глобальный анализ рынка C-UAS: $50 млрд в 2025 году, $150+ млрд к 2030 году, CAGR 25-30%. Исследование ведущих компаний: DroneShield, Echodyne, Anduril и их продуктовых портфелей.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Продолжается</div>
-                <h4>Углубленные технологические исследования</h4>
-                <p>Непрерывные углубленные исследования: радиолокационные системы, РЧ-обнаружение, ОЭ/ИК идентификация, радиоэлектронная борьба, лазерное оружие и алгоритмы ИИ.</p>
+                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Подавление">
+                <div class="card-body">
+                    <h3>⚡ Подавление</h3>
+                    <p><strong>Мягкое:</strong> Подавление GPS/РУ/видео<br><strong>Лазер:</strong> 5-100кВт destruction<br><strong>СВЧ:</strong> Электромагнитный импульс</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="section-title">
-            <h2>Контакты</h2>
-            <p>Приветствуется технический обмен и сотрудничество</p>
-        </div>
+        <div class="section-title"><h2>Контакты</h2></div>
         <div class="cards">
-            <div class="card" style="text-align: center;">
-                <div class="card-icon">📧</div>
-                <h3>Электронная почта</h3>
-                <p>contact@autosensor.tech</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <div class="card-icon">🌐</div>
-                <h3>Веб-сайт</h3>
-                <p>www.autosensor.tech</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <div class="card-icon">📍</div>
-                <h3>Местоположение</h3>
-                <p>Шэньчжэнь, Китай</p>
-            </div>
+            <div class="card" style="text-align:center"><div class="card-body"><h3>📧 Email</h3><p>contact@autosensor.tech</p></div></div>
+            <div class="card" style="text-align:center"><div class="card-body"><h3>🌐 Веб-сайт</h3><p>www.autosensor.tech</p></div></div>
+            <div class="card" style="text-align:center"><div class="card-body"><h3>📍 Местоположение</h3><p>Шэньчжэнь, Китай</p></div></div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 AutoSensor Tech. Все права защищены.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Исследования и разработки в области противодействия FPV-дронам</p>
     </footer>
 </body>
 </html>
