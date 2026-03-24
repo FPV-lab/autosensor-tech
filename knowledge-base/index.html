@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPV Knowledge Base - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:1.5rem;transition:color 0.3s;font-size:0.9rem}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1400px;margin:0 auto}
+        .section-title{text-align:center;margin-bottom:2rem}.section-title h2{font-size:2.2rem;color:var(--accent);margin-bottom:0.5rem}.section-title p{color:var(--text-dim)}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+        .card{background:var(--secondary);border-radius:12px;padding:0;border:1px solid rgba(0,212,255,0.2);transition:all 0.3s;overflow:hidden}
+        .card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 15px 30px rgba(0,212,255,0.1)}
+        .card img{width:100%;height:180px;object-fit:cover}
+        .card-body{padding:1.2rem}
+        .card h3{color:var(--accent);margin-bottom:0.8rem;font-size:1.1rem}.card p{color:var(--text-dim);font-size:0.95rem}
+        table{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.9rem}th,td{padding:0.6rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1);font-weight:bold}.spec{color:var(--accent2);font-weight:bold}
+        .hero{height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(10,22,40,0.7),rgba(10,22,40,0.9)),url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1920&q=80') center/cover;margin-top:60px}
+        .hero h1{font-size:3.5rem;margin-bottom:1rem;text-shadow:0 2px 20px rgba(0,0,0,0.5)}.hero h1 span{color:var(--accent)}
+        .hero p{color:var(--text-dim);font-size:1.3rem;max-width:800px}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
+        .gallery img{width:100%;height:220px;object-fit:cover;border-radius:8px;transition:transform 0.3s;cursor:pointer}
+        .gallery img:hover{transform:scale(1.03)}
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0}
+        .timeline{position:relative;padding-left:2.5rem}
+        .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent)}
+        .timeline-item{margin-bottom:1.5rem;position:relative}
+        .timeline-item::before{content:'';position:absolute;left:-2.5rem;top:0;width:10px;height:10px;background:var(--accent);border-radius:50%}
+        .timeline-date{color:var(--accent);font-weight:bold;font-size:0.9rem}
+        .tech-box{background:linear-gradient(135deg,var(--secondary),var(--primary));padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin-bottom:1rem}
+        .tech-box h4{color:var(--accent);margin-bottom:0.5rem}
+        .toc{background:var(--secondary);padding:2rem;border-radius:15px;margin-bottom:2rem}
+        .toc h3{color:var(--accent);margin-bottom:1rem}
+        .toc a{color:var(--text);text-decoration:none;display:block;padding:0.3rem 0;transition:color 0.3s}.toc a:hover{color:var(--accent)}
+        .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+        .spec-item{background:var(--secondary);padding:1rem;border-radius:8px;text-align:center}
+        .spec-item .value{font-size:1.5rem;color:var(--accent);font-weight:bold}
+        .spec-item .label{color:var(--text-dim);font-size:0.85rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2)}
+        @media(max-width:768px){.hero h1{font-size:2rem}.cards{grid-template-columns:1fr}.nav-links{display:none}.two-col{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/fpv/">FPV</a>
+            <a href="/c-uas/">Counter-UAS</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+            <a href="/history/">History</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>FPV <span>Knowledge Base</span></h1>
+        <p>The most comprehensive guide to FPV drone technology - from basic principles to advanced techniques</p>
+    </section>
+
+    <section>
+        <div class="toc">
+            <h3>📚 Table of Contents</h3>
+            <div class="two-col">
+                <div>
+                    <a href="#what-is-fpv">1. What is FPV?</a>
+                    <a href="#how-it-works">2. How FPV Works</a>
+                    <a href="#history">3. Evolution of FPV Technology</a>
+                    <a href="#drone-types">4. FPV Drone Types & Sizes</a>
+                    <a href="#frames">5. Frames - The Skeleton</a>
+                    <a href="#fc">6. Flight Controllers - The Brain</a>
+                    <a href="#esc">7. ESCs - Motor Controllers</a>
+                    <a href="#motors">8. Motors - The Power</a>
+                    <a href="#props">9. Propellers - The Thrust</a>
+                    <a href="#vtx">10. Video Transmission Systems</a>
+                </div>
+                <div>
+                    <a href="#radio">11. Radio Control Systems</a>
+                    <a href="#batteries">12. LiPo Batteries</a>
+                    <a href="#goggles">13. FPV Goggles</a>
+                    <a href="#betaflight">14. Betaflight Software</a>
+                    <a href="#flying">15. Flying Styles & Techniques</a>
+                    <a href="#build">16. Building Your First Drone</a>
+                    <a href="#tuning">17. Tuning & Optimization</a>
+                    <a href="#safety">18. Safety Guidelines</a>
+                    <a href="#military">19. Military Applications</a>
+                    <a href="#future">20. Future of FPV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: What is FPV -->
+    <section id="what-is-fpv">
+        <div class="section-title"><h2>1. What is FPV?</h2><p>First Person View - Fly like you're in the cockpit</p></div>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&q=80" alt="FPV Experience">
+                <div class="card-body">
+                    <h3>The FPV Experience</h3>
+                    <p>FPV (First Person View) is a method of piloting a drone where the operator sees exactly what the drone's onboard camera sees in real-time, through specialized video goggles. This creates an incredibly immersive experience - you feel like you're sitting in the cockpit of a tiny aircraft.</p>
+                    <br>
+                    <p>Unlike traditional camera drones (DJI Mavic, etc.) which are GPS-stabilized and flown via smartphone screens, FPV drones are fully manual. The pilot has complete control over every movement, enabling capabilities impossible with GPS drones:</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="FPV vs Camera Drone">
+                <div class="card-body">
+                    <h3>FPV vs Camera Drones</h3>
+                    <table>
+                        <tr><th>Feature</th><th>FPV Drone</th><th>Camera Drone</th></tr>
+                        <tr><td>Control</td><td class="spec">Full Manual</td><td>GPS Stabilized</td></tr>
+                        <tr><td>Speed</td><td class="spec">200+ km/h</td><td>50-70 km/h</td></tr>
+                        <tr><td>Agility</td><td class="spec">Extreme</td><td>Limited</td></tr>
+                        <tr><td>Learning Curve</td><td class="spec">10-50 hours</td><td>5 minutes</td></tr>
+                        <tr><td>Experience</td><td class="spec">Like a video game</td><td>Like photography</td></tr>
+                        <tr><td>Acrobatics</td><td class="spec">Flips, rolls, dives</td><td>Not possible</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: How FPV Works -->
+    <section id="how-it-works">
+        <div class="section-title"><h2>2. How FPV Works</h2><p>The complete signal chain explained</p></div>
+        <div class="tech-box">
+            <h4>📡 Complete FPV Signal Chain</h4>
+            <p><strong>1. Camera</strong> → Captures video → <strong>2. VTX (Video Transmitter)</strong> → Sends RF signal → <strong>3. Air</strong> → Radio waves travel → <strong>4. VRX (Video Receiver)</strong> → In goggles → <strong>5. Display</strong> → Pilot sees real-time feed</p>
+            <br>
+            <p><strong>Control Chain:</strong> <strong>1. Radio Transmitter</strong> → Pilot inputs → <strong>2. RF Signal</strong> → 2.4GHz/900MHz → <strong>3. Receiver</strong> → On drone → <strong>4. Flight Controller</strong> → Processes inputs → <strong>5. ESCs</strong> → Drive motors → <strong>6. Motors</strong> → Spin props → Drone moves</p>
+        </div>
+        <div class="spec-grid">
+            <div class="spec-item"><div class="value">&lt;30ms</div><div class="label">Video Latency (DJI)</div></div>
+            <div class="spec-item"><div class="value">&lt;10ms</div><div class="label">Control Latency (ELRS)</div></div>
+            <div class="spec-item"><div class="value">1000Hz</div><div class="label">ELRS Update Rate</div></div>
+            <div class="spec-item"><div class="value">13km+</div><div class="label">DJI O4 Range</div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Evolution -->
+    <section id="history">
+        <div class="section-title"><h2>3. Evolution of FPV Technology</h2><p>From analog beginnings to digital revolution</p></div>
+        <div class="timeline">
+            <div class="timeline-item"><div class="timeline-date">2005-2010: Early Days</div>
+                <p>First FPV flights using repurposed analog security cameras. Range limited to hundreds of meters. Pilots used CRT monitors or modified video glasses. Very expensive and difficult.</p>
+            </div>
+            <div class="timeline-item"><div class="timeline-date">2010-2013: Multirotor Revolution</div>
+                <p>Quadcopters become viable. DJI Phantom launches (2013). GoPro + quadcopter combinations. FPV racing begins in small groups. Carbon fiber frames emerge.</p>
+            </div>
+            <div class="timeline-item"><div class="timeline-date">2014-2016: Racing Era</div>
+                <p>FPV racing explodes in popularity. DRL (Drone Racing League) founded. Betaflight firmware development. 250mm becomes standard size. FatShark goggles dominate.</p>
+            </div>
+            <div class="timeline-item"><div class="timeline-date">2017-2019: Miniaturization</div>
+                <p>Tiny Whoops popularized. Micro drones for indoor flying. 5-inch becomes the standard. OpenTX/EdgeTX firmware. Battery technology improves (6S standard).</p>
+            </div>
+            <div class="timeline-item"><div class="timeline-date">2019-2020: Digital FPV Revolution</div>
+                <p>DJI FPV system launches - HD video transmission. Analog vs Digital debate begins. ExpressLRS development starts. HDZero enters market.</p>
+            </div>
+            <div class="timeline-item"><div class="timeline-date">2022-2023: War Changes Everything</div>
+                <p>Ukraine war demonstrates FPV military value. $500 drones destroy $5M tanks. Mass production begins. Counter-UAS development accelerates globally.</p>
+            </div>
+            <div class="timeline-item"><div class="timeline-date">2024-2026: Current State</div>
+                <p>DJI O4 Pro (4K, 13km, 15ms latency). ELRS becomes industry standard. OpenIPC digital systems. AI integration begins. Laser weapons operational. $50B+ C-UAS market.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Drone Types -->
+    <section id="drone-types">
+        <div class="section-title"><h2>4. FPV Drone Types & Sizes</h2><p>From tiny indoor whoops to massive racing machines</p></div>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1521405924368-64c5b84bec60?w=600&q=80" alt="Tiny Whoop">
+            <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80" alt="5 Inch">
+            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&q=80" alt="7 Inch">
+            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Racing">
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Tiny Whoop (65-75mm)</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Prop Size</td><td class="spec">31-40mm</td></tr>
+                <tr><td>Battery</td><td class="spec">1S (3.7V)</td></tr>
+                <tr><td>Weight</td><td class="spec">18-24g</td></tr>
+                <tr><td>Flight Time</td><td class="spec">3-5 min</td></tr>
+                <tr><td>Cost</td><td class="spec">$80-150</td></tr></table>
+                <p style="margin-top:1rem">Safest option. Prop guards protect walls. Perfect for indoor flying. Models: BetaFPV Air65, NBD RaceSpec V2</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Cinewhoop (2-3 inch)</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Prop Size</td><td class="spec">2-3 inch</td></tr>
+                <tr><td>Battery</td><td class="spec">4S-6S</td></tr>
+                <tr><td>Weight</td><td class="spec">150-300g</td></tr>
+                <tr><td>Flight Time</td><td class="spec">4-8 min</td></tr>
+                <tr><td>Cost</td><td class="spec">$200-400</td></tr></table>
+                <p style="margin-top:1rem">Designed for cinematic flying near people. Prop guards for safety. Can carry GoPro for stabilized footage.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>5 Inch (Most Popular)</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Prop Size</td><td class="spec">5 inch (127mm)</td></tr>
+                <tr><td>Battery</td><td class="spec">6S (22.2V)</td></tr>
+                <tr><td>Weight</td><td class="spec">500-700g</td></tr>
+                <tr><td>Flight Time</td><td class="spec">5-10 min</td></tr>
+                <tr><td>Cost</td><td class="spec">$300-600</td></tr></table>
+                <p style="margin-top:1rem">THE standard for FPV. Best balance of power, weight, portability. Can carry GoPro. Used for freestyle and racing.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>7 Inch Long Range</h3>
+                <table><tr><th>Spec</th><th>Value</th></tr>
+                <tr><td>Prop Size</td><td class="spec">7 inch (178mm)</td></tr>
+                <tr><td>Battery</td><td class="spec">6S-8S</td></tr>
+                <tr><td>Weight</td><td class="spec">800-1200g</td></tr>
+                <tr><td>Flight Time</td><td class="spec">10-20 min</td></tr>
+                <tr><td>Cost</td><td class="spec">$400-800</td></tr></table>
+                <p style="margin-top:1rem">Extended flight times and range. Ideal for mountain diving and exploration. 10km+ range possible with GPS.</p>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Frames -->
+    <section id="frames">
+        <div class="section-title"><h2>5. Frames - The Skeleton</h2><p>Carbon fiber structures that hold everything together</p></div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Frame Layouts</h3>
+                <table>
+                    <tr><th>Layout</th><th>Best For</th><th>Propeller View</th></tr>
+                    <tr><td>True X</td><td class="spec">Freestyle</td><td>Symmetric, props visible</td></tr>
+                    <tr><td>Wide X</td><td class="spec">Cinematic</td><td>Props out of camera view</td></tr>
+                    <tr><td>Stretched X</td><td class="spec">Racing</td><td>Longer front-to-back</td></tr>
+                    <tr><td>H-Frame</td><td class="spec">Heavy lift</td><td>Box-like structure</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Frame Specifications</h3>
+                <table>
+                    <tr><th>Spec</th><th>Options</th></tr>
+                    <tr><td>Material</td><td class="spec">Carbon Fiber (3K/6K)</td></tr>
+                    <tr><td>Arm Thickness</td><td class="spec">4mm, 5mm, 6mm</td></tr>
+                    <tr><td>Stack Mount</td><td class="spec">20x20, 25.5x25.5, 30x30mm</td></tr>
+                    <tr><td>Camera Mount</td><td class="spec">19-20mm micro, 28mm full</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Top Frame Brands</h3>
+                <table>
+                    <tr><th>Brand</th><th>Model</th><th>Price</th></tr>
+                    <tr><td>GEPRC</td><td class="spec">Vapor D5/X5</td><td>$50</td></tr>
+                    <tr><td>TBS</td><td class="spec">Source One V5</td><td>$30</td></tr>
+                    <tr><td>AxisFlying</td><td class="spec">Manta 5 SE</td><td>$40</td></tr>
+                    <tr><td>FlyFishRC</td><td class="spec">Volador VD5</td><td>$45</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Flight Controllers -->
+    <section id="fc">
+        <div class="section-title"><h2>6. Flight Controllers - The Brain</h2><p>The processor that makes everything work</p></div>
+        <div class="tech-box">
+            <h4>🧠 What Does a Flight Controller Do?</h4>
+            <p>The FC is the "brain" of your drone. It reads sensor data (gyroscope, accelerometer), processes pilot inputs from the receiver, runs PID control loops, and sends commands to the ESCs to control motor speeds 1000+ times per second.</p>
+            <br>
+            <p><strong>Key Functions:</strong> Gyro stabilization • PID control • OSD generation • GPS processing • Failsafe management • Telemetry • LED control • Buzzer control</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Processor Types</h3>
+                <table>
+                    <tr><th>Processor</th><th>Speed</th><th>Features</th></tr>
+                    <tr><td>F4</td><td class="spec">168MHz</td><td>Budget, proven</td></tr>
+                    <tr><td>F7</td><td class="spec">216MHz</td><td>More UARTs, faster</td></tr>
+                    <tr><td>H7</td><td class="spec">480MHz</td><td>Fastest, future-proof</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Top FC Recommendations</h3>
+                <table>
+                    <tr><th>Model</th><th>Processor</th><th>Price</th></tr>
+                    <tr><td>SpeedyBee F405 V4</td><td class="spec">F405</td><td>$35</td></tr>
+                    <tr><td>Diatone Mamba F722</td><td class="spec">F722</td><td>$45</td></tr>
+                    <tr><td>SpeedyBee F7 V3</td><td class="spec">F722</td><td>$50</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Important Features</h3>
+                <table>
+                    <tr><th>Feature</th><th>Why It Matters</th></tr>
+                    <tr><td>OSD Chip</td><td class="spec">On-screen display in goggles</td></tr>
+                    <tr><td>Barometer</td><td class="spec">Altitude hold</td></tr>
+                    <tr><td>Blackbox</td><td class="spec">Flight logging for tuning</td></tr>
+                    <tr><td>Built-in Bluetooth</td><td class="spec">Config via phone app</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: ESCs -->
+    <section id="esc">
+        <div class="section-title"><h2>7. ESCs - Motor Controllers</h2><p>Electronic Speed Controllers that drive the motors</p></div>
+        <div class="tech-box">
+            <h4>⚡ How ESCs Work</h4>
+            <p>ESCs receive commands from the Flight Controller (via DShot protocol) and convert battery power into precisely timed 3-phase AC signals that drive the brushless motors. They switch thousands of times per second to control motor speed.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>ESC Types</h3>
+                <table>
+                    <tr><th>Type</th><th>Pros</th><th>Cons</th></tr>
+                    <tr><td>4-in-1</td><td class="spec">Clean build, easy</td><td>One failure = all dead</td></tr>
+                    <tr><td>Individual</td><td class="spec">Replace one if fails</td><td>More wiring</td></tr>
+                    <tr><td>AIO (All-in-One)</td><td class="spec">FC+ESC combined</td><td>Less flexible</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>ESC Firmware</h3>
+                <table>
+                    <tr><th>Firmware</th><th>Features</th><th>Status</th></tr>
+                    <tr><td>BLHeli_32</td><td class="spec">32-bit, feature-rich</td><td>Standard</td></tr>
+                    <tr><td>Bluejay</td><td class="spec">Open source, free</td><td>Growing</td></tr>
+                    <tr><td>AM32</td><td class="spec">Open source</td><td>Alternative</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Key Specs</h3>
+                <table>
+                    <tr><th>Spec</th><th>Value</th></tr>
+                    <tr><td>Current Rating</td><td class="spec">30A-60A typical</td></tr>
+                    <tr><td>Protocol</td><td class="spec">DShot150-1200</td></tr>
+                    <tr><td>Voltage</td><td class="spec">2S-6S (7.4V-25.2V)</td></tr>
+                    <tr><td>PWM Frequency</td><td class="spec">24-96kHz</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Motors -->
+    <section id="motors">
+        <div class="section-title"><h2>8. Motors - The Power</h2><p>Brushless motors that spin the propellers</p></div>
+        <div class="tech-box">
+            <h4>🔄 How Brushless Motors Work</h4>
+            <p>Unlike brushed motors with physical brushes, brushless motors use electromagnetic fields to rotate. The ESC creates a rotating magnetic field by sequentially energizing motor coils, causing the permanent magnets on the rotor to spin. This design is more efficient, powerful, and durable.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Motor Sizes (5-inch)</h3>
+                <table>
+                    <tr><th>Size</th><th>Stator</th><th>Best For</th></tr>
+                    <tr><td>2207</td><td class="spec">22mm x 7mm</td><td>Best balance (most popular)</td></tr>
+                    <tr><td>2306</td><td class="spec">23mm x 6mm</td><td>Slightly more torque</td></tr>
+                    <tr><td>2208</td><td class="spec">22mm x 8mm</td><td>Heavy builds</td></tr>
+                    <tr><td>2807</td><td class="spec">28mm x 7mm</td><td>7-inch builds</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Understanding KV Rating</h3>
+                <table>
+                    <tr><th>Battery</th><th>Recommended KV</th><th>Performance</th></tr>
+                    <tr><td>6S</td><td class="spec">1700-1900KV</td><td>Standard (recommended)</td></tr>
+                    <tr><td>4S</td><td class="spec">2400-2600KV</td><td>Higher RPM</td></tr>
+                </table>
+                <p style="margin-top:1rem">KV = RPM per Volt. Higher KV = faster spinning but less torque. Lower KV = more torque but slower.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Top Motor Brands</h3>
+                <table>
+                    <tr><th>Model</th><th>KV</th><th>Price</th></tr>
+                    <tr><td>EMAX ECO II 2207</td><td class="spec">1900KV</td><td>$16</td></tr>
+                    <tr><td>T-Motor Velox 2207</td><td class="spec">1750KV</td><td>$15</td></tr>
+                    <tr><td>iFlight Xing2 2207</td><td class="spec">1855KV</td><td>$21</td></tr>
+                    <tr><td>BrotherHobby Avenger</td><td class="spec">1850KV</td><td>$25</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: Propellers -->
+    <section id="props">
+        <div class="section-title"><h2>9. Propellers - The Thrust</h2><p>Blades that convert motor rotation into lift</p></div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Propeller Basics</h3>
+                <table>
+                    <tr><th>Spec</th><th>Meaning</th></tr>
+                    <tr><td>5x4.3x3</td><td class="spec">5" diameter, 4.3" pitch, 3 blades</td></tr>
+                    <tr><td>Pitch</td><td class="spec">Distance traveled per rotation</td></tr>
+                    <tr><td>Blades</td><td class="spec">2-blade efficient, 3-blade grip</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Top Props (5-inch)</h3>
+                <table>
+                    <tr><th>Model</th><th>Type</th><th>Best For</th></tr>
+                    <tr><td>HQ 5x4.3x3 V2S</td><td class="spec">3-blade</td><td>Freestyle (best overall)</td></tr>
+                    <tr><td>Gemfan 51466</td><td class="spec">3-blade</td><td>Racing</td></tr>
+                    <tr><td>HQ 5x4.3x2 V2</td><td class="spec">2-blade</td><td>Efficiency</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: Video Transmission -->
+    <section id="vtx">
+        <div class="section-title"><h2>10. Video Transmission Systems</h2><p>How the drone sends video to your goggles</p></div>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="DJI O4">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="VTX">
+            <img src="https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=600&q=80" alt="Goggles">
+            <img src="https://images.unsplash.com/photo-1563201515-adbe35c669c5?w=600&q=80" alt="Signal">
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>DJI O4 Pro (Recommended 2026)</h3>
+                <table>
+                    <tr><th>Spec</th><th>Value</th></tr>
+                    <tr><td>Sensor</td><td class="spec">1/1.3" CMOS</td></tr>
+                    <tr><td>Recording</td><td class="spec">4K 60/120fps @ 130Mbps</td></tr>
+                    <tr><td>Live Feed</td><td class="spec">1080p 60Mbps</td></tr>
+                    <tr><td>Range</td><td class="spec">13km+ (26km tested)</td></tr>
+                    <tr><td>Latency</td><td class="spec">15ms (Race Mode)</td></tr>
+                    <tr><td>Weight</td><td class="spec">33g</td></tr>
+                    <tr><td>Stabilization</td><td class="spec">RockSteady</td></tr>
+                    <tr><td>Color Profile</td><td class="spec">D-Log M support</td></tr>
+                    <tr><td>Price</td><td class="spec">$229</td></tr>
+                </table>
+                <p style="margin-top:1rem"><strong>Can replace GoPro!</strong> Best image quality in FPV. Supports D-Log M for professional color grading.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Analog System (Budget/Racing)</h3>
+                <table>
+                    <tr><th>Spec</th><th>Value</th></tr>
+                    <tr><td>Resolution</td><td class="spec">~700 TVL</td></tr>
+                    <tr><td>Latency</td><td class="spec">&lt;10ms (lowest)</td></tr>
+                    <tr><td>Range</td><td class="spec">1-10km+</td></tr>
+                    <tr><td>Camera Cost</td><td class="spec">$15-40</td></tr>
+                    <tr><td>VTX Cost</td><td class="spec">$15-40</td></tr>
+                    <tr><td>Goggles Cost</td><td class="spec">$80-500</td></tr>
+                    <tr><td>Ecosystem Lock</td><td class="spec">None</td></tr>
+                </table>
+                <p style="margin-top:1rem">Lowest latency, cheapest, no lock-in. Image quality like 1970s TV. Still best for racing.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Other Digital Systems</h3>
+                <table>
+                    <tr><th>System</th><th>Quality</th><th>Latency</th><th>Price</th></tr>
+                    <tr><td>Walksnail Avatar</td><td class="spec">1080p</td><td>Medium</td><td>Mid</td></tr>
+                    <tr><td>HDZero</td><td class="spec">720-1080p</td><td class="spec">Lowest (digital)</td><td>Mid</td></tr>
+                    <tr><td>OpenIPC</td><td class="spec">720p</td><td>Medium</td><td>Low</td></tr>
+                </table>
+                <p style="margin-top:1rem">Walksnail: best DJI alternative. HDZero: lowest digital latency (racing). OpenIPC: open source but early.</p>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: Radio Control -->
+    <section id="radio">
+        <div class="section-title"><h2>11. Radio Control Systems</h2><p>How you control the drone</p></div>
+        <div class="tech-box">
+            <h4>📻 ExpressLRS (ELRS) - The 2026 Standard</h4>
+            <p>ExpressLRS is an open-source radio control protocol that has become the industry standard. It offers the best combination of range, latency, reliability, and cost. Available in 2.4GHz and 900MHz versions.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>ELRS Specifications</h3>
+                <table>
+                    <tr><th>Band</th><th>Update Rate</th><th>Range</th></tr>
+                    <tr><td>2.4 GHz</td><td class="spec">1000Hz</td><td>10km+</td></tr>
+                    <tr><td>900 MHz</td><td class="spec">200Hz</td><td>30km+</td></tr>
+                </table>
+                <p style="margin-top:1rem">Open source, cheapest, best performance. Most popular RC link in 2026.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Recommended Radios</h3>
+                <table>
+                    <tr><th>Model</th><th>Price</th><th>Best For</th></tr>
+                    <tr><td>RadioMaster Pocket</td><td class="spec">$65</td><td>Budget/Beginner</td></tr>
+                    <tr><td>RadioMaster Boxer</td><td class="spec">$100</td><td>Best Value</td></tr>
+                    <tr><td>RadioMaster TX15</td><td class="spec">$139</td><td>Color Screen</td></tr>
+                    <tr><td>Jumper T20S</td><td class="spec">$110</td><td>Portable</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Control Inputs</h3>
+                <table>
+                    <tr><th>Stick</th><th>Axis</th><th>Function</th></tr>
+                    <tr><td>Left - Up/Down</td><td class="spec">Throttle</td><td>Motor speed</td></tr>
+                    <tr><td>Left - Left/Right</td><td class="spec">Yaw</td><td>Rotate left/right</td></tr>
+                    <tr><td>Right - Up/Down</td><td class="spec">Pitch</td><td>Tilt forward/back</td></tr>
+                    <tr><td>Right - Left/Right</td><td class="spec">Roll</td><td>Tilt left/right</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: Batteries -->
+    <section id="batteries">
+        <div class="section-title"><h2>12. LiPo Batteries</h2><p>Power source - handle with care!</p></div>
+        <div class="tech-box">
+            <h4>🔋 LiPo Battery Basics</h4>
+            <p>LiPo (Lithium Polymer) batteries provide the high power-to-weight ratio needed for FPV drones. Each cell has a nominal voltage of 3.7V, charges to 4.2V, and must never discharge below 3.0V (damage risk).</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Cell Count (S Rating)</h3>
+                <table>
+                    <tr><th>Cells</th><th>Voltage</th><th>Use</th></tr>
+                    <tr><td>1S</td><td class="spec">3.7V</td><td>Tiny Whoop</td></tr>
+                    <tr><td>2S</td><td class="spec">7.4V</td><td>Micro drones</td></tr>
+                    <tr><td>4S</td><td class="spec">14.8V</td><td>Older 5-inch</td></tr>
+                    <tr><td>6S</td><td class="spec">22.2V</td><td>Modern standard</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>5-inch Battery Specs</h3>
+                <table>
+                    <tr><th>Spec</th><th>Value</th></tr>
+                    <tr><td>Cell Count</td><td class="spec">6S (22.2V)</td></tr>
+                    <tr><td>Capacity</td><td class="spec">1000-1300mAh</td></tr>
+                    <tr><td>C-Rating</td><td class="spec">100-150C</td></tr>
+                    <tr><td>Weight</td><td class="spec">180-250g</td></tr>
+                    <tr><td>Flight Time</td><td class="spec">5-10 min</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>⚠️ Safety Rules</h3>
+                <table>
+                    <tr><th>Rule</th><th>Why</th></tr>
+                    <tr><td>Never charge unattended</td><td class="spec">Fire risk</td></tr>
+                    <tr><td>Use LiPo safe bags</td><td class="spec">Contain fire</td></tr>
+                    <tr><td>Storage: 3.85V/cell</td><td class="spec">Prevent degradation</td></tr>
+                    <tr><td>Never below 3.0V/cell</td><td class="spec">Permanent damage</td></tr>
+                    <tr><td>Always balance charge</td><td class="spec">Cell safety</td></tr>
+                    <tr><td>Stop if swollen</td><td class="spec">Fire/damage risk</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 13: Goggles -->
+    <section id="goggles">
+        <div class="section-title"><h2>13. FPV Goggles</h2><p>Your window into the drone's world</p></div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>DJI Goggles (Digital)</h3>
+                <table>
+                    <tr><th>Model</th><th>Display</th><th>FOV</th><th>Price</th></tr>
+                    <tr><td>Goggles 3</td><td class="spec">100Hz OLED</td><td>44°</td><td>$499</td></tr>
+                    <tr><td>Goggles 2</td><td class="spec">100Hz OLED</td><td>51°</td><td>$449</td></tr>
+                    <tr><td>Integra</td><td class="spec">100Hz OLED</td><td>44°</td><td>$349</td></tr>
+                    <tr><td>N3</td><td class="spec">60Hz LCD</td><td>54°</td><td>$229</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Analog Goggles</h3>
+                <table>
+                    <tr><th>Model</th><th>Display</th><th>Price</th></tr>
+                    <tr><td>Skyzone SKY04X Pro</td><td class="spec">OLED 1080p</td><td>$500</td></tr>
+                    <tr><td>Skyzone Cobra X</td><td class="spec">LCD 720p</td><td>$220</td></tr>
+                    <tr><td>Eachine EV800D</td><td class="spec">LCD</td><td>$99</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 14: Betaflight -->
+    <section id="betaflight">
+        <div class="section-title"><h2>14. Betaflight Software</h2><p>The firmware that runs your drone</p></div>
+        <div class="tech-box">
+            <h4>💻 What is Betaflight?</h4>
+            <p>Betaflight is the most popular open-source flight controller firmware for FPV drones. It runs PID control loops at 8kHz, manages OSD, handles failsafe, processes GPS data, and provides a powerful configuration interface via USB or Bluetooth.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Key Features</h3>
+                <table>
+                    <tr><th>Feature</th><th>Description</th></tr>
+                    <tr><td>PID Controller</td><td class="spec">8kHz loop time</td></tr>
+                    <tr><td>OSD</td><td class="spec">On-screen display</td></tr>
+                    <tr><td>Failsafe</td><td class="spec">RTH or drop</td></tr>
+                    <tr><td>GPS Rescue</td><td class="spec">Auto return home</td></tr>
+                    <tr><td>Blackbox</td><td class="spec">Flight logging</td></tr>
+                    <tr><td>Filters</td><td class="spec">Noise filtering</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Configuration Tools</h3>
+                <table>
+                    <tr><th>Tool</th><th>Platform</th></tr>
+                    <tr><td>Betaflight Configurator</td><td class="spec">Chrome/PC</td></tr>
+                    <tr><td>SpeedyBee App</td><td class="spec">iOS/Android</td></tr>
+                    <tr><td>BLHeli Suite</td><td class="spec">ESC firmware</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 15: Flying Styles -->
+    <section id="flying">
+        <div class="section-title"><h2>15. Flying Styles & Techniques</h2><p>How to fly FPV drones</p></div>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&q=80" alt="Freestyle">
+            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Racing">
+            <img src="https://images.unsplash.com/photo-1563201515-adbe35c669c5?w=600&q=80" alt="Cinematic">
+            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&q=80" alt="Long Range">
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Freestyle</h3>
+                <p>Flips, rolls, dives, powerloops, split-S, trippy spins. Most popular style. Creative expression through movement. YouTube: Mr. Steele, JohnnyFPV, Stingers Stingers.</p>
+                <table style="margin-top:1rem"><tr><th>Maneuver</th><th>Description</th></tr>
+                <tr><td>Powerloop</td><td class="spec">Fly up, over, and back</td></tr>
+                <tr><td>Split-S</td><td class="spec">Half roll + dive</td></tr>
+                <tr><td>Matty Flip</td><td class="spec">Backward flip</td></tr>
+                <tr><td>Trippy Spin</td><td class="spec">Continuous yaw spin</td></tr></table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Racing</h3>
+                <p>Fly through gates at maximum speed. Professional leagues: DRL, DCL. Speeds 100-200km/h+. Requires analog or HDZero for lowest latency.</p>
+                <table style="margin-top:1rem"><tr><th>League</th><th>Prize Pool</th></tr>
+                <tr><td>DRL</td><td class="spec">$100K+</td></tr>
+                <tr><td>DCL</td><td class="spec">$50K+</td></tr></table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Cinematic</h3>
+                <p>Smooth, stabilized footage for films and commercials. Used by Hollywood. Requires careful throttle control and smooth movements. YouTube: Nurk FPV, Jay Christensen.</p>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Long Range</h3>
+                <p>Mountain diving, ocean exploration, scenic flights. 10km+ range. Requires GPS, large batteries, reliable video link. Must follow regulations.</p>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 16: Build Guide -->
+    <section id="build">
+        <div class="section-title"><h2>16. Building Your First Drone</h2><p>Step-by-step guide to building a 5-inch FPV drone</p></div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1521405924368-64c5b84bec60?w=800&q=80" alt="Build Guide">
+            <div class="card-body">
+                <h3>Complete 5-inch DJI O4 Pro Build</h3>
+                <table>
+                    <tr><th>Component</th><th>Recommended</th><th>Price</th></tr>
+                    <tr><td>Frame</td><td class="spec">GEPRC Vapor D5/X5</td><td>$50</td></tr>
+                    <tr><td>FC + ESC Stack</td><td class="spec">SpeedyBee F405 V4 + 60A</td><td>$70</td></tr>
+                    <tr><td>Motors (4x)</td><td class="spec">EMAX ECO II 2207 1900KV</td><td>$64</td></tr>
+                    <tr><td>Propellers (4x)</td><td class="spec">HQ 5x4.3x3 V2S</td><td>$8</td></tr>
+                    <tr><td>Receiver</td><td class="spec">BetaFPV ELRS 2.4GHz Nano</td><td>$15</td></tr>
+                    <tr><td>Video Transmitter</td><td class="spec">DJI O4 Pro Air Unit</td><td>$229</td></tr>
+                    <tr><td>Battery</td><td class="spec">6S 1300mAh LiPo</td><td>$35</td></tr>
+                    <tr><td colspan="2"><strong>Total (drone only)</strong></td><td class="spec">$471</td></tr>
+                </table>
+                <p style="margin-top:1rem">Complete system with accessories: DJI Goggles 3 ($499) + RadioMaster Boxer ($100) = $1070 total</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 17: Tuning -->
+    <section id="tuning">
+        <div class="section-title"><h2>17. Tuning & Optimization</h2><p>Making your drone fly perfectly</p></div>
+        <div class="tech-box">
+            <h4>🎛️ PID Tuning Basics</h4>
+            <p>PID (Proportional-Integral-Derivative) control is how the drone maintains stability. Tuning these values affects how the drone responds to inputs and disturbances. Start with default Betaflight PIDs and adjust based on flight characteristics.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>PID Parameters</h3>
+                <table>
+                    <tr><th>Parameter</th><th>Effect</th></tr>
+                    <tr><td>P (Proportional)</td><td class="spec">Response strength</td></tr>
+                    <tr><td>I (Integral)</td><td class="spec">Steady-state correction</td></tr>
+                    <tr><td>D (Derivative)</td><td class="spec">Damping/overshoot prevention</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Filters</h3>
+                <table>
+                    <tr><th>Filter</th><th>Purpose</th></tr>
+                    <tr><td>Gyro Lowpass</td><td class="spec">Remove motor noise</td></tr>
+                    <tr><td>D-term Lowpass</td><td class="spec">Smooth D response</td></tr>
+                    <tr><td>Dynamic Notch</td><td class="spec">Auto noise filtering</td></tr>
+                    <tr><td>RPM Filter</td><td class="spec">Motor-specific filtering</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 18: Safety -->
+    <section id="safety">
+        <div class="section-title"><h2>18. Safety Guidelines</h2><p>Fly safe, fly responsible</p></div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Pre-Flight Checklist</h3>
+                <table>
+                    <tr><th>Check</th><th>Why</th></tr>
+                    <tr><td>Propellers tight</td><td class="spec">Prevent flyaway</td></tr>
+                    <tr><td>Battery secure</td><td class="spec">Prevent disconnect</td></tr>
+                    <tr><td>Antenna secure</td><td class="spec">Video/control link</td></tr>
+                    <tr><td>Arming switch off</td><td class="spec">Safety</td></tr>
+                    <tr><td>Check area clear</td><td class="spec">People/property</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Flying Rules</h3>
+                <table>
+                    <tr><th>Rule</th><th>Reason</th></tr>
+                    <tr><td>Never fly over people</td><td class="spec">Safety</td></tr>
+                    <tr><td>Stay below 120m (400ft)</td><td class="spec">Regulations</td></tr>
+                    <tr><td>Keep visual line of sight</td><td class="spec">Control</td></tr>
+                    <tr><td>Don't fly near airports</td><td class="spec">Aviation safety</td></tr>
+                    <tr><td>Register your drone</td><td class="spec">Legal requirement</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>LiPo Safety</h3>
+                <table>
+                    <tr><th>Rule</th><th>Why</th></tr>
+                    <tr><td>Never charge unattended</td><td class="spec">Fire risk</td></tr>
+                    <tr><td>Use LiPo bags</td><td class="spec">Contain fire</td></tr>
+                    <tr><td>Storage at 3.85V/cell</td><td class="spec">Longevity</td></tr>
+                    <tr><td>Dispose properly</td><td class="spec">Environmental</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 19: Military -->
+    <section id="military">
+        <div class="section-title"><h2>19. Military Applications</h2><p>How FPV is changing modern warfare</p></div>
+        <div class="tech-box">
+            <h4>⚔️ The FPV Revolution in Warfare</h4>
+            <p>The Ukraine conflict (2022-present) has demonstrated that $500 FPV drones can destroy $5M tanks. This has fundamentally changed modern warfare, leading to massive investments in both FPV attack drones and counter-UAS systems.</p>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Military FPV Uses</h3>
+                <table>
+                    <tr><th>Use</th><th>Description</th></tr>
+                    <tr><td>Reconnaissance</td><td class="spec">Real-time intel</td></tr>
+                    <tr><td>Kamikaze Attack</td><td class="spec">Carry explosive payload</td></tr>
+                    <tr><td>Artillery Correction</td><td class="spec">Spot and adjust fire</td></tr>
+                    <tr><td>Swarm Attack</td><td class="spec">Multiple drones</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Military FPV Systems</h3>
+                <table>
+                    <tr><th>Country</th><th>System</th><th>Type</th></tr>
+                    <tr><td>Ukraine</td><td class="spec">Punisher</td><td>Fixed-wing</td></tr>
+                    <tr><td>Russia</td><td class="spec">Lancet-3</td><td>Loitering munition</td></tr>
+                    <tr><td>USA</td><td class="spec">Switchblade</td><td>Portable</td></tr>
+                    <tr><td>Israel</td><td class="spec">Hero series</td><td>Loitering munition</td></tr>
+                </table>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- SECTION 20: Future -->
+    <section id="future">
+        <div class="section-title"><h2>20. Future of FPV</h2><p>What's coming next</p></div>
+        <div class="cards">
+            <div class="card"><div class="card-body">
+                <h3>Technology Trends</h3>
+                <ul style="color:var(--text-dim);margin-left:1rem">
+                    <li>AI-assisted flying and obstacle avoidance</li>
+                    <li>Improved battery technology (solid-state)</li>
+                    <li>Smaller, lighter components</li>
+                    <li>Better digital video systems</li>
+                    <li>Integration with AR/VR</li>
+                </ul>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Market Growth</h3>
+                <table>
+                    <tr><th>Year</th><th>Market Size</th></tr>
+                    <tr><td>2025</td><td class="spec">$50B+ (C-UAS)</td></tr>
+                    <tr><td>2030</td><td class="spec">$150B+ (projected)</td></tr>
+                </table>
+            </div></div>
+            <div class="card"><div class="card-body">
+                <h3>Emerging Applications</h3>
+                <ul style="color:var(--text-dim);margin-left:1rem">
+                    <li>Urban air mobility (flying cars)</li>
+                    <li>Drone delivery (Amazon, Zipline)</li>
+                    <li>Agricultural automation</li>
+                    <li>Infrastructure inspection</li>
+                    <li>Search and rescue</li>
+                </ul>
+            </div></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/" style="color:var(--accent)">Home</a> | <a href="/fpv/" style="color:var(--accent)">FPV Technology</a> | <a href="/c-uas/" style="color:var(--accent)">Counter-UAS</a></p>
+    </footer>
+</body>
+</html>
