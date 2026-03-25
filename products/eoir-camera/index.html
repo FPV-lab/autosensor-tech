@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EO/IR Camera System - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .btn{display:inline-block;padding:0.8rem 1.5rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:25px;font-weight:bold;transition:all 0.3s;margin-top:1rem}
+        .btn:hover{background:var(--accent2)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/products/">Products</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <p class="breadcrumb"><a href="/products/">Products</a> → <a href="/products/">Detection</a> → EO/IR Camera</p>
+        <h1>EO/IR Camera System</h1>
+        <p>Electro-optical and infrared camera system with AI-powered detection for day and night drone identification. Provides visual confirmation to eliminate false positives from other sensors and enables precision tracking for defeat systems.</p>
+
+        <h2>Overview</h2>
+        <p>The EO/IR Camera System combines a high-resolution 4K visible-light camera with a 640×480 uncooled thermal (LWIR) sensor on a stabilized gimbal platform. Deep learning algorithms continuously scan the camera feeds for small UAV signatures, achieving detection rates above 95% with extremely low false-alarm rates.</p>
+        <p>The system provides full 360° azimuth pan and -60° to +60° elevation tilt, giving complete hemispheric coverage. The stabilized platform maintains target lock even on moving vehicles or in windy conditions, making it suitable for both fixed-site and mobile deployment.</p>
+        <p>When cued by RF detection or radar, the EO/IR system autonomously slews to the target bearing, acquires the drone visually, and begins continuous tracking. The visual feed provides operators with positive identification — critical for rules-of-engagement decisions in civilian and military environments.</p>
+
+        <div class="info-box">
+            <strong>Key Advantage:</strong> Visual confirmation eliminates false positives — essential when deploying kinetic or electronic defeat measures in populated areas.
+        </div>
+
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Specification</th></tr>
+            <tr><td>Visible Camera</td><td class="spec">4K UHD (3840×2160), 30× optical zoom</td></tr>
+            <tr><td>Thermal Sensor</td><td class="spec">640×480 LWIR, NETD &lt; 40mK</td></tr>
+            <tr><td>Pan Range</td><td class="spec">360° continuous</td></tr>
+            <tr><td>Tilt Range</td><td class="spec">-60° to +60°</td></tr>
+            <tr><td>Detection Range (Quad)</td><td class="spec">1 – 5 km (size dependent)</td></tr>
+            <tr><td>Tracking Accuracy</td><td class="spec">&lt; 0.5 mrad</td></tr>
+            <tr><td>AI Detection Rate</td><td class="spec">&gt; 95%</td></tr>
+            <tr><td>Slew-to-Cue Time</td><td class="spec">&lt; 3 seconds</td></tr>
+            <tr><td>Weight (PTZ unit)</td><td class="spec">15 – 45 kg (configuration dependent)</td></tr>
+            <tr><td>Operating Temp</td><td class="spec">-40°C to +60°C</td></tr>
+        </table>
+
+        <h2>Features</h2>
+        <h3>AI Deep Learning Detection</h3>
+        <p>Trained on millions of drone images across varying conditions — daylight, dusk, overcast, fog, and complete darkness via thermal. The neural network runs on an embedded GPU for real-time processing with no external computer required.</p>
+
+        <h3>Dual-Sensor Fusion</h3>
+        <p>Visible and thermal feeds are fused with automatic sensor switching. The system uses visible-light for daytime classification and thermal for nighttime or adverse-weather detection. Picture-in-picture mode lets operators view both feeds simultaneously.</p>
+
+        <h3>Automatic Tracking</h3>
+        <p>Once a target is acquired, the system maintains a locked track using adaptive algorithms that handle rapid maneuvers, occlusion, and background clutter. Target handoff between the AI tracker and manual operator control is seamless.</p>
+
+        <h3>Targeting Data Output</h3>
+        <p>Precise azimuth, elevation, and range data are output in real time for cueing jammer antennas, laser weapons, or interceptor drones. The system provides fire-control-quality tracking data suitable for kinetic defeat.</p>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Visual confirmation layer for integrated C-UAS systems</li>
+            <li>Night-time perimeter surveillance and intrusion detection</li>
+            <li>Targeting feed for laser weapons and directed-energy systems</li>
+            <li>Maritime vessel protection (anti-drone on ships and platforms)</li>
+            <li>Event security and stadium protection</li>
+            <li>Military forward observation and counter-reconnaissance</li>
+        </ul>
+
+        <h2>Configurations & Pricing</h2>
+        <table>
+            <tr><th>Model</th><th>Description</th><th>Price Range</th></tr>
+            <tr><td>Fixed Sensor</td><td>Static mount, wide-area scan, AI detection</td><td class="spec">$10,000 – $20,000</td></tr>
+            <tr><td>PTZ System</td><td>Pan-tilt-zoom, automatic tracking, dual sensor</td><td class="spec">$20,000 – $40,000</td></tr>
+            <tr><td>Multi-Sensor Suite</td><td>PTZ + laser rangefinder + cooled MWIR + AI</td><td class="spec">$30,000 – $60,000</td></tr>
+        </table>
+        <p>All models include embedded AI processing, standard API, and mounting hardware. Custom integration with existing C2 systems available.</p>
+
+        <h2>Limitations</h2>
+        <div class="info-box" style="border-left-color:var(--accent2)">
+            <strong>Important:</strong> Detection range is significantly reduced in heavy fog, rain, or snow. Thermal sensors struggle with drones at very long range due to low thermal contrast. Very small FPV drones (&lt;250g) can be difficult to detect beyond 1–2 km.
+        </div>
+        <p>The system is not a primary detection sensor — it works best when cued by RF or radar systems that provide initial bearing. Standalone operation with full 360° AI scanning is possible but increases CPU load and may reduce detection range.</p>
+
+        <a href="/#contact" class="btn">Request Quote →</a>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/products/" style="color:var(--accent)">Back to Products</a></p>
+    </footer>
+</body>
+</html>

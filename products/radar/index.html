@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Detection System - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .btn{display:inline-block;padding:0.8rem 1.5rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:25px;font-weight:bold;transition:all 0.3s;margin-top:1rem}
+        .btn:hover{background:var(--accent2)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/products/">Products</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/products/">Products</a> → Detection → Radar</div>
+        <h1>📡 Radar Detection System</h1>
+        <p>Advanced pulse Doppler radar for all-weather drone detection and tracking</p>
+
+        <div class="info-box">
+            <strong>Key Advantage:</strong> Works on autonomous drones (no RF signal needed), all-weather 24/7 operation, multi-target tracking.
+        </div>
+
+        <h2>Overview</h2>
+        <p>Our radar detection system uses advanced pulse Doppler technology to detect small drones at distances up to 10km. Unlike RF-based detection, radar works on any flying object regardless of whether it's transmitting. AI-enhanced classification distinguishes drones from birds and other clutter.</p>
+
+        <h2>Key Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Short Range</th><th>Medium Range</th><th>Long Range</th></tr>
+            <tr><td class="spec">Detection Range</td><td>1-3 km</td><td>3-5 km</td><td>5-10 km</td></tr>
+            <tr><td>Coverage</td><td>90° azimuth</td><td>180° azimuth</td><td>360° azimuth</td></tr>
+            <tr><td>Elevation</td><td>-5° to +60°</td><td>-5° to +75°</td><td>-5° to +90°</td></tr>
+            <tr><td>Simultaneous Targets</td><td>20+</td><td>50+</td><td>100+</td></tr>
+            <tr><td>Update Rate</td><td>1-2 sec</td><td>1-2 sec</td><td>1-4 sec</td></tr>
+            <tr><td>Min RCS</td><td class="spec">0.001 m²</td><td class="spec">0.001 m²</td><td class="spec">0.005 m²</td></tr>
+            <tr><td>AI Classification</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Power Consumption</td><td>50W</td><td>150W</td><td>300W</td></tr>
+        </table>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Micro-Doppler Analysis:</strong> Identifies drone propellers vs bird wings</li>
+            <li><strong>AI Target Classification:</strong> 95%+ accuracy distinguishing drones from birds</li>
+            <li><strong>3D Tracking:</strong> Provides range, bearing, altitude, and speed</li>
+            <li><strong>Multi-Target:</strong> Tracks 100+ objects simultaneously</li>
+            <li><strong>All-Weather:</strong> Works in rain, fog, snow, and darkness</li>
+            <li><strong>API Integration:</strong> RESTful API for C2 system integration</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Airport protection zones</li>
+            <li>Critical infrastructure (power plants, government buildings)</li>
+            <li>Military base perimeter defense</li>
+            <li>Border security</li>
+            <li>Stadium and event security</li>
+        </ul>
+
+        <h2>Deployment Options</h2>
+        <table>
+            <tr><th>Configuration</th><th>Includes</th><th>Price Range</th></tr>
+            <tr><td class="spec">Standalone Radar</td><td>Radar unit + processing unit</td><td>$30,000 - $80,000</td></tr>
+            <tr><td>Radar + Software</td><td>With C2 display and API</td><td>$50,000 - $100,000</td></tr>
+            <tr><td>Full Integration</td><td>Radar + RF + EO/IR + C2</td><td>$100,000 - $200,000</td></tr>
+        </table>
+
+        <a href="/#contact" class="btn">Request Quote →</a>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/products/" style="color:var(--accent)">Back to Products</a></p>
+    </footer>
+</body>
+</html>

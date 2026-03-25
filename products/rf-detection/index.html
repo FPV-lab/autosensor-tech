@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF Detection System - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .btn{display:inline-block;padding:0.8rem 1.5rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:25px;font-weight:bold;transition:all 0.3s;margin-top:1rem}
+        .btn:hover{background:var(--accent2)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/products/">Products</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <p class="breadcrumb"><a href="/products/">Products</a> → <a href="/products/">Detection</a> → RF Detection</p>
+        <h1>RF Detection System</h1>
+        <p>Passive radio frequency monitoring system that identifies and tracks drones by analyzing their RF control and video link emissions. The system maintains a comprehensive library of over 150 drone models, enabling rapid identification from RF signature alone.</p>
+
+        <h2>Overview</h2>
+        <p>The RF Detection System passively scans the electromagnetic spectrum for drone-related signals. Unlike radar-based systems, it emits nothing — making it completely undetectable and free from electromagnetic interference concerns. The system decodes control protocols to classify the drone model, manufacturer, and often its current flight mode.</p>
+        <p>Advanced direction-finding (DF) arrays enable the system to not only detect the drone in flight but also geolocate the remote pilot transmitting the control signal. This operator-location capability is a unique advantage for law enforcement and security teams who need to address both the airborne threat and its human operator.</p>
+        <p>The system recognizes a wide range of protocols including DJI OcuSync/O3, ExpressLRS (ELRS), WiFi-based control links, Bluetooth beaconing, and custom/proprietary FPV control systems. When paired with other sensors, RF detection typically serves as the first detection layer, cueing EO/IR cameras and radar for confirmation.</p>
+
+        <div class="info-box">
+            <strong>Key Advantage:</strong> The only C-UAS sensor that can locate the drone pilot — essential for law enforcement interdiction.
+        </div>
+
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Specification</th></tr>
+            <tr><td>Frequency Coverage</td><td class="spec">900 MHz – 6 GHz</td></tr>
+            <tr><td>Detection Range</td><td class="spec">1 – 10 km (environment dependent)</td></tr>
+            <tr><td>Drone Library</td><td class="spec">150+ models and counting</td></tr>
+            <tr><td>Protocol Support</td><td class="spec">DJI, ELRS, WiFi, Bluetooth, custom FPV</td></tr>
+            <tr><td>Direction Finding</td><td class="spec">±2° accuracy (with DF array)</td></tr>
+            <tr><td>Operator Detection</td><td class="spec">Yes — geolocation via DF triangulation</td></tr>
+            <tr><td>Processing Latency</td><td class="spec">< 3 seconds from signal to alert</td></tr>
+            <tr><td>Simultaneous Tracks</td><td class="spec">50+</td></tr>
+            <tr><td>Power Consumption</td><td class="spec">150 – 400W</td></tr>
+            <tr><td>Operating Temp</td><td class="spec">-30°C to +55°C</td></tr>
+        </table>
+
+        <h2>Features</h2>
+        <h3>Passive Operation</h3>
+        <p>The system emits zero RF energy. It is completely passive, making it undetectable by adversary electronic warfare (EW) systems. There are no licensing issues for transmission and no risk of interference with friendly communications.</p>
+
+        <h3>Drone Model Identification</h3>
+        <p>Machine learning classifiers match observed RF patterns against a continuously updated library. The system can distinguish between a DJI Mavic 3, a DJI FPV, a custom ELRS build, and many more — often within 1–2 seconds of the first control packet.</p>
+
+        <h3>Operator Location</h3>
+        <p>With the optional direction-finding array, the system calculates the bearing and estimated range to the remote controller. Multiple detections from different positions enable precise triangulation of the pilot's location.</p>
+
+        <h3>Seamless Integration</h3>
+        <p>Standard C2 interfaces (STANAG 4586, REST API) allow easy integration with radar, EO/IR cameras, and defeat systems. The RF system typically acts as the "first alert" sensor, cueing other assets to respond.</p>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Airport perimeter security and runway protection</li>
+            <li>Critical infrastructure (power plants, data centers, refineries)</li>
+            <li>Law enforcement counter-drone operations (finding pilots)</li>
+            <li>Military forward operating base (FOB) protection</li>
+            <li>VIP protection and event security</li>
+            <li>Border surveillance and smuggling interdiction</li>
+        </ul>
+
+        <h2>Configurations & Pricing</h2>
+        <table>
+            <tr><th>Configuration</th><th>Capabilities</th><th>Price Range</th></tr>
+            <tr><td>Standalone</td><td>RF detection + classification</td><td class="spec">$20,000 – $35,000</td></tr>
+            <tr><td>With Direction Finding</td><td>RF detection + operator geolocation</td><td class="spec">$35,000 – $50,000</td></tr>
+            <tr><td>Integrated Package</td><td>RF + DF + C2 interface + EO/IR cueing</td><td class="spec">$50,000+</td></tr>
+        </table>
+        <p>Pricing varies based on antenna array size, number of frequency bands, software license tier, and integration requirements. Volume discounts available for multi-site deployments.</p>
+
+        <h2>Limitations</h2>
+        <div class="info-box" style="border-left-color:var(--accent2)">
+            <strong>Important:</strong> RF detection is completely ineffective against autonomous drones that operate on pre-programmed waypoints with no active control link. For autonomous threat scenarios, radar or EO/IR detection is required.
+        </div>
+        <p>Environmental factors such as dense urban canyons, heavy RF noise floors, and physical obstructions can reduce detection range and direction-finding accuracy. The system requires periodic library updates to maintain classification accuracy as new consumer drones enter the market.</p>
+
+        <a href="/#contact" class="btn">Request Quote →</a>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/products/" style="color:var(--accent)">Back to Products</a></p>
+    </footer>
+</body>
+</html>

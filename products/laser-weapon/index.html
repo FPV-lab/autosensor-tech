@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Weapon System - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .btn{display:inline-block;padding:0.8rem 1.5rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:25px;font-weight:bold;transition:all 0.3s;margin-top:1rem}
+        .btn:hover{background:var(--accent2)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/products/">Products</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <p class="breadcrumb"><a href="/products/">Products</a> → <a href="/products/">Defeat</a> → Laser Weapon</p>
+        <h1>Laser Weapon System</h1>
+        <p>High-energy laser (HEL) weapon for precision drone destruction at the speed of light. With near-zero cost per engagement and an unlimited magazine, laser weapons represent the future of cost-effective, sustainable air defense against unmanned threats.</p>
+
+        <h2>Overview</h2>
+        <p>The Laser Weapon System focuses a high-power beam of coherent light onto a drone target, burning through structural components, propellers, or electronics to achieve a hard kill. Because the beam travels at the speed of light, there is no need for target leading — the weapon hits exactly where it is aimed, even against fast-moving FPV drones executing evasive maneuvers.</p>
+        <p>The system is available in three power classes: 10 kW for close-range defense against small drones (1–2 km), 50 kW for medium-range engagements (3–5 km), and 100 kW for extended-range defense against larger UAS threats (5–10 km). Higher power directly translates to shorter dwell time and longer engagement range.</p>
+        <p>Unlike missiles or projectiles, a laser weapon has an effectively unlimited magazine — as long as electrical power is available, the system can continue engaging targets. The cost per shot ranges from $1 to $10 depending on power output and dwell time, compared to $50,000–$150,000 per interceptor missile.</p>
+
+        <div class="info-box">
+            <strong>Key Advantage:</strong> Cost per shot of $1–$10 vs. $50K+ for missiles. Unlimited magazine. Silent. Precision engagement with zero collateral fragmentation.
+        </div>
+
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Specification</th></tr>
+            <tr><td>Beam Power</td><td class="spec">10 kW / 50 kW / 100 kW (tier dependent)</td></tr>
+            <tr><td>Effective Range</td><td class="spec">1–2 km (10kW) / 3–5 km (50kW) / 5–10 km (100kW)</td></tr>
+            <tr><td>Beam Wavelength</td><td class="spec">1.06 μm (near-infrared, fiber laser)</td></tr>
+            <tr><td>Dwell Time</td><td class="spec">2 – 15 seconds (target size dependent)</td></tr>
+            <tr><td>Pointing Accuracy</td><td class="spec">&lt; 5 μrad</td></tr>
+            <tr><td>Tracking Rate</td><td class="spec">&gt; 100°/s</td></tr>
+            <tr><td>Power Consumption</td><td class="spec">30 kW – 300 kW (including cooling)</td></tr>
+            <tr><td>Cost Per Shot</td><td class="spec">$1 – $10</td></tr>
+            <tr><td>Operating Temp</td><td class="spec">-20°C to +45°C</td></tr>
+        </table>
+
+        <h2>Features</h2>
+        <h3>Speed of Light Engagement</h3>
+        <p>The laser beam reaches its target instantaneously. There is no flight time, no leading calculation, and no possibility of the target maneuvering out of the beam's path. This makes the system exceptionally effective against fast FPV drones that are difficult targets for kinetic interceptors.</p>
+
+        <h3>Unlimited Magazine</h3>
+        <p>As long as the system has electrical power, it can continue firing. There are no ammunition storage limitations, no reloading downtime, and no supply chain dependencies. This is a critical advantage in sustained engagements or swarm scenarios.</p>
+
+        <h3>Silent and Invisible</h3>
+        <p>The near-infrared beam is invisible to the naked eye. There is no muzzle flash, no blast wave, and no acoustic signature. The defeated drone simply catches fire and falls — ideal for covert operations and urban environments where noise and visible explosions are unacceptable.</p>
+
+        <h3>Precision Control</h3>
+        <p>Operators can adjust beam power and dwell time to achieve a "soft kill" (burning off a propeller to force a controlled descent) or a "hard kill" (full structural destruction). This graduated response capability is essential for rules-of-escalation compliance.</p>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Fixed-site defense of military bases and installations</li>
+            <li>Airport and critical infrastructure protection</li>
+            <li>Naval vessel anti-drone defense</li>
+            <li>Forward operating base (FOB) perimeter defense</li>
+            <li>High-value asset protection (embassies, government buildings)</li>
+            <li>Anti-swarm defense (sustained engagement capability)</li>
+        </ul>
+
+        <h2>Configurations & Pricing</h2>
+        <table>
+            <tr><th>Configuration</th><th>Power</th><th>Range</th><th>Price Range</th></tr>
+            <tr><td>Short Range</td><td>10 kW</td><td>1 – 2 km</td><td class="spec">$2,000,000 – $4,000,000</td></tr>
+            <tr><td>Medium Range</td><td>50 kW</td><td>3 – 5 km</td><td class="spec">$4,000,000 – $7,000,000</td></tr>
+            <tr><td>Extended Range</td><td>100 kW</td><td>5 – 10 km</td><td class="spec">$7,000,000 – $10,000,000+</td></tr>
+        </table>
+        <p>Pricing includes beam director, power conditioning, thermal management, tracking system, and C2 integration. Requires dedicated power infrastructure (generator or grid connection). Installation and commissioning additional.</p>
+
+        <h2>Limitations</h2>
+        <div class="info-box" style="border-left-color:var(--accent2)">
+            <strong>Important:</strong> Laser weapons are severely degraded by adverse weather — heavy fog, rain, snow, and dust storms absorb and scatter the beam, reducing effective range by 50–90%. Not suitable as a standalone defense in poor-weather regions without backup defeat systems.
+        </div>
+        <p>Dwell time of 2–15 seconds means the system must maintain continuous beam lock on a moving target, which can be challenging against maneuvering FPV drones. Atmospheric thermal blooming at higher powers can degrade beam quality. The system requires significant electrical power infrastructure and active cooling, limiting deployability.</p>
+
+        <a href="/#contact" class="btn">Request Quote →</a>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/products/" style="color:var(--accent)">Back to Products</a></p>
+    </footer>
+</body>
+</html>

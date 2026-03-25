@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Site C-UAS System - AutoSensor Tech</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .btn{display:inline-block;padding:0.8rem 1.5rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:25px;font-weight:bold;transition:all 0.3s;margin-top:1rem}
+        .btn:hover{background:var(--accent2)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/products/">Products</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <p class="breadcrumb"><a href="/products/">Products</a> → <a href="/products/">Integrated</a> → Fixed Site</p>
+        <h1>Fixed Site C-UAS System</h1>
+        <p>Complete, permanent counter-UAS installation providing 24/7 autonomous protection for critical infrastructure. Integrates multiple sensor and defeat layers into a unified command and control architecture for seamless detect-track-identify-defeat operations.</p>
+
+        <h2>Overview</h2>
+        <p>The Fixed Site C-UAS System is a turnkey solution designed for permanent installation at high-value locations requiring continuous drone defense. The system combines radar, RF detection, EO/IR cameras, and defeat systems (RF jammer and/or laser weapon) under a single integrated command and control (C2) software platform.</p>
+        <p>Multi-layer sensor fusion ensures no single point of failure in detection. Radar provides the initial wide-area scan, RF detection classifies the threat and locates the operator, EO/IR cameras provide visual confirmation, and the C2 system correlates all tracks into a single operational picture. Engagement decisions can be made automatically by the system or deferred to a human operator, depending on rules of engagement.</p>
+        <p>The system operates 24/7 with minimal human oversight. Automated threat classification evaluates each track against configurable criteria (altitude, speed, heading, proximity to protected asset) and triggers appropriate responses — from alert-only to full autonomous engagement. All events are logged with full sensor data for after-action review.</p>
+
+        <div class="info-box">
+            <strong>Key Advantage:</strong> True 24/7 autonomous operation — from detection to defeat with no human in the loop required. Full audit trail of all engagements.
+        </div>
+
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Specification</th></tr>
+            <tr><td>Detection Layers</td><td class="spec">Radar + RF Detection + EO/IR Camera</td></tr>
+            <tr><td>Defeat Options</td><td class="spec">RF Jammer, Laser Weapon, or both</td></tr>
+            <tr><td>Control System</td><td class="spec">Integrated C2 with automated engagement</td></tr>
+            <tr><td>Detection Range</td><td class="spec">1 – 10+ km (configuration dependent)</td></tr>
+            <tr><td>Track Capacity</td><td class="spec">200+ simultaneous tracks</td></tr>
+            <tr><td>Response Time</td><td class="spec">&lt; 5 seconds from detection to alert</td></tr>
+            <tr><td>Uptime Target</td><td class="spec">99.9% (with redundancy)</td></tr>
+            <tr><td>Operator Interface</td><td class="spec">Touchscreen console + remote access</td></tr>
+            <tr><td>Data Logging</td><td class="spec">Full sensor recording, event timeline</td></tr>
+        </table>
+
+        <h2>Features</h2>
+        <h3>Multi-Sensor Fusion</h3>
+        <p>The C2 software correlates tracks from radar, RF, and EO/IR sensors into a single fused track picture. Sensor cross-cueing is automatic — radar detects, RF classifies, EO/IR confirms. This layered approach eliminates false positives and ensures high-confidence engagement decisions.</p>
+
+        <h3>Automated Engagement</h3>
+        <p>Configurable rules of engagement allow the system to operate in fully autonomous mode. Threat classification algorithms evaluate speed, altitude, heading, and proximity to determine if a track is hostile. Operators can override at any time and switch between autonomous, semi-autonomous, and manual modes.</p>
+
+        <h3>Scalable Architecture</h3>
+        <p>The system scales from a single-site installation to a multi-node network protecting an entire facility or region. Multiple fixed sites share track data via encrypted links, enabling cooperative tracking and handoff between zones. Regional command centers can monitor multiple installations simultaneously.</p>
+
+        <h3>Redundancy and Resilience</h3>
+        <p>Critical components include hot-standby redundancy. If a sensor goes offline, the system automatically adjusts coverage and alerts maintenance. Backup power (UPS + generator) ensures continued operation during power outages. Cybersecurity hardening meets MIL-STD-882E standards.</p>
+
+        <h2>Applications</h2>
+        <ul>
+            <li>Commercial airport runway and terminal protection</li>
+            <li>Nuclear and conventional power plant security</li>
+            <li>Military base and installation protection</li>
+            <li>Government building and embassy defense</li>
+            <li>Oil refinery and petrochemical facility protection</li>
+            <li>Data center and telecommunications hub security</li>
+            <li>Border crossing and checkpoint protection</li>
+        </ul>
+
+        <h2>Configurations & Pricing</h2>
+        <table>
+            <tr><th>Configuration</th><th>Range</th><th>Sensors</th><th>Price Range</th></tr>
+            <tr><td>Short Range</td><td>1 – 3 km</td><td>Radar + RF + EO/IR + Jammer</td><td class="spec">$150,000 – $250,000</td></tr>
+            <tr><td>Medium Range</td><td>5 – 10 km</td><td>Radar + RF + EO/IR + Jammer + Laser</td><td class="spec">$300,000 – $500,000</td></tr>
+            <tr><td>Extended Range</td><td>10+ km</td><td>Full sensor suite + dual defeat + C2 network</td><td class="spec">$1,000,000+</td></tr>
+        </table>
+        <p>All configurations include C2 software licenses, installation, commissioning, operator training, and 1-year warranty. Multi-year maintenance and software update contracts available. Custom configurations for specialized requirements.</p>
+
+        <h2>Limitations</h2>
+        <div class="info-box" style="border-left-color:var(--accent2)">
+            <strong>Important:</strong> Fixed installations cannot be redeployed. Site survey, permitting, and installation typically require 3–6 months. Requires dedicated power and network infrastructure. Not suitable for rapidly changing operational requirements — consider mobile systems instead.
+        </div>
+        <p>Installation complexity means longer lead times compared to portable systems. Environmental factors (terrain, vegetation, buildings) affect sensor coverage and must be addressed during site planning. Regulatory approvals for RF jamming and laser operation may be required depending on jurisdiction.</p>
+
+        <a href="/#contact" class="btn">Request Quote →</a>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/products/" style="color:var(--accent)">Back to Products</a></p>
+    </footer>
+</body>
+</html>
