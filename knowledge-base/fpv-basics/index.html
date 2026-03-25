@@ -19,9 +19,8 @@
         table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
         th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
         .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
-        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.5rem 0}
-        .gallery img{width:100%;height:180px;object-fit:cover;border-radius:8px}
         .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
         ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
         footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
         @media(max-width:768px){.nav-links{display:none}}
@@ -39,39 +38,169 @@
 
     <section>
         <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → FPV Basics</div>
-        
+
         <h1>🛩️ FPV Basics</h1>
-        <p>Everything you need to know to understand First Person View drones</p>
+        <p>Everything you need to understand First Person View drones — from Tiny Whoops to X-Class</p>
 
         <h2>What is FPV?</h2>
-        <p>FPV (First Person View) is a method of piloting a drone where the operator sees exactly what the drone's onboard camera sees in real-time, through specialized video goggles. This creates an incredibly immersive experience—you feel like you're sitting in the cockpit of a tiny aircraft.</p>
-        
+        <p>FPV (First Person View) is a method of piloting a drone where you see exactly what the drone's camera sees in real-time through video goggles. It's like sitting in the cockpit of a tiny aircraft. Unlike DJI Mavic-style drones that fly themselves with GPS, FPV drones are fully manual — the pilot has complete control.</p>
+
         <div class="info-box">
-            <strong>FPV vs Camera Drones:</strong> Unlike DJI Mavic-style drones which are GPS-stabilized and flown via smartphone screens, FPV drones are fully manual. The pilot has complete control, enabling speeds over 200 km/h and acrobatic maneuvers like flips and rolls.
+            <strong>FPV vs Camera Drones:</strong><br>
+            FPV: Manual control, 200km/h+, acrobatic, 10-50hr learning curve<br>
+            Camera drone: GPS auto-stable, 50-70km/h, easy to fly, few minutes to learn
         </div>
 
         <h2>How FPV Works</h2>
         <h3>Video Signal Chain</h3>
         <p>Camera → VTX (Video Transmitter) → RF Signal → VRX (in Goggles) → Display</p>
-        
         <h3>Control Signal Chain</h3>
         <p>Radio Transmitter → RF Signal → Receiver → Flight Controller → ESCs → Motors</p>
 
         <table>
-            <tr><th>Parameter</th><th>DJI O4 Pro</th><th>Analog</th></tr>
-            <tr><td>Video Latency</td><td class="spec">15-30ms</td><td>&lt;10ms</td></tr>
-            <tr><td>Control Latency</td><td class="spec">&lt;10ms (ELRS)</td><td>&lt;10ms</td></tr>
-            <tr><td>Range</td><td class="spec">13km+</td><td>1-10km</td></tr>
+            <tr><th>System</th><th>Live Feed</th><th>Latency</th><th>Range</th><th>Price</th></tr>
+            <tr><td class="spec">DJI O4 Pro</td><td>1080p</td><td>15-30ms</td><td>13km+</td><td>High</td></tr>
+            <tr><td>Analog</td><td>700 TVL</td><td class="spec">&lt;10ms</td><td>1-10km</td><td>Low</td></tr>
+            <tr><td>HDZero</td><td>720-1080p</td><td class="spec">Fixed low</td><td>2-5km</td><td>Mid</td></tr>
+            <tr><td>Walksnail</td><td>1080p</td><td>Medium</td><td>4km+</td><td>Mid</td></tr>
         </table>
 
-        <h2>Drone Types by Size</h2>
+        <h2>Drone Sizes — Complete Guide</h2>
+        <p>FPV drones come in many sizes. Each is designed for different purposes. Here's the complete breakdown:</p>
+
+        <h3>🏠 Tiny Whoop (65-75mm)</h3>
         <table>
-            <tr><th>Type</th><th>Props</th><th>Battery</th><th>Use</th><th>Cost</th></tr>
-            <tr><td>Tiny Whoop</td><td class="spec">65-75mm</td><td>1S</td><td>Indoor</td><td>$80-150</td></tr>
-            <tr><td>Cinewhoop</td><td class="spec">2-3"</td><td>4-6S</td><td>Cinematic</td><td>$200-400</td></tr>
-            <tr><td>5-inch</td><td class="spec">5"</td><td>6S</td><td>Freestyle/Racing</td><td>$300-600</td></tr>
-            <tr><td>7-inch</td><td class="spec">7"</td><td>6S</td><td>Long Range</td><td>$400-800</td></tr>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">31-40mm (1-1.6")</td></tr>
+            <tr><td>Weight</td><td class="spec">20-35g</td></tr>
+            <tr><td>Battery</td><td class="spec">1S 300-550mAh</td></tr>
+            <tr><td>Flight time</td><td>3-5 min</td></tr>
+            <tr><td>Cost (BNF)</td><td>$80-150</td></tr>
         </table>
+        <p><strong>Best for:</strong> Indoor flying, rainy day practice, absolute beginners. Ducted prop guards make them safe to fly around people and furniture. The cheapest way into real FPV.</p>
+        <ul>
+            <li><strong>65mm:</strong> Classic indoor Whoop size — most agile, tightest spaces</li>
+            <li><strong>75mm:</strong> Slightly larger — can handle light outdoor wind</li>
+            <li><strong>Video:</strong> Analog (cheapest), some with HDZero or Walksnail</li>
+            <li><strong>Top models:</strong> BetaFPV Air65, Happymodel Mobula6, NewBeeDrone AcroBee</li>
+        </ul>
+
+        <h3>🎬 Cinewhoop (2-3")</h3>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">2-3 inch</td></tr>
+            <tr><td>Weight</td><td class="spec">100-250g</td></tr>
+            <tr><td>Battery</td><td class="spec">4S 450-850mAh</td></tr>
+            <tr><td>Flight time</td><td>3-6 min</td></tr>
+            <tr><td>Cost (BNF)</td><td>$200-400</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Smooth cinematic shots near people, indoor real estate tours, event filming. Ducted props provide safety for close-proximity flying. Under 250g options available for regulatory advantages.</p>
+        <ul>
+            <li><strong>Video:</strong> DJI O3/O4 for HD recording, or GoPro mount</li>
+            <li><strong>Flight style:</strong> Slow, smooth, stable — NOT for acrobatics</li>
+            <li><strong>Top models:</strong> GEPRC CineLog 35, BetaFPV Pavo 35, FlyLens 85</li>
+        </ul>
+
+        <h3>🌲 Micro Freestyle (3-3.5")</h3>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">3-3.5 inch</td></tr>
+            <tr><td>Weight</td><td class="spec">150-300g</td></tr>
+            <tr><td>Battery</td><td class="spec">4S 450-850mAh or 6S 450-650mAh</td></tr>
+            <tr><td>Flight time</td><td>4-7 min</td></tr>
+            <tr><td>Cost (BNF)</td><td>$200-350</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Backyard flying, parks, tighter spaces where 5-inch is too big. Lighter and quieter than 5-inch, can fly in more locations without disturbing neighbors.</p>
+        <ul>
+            <li><strong>Advantage:</strong> Many countries don't require registration under 250g</li>
+            <li><strong>Top models:</strong> GEPRC Smart 35, Flywoo Explorer LR, AxisFlying Manta 3.5</li>
+        </ul>
+
+        <h3>⚡ 5-Inch (Standard)</h3>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">5 inch</td></tr>
+            <tr><td>Weight</td><td class="spec">500-750g</td></tr>
+            <tr><td>Battery</td><td class="spec">6S 1100-1300mAh</td></tr>
+            <tr><td>Flight time</td><td>4-7 min</td></tr>
+            <tr><td>Cost (BNF)</td><td>$300-600</td></tr>
+            <tr><td>Max speed</td><td>150-200+ km/h</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Freestyle, racing, general purpose. The most popular size in FPV. Best balance of power, agility, and parts availability. If you're unsure what to get, start here.</p>
+        <ul>
+            <li><strong>2026 Standard:</strong> 6S battery, 2207 motors, Betaflight, ELRS, DJI O4 Pro</li>
+            <li><strong>Top BNF:</strong> GEPRC Vapor ($300-400), iFlight Nazgul ($280), Diatone Roma F5 ($320)</li>
+            <li><strong>Build cost:</strong> $470-550 DIY with DJI O4</li>
+        </ul>
+
+        <h3>🚀 6-7 Inch (Long Range)</h3>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">6-7 inch</td></tr>
+            <tr><td>Weight</td><td class="spec">600-1000g</td></tr>
+            <tr><td>Battery</td><td class="spec">6S 1800-3000mAh or Li-Ion</td></tr>
+            <tr><td>Flight time</td><td>8-25 min</td></tr>
+            <tr><td>Range</td><td>10-30+ km</td></tr>
+            <tr><td>Cost (BNF)</td><td>$400-800</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Exploring mountains, coastlines, rivers, and areas you can't reach on foot. Efficiency over agility — these fly like a cruiser, not a sports car.</p>
+        <ul>
+            <li><strong>Radio:</strong> 900MHz ELRS for maximum penetration</li>
+            <li><strong>GPS:</strong> Mandatory for rescue mode and telemetry</li>
+            <li><strong>Battery:</strong> Li-Ion packs (18650/21700) for 20+ min flights</li>
+            <li><strong>Top models:</strong> GEPRC Crocodile 7, Flywoo Explorer LR 4", iFlight Chimera 7</li>
+        </ul>
+
+        <h3>🎬 Cinelifter (8-10")</h3>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">8-10 inch</td></tr>
+            <tr><td>Weight</td><td class="spec">2-5kg</td></tr>
+            <tr><td>Camera</td><td class="spec">Carries GoPro, Sony, RED</td></tr>
+            <tr><td>Flight time</td><td>3-8 min</td></tr>
+            <tr><td>Cost</td><td>$1000-3000+</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Professional film and TV production. Carries real cinema cameras for Hollywood-grade aerial footage. Used in major productions by pilots like JohnnyFPV and Gab707.</p>
+        <ul>
+            <li><strong>Purpose-built:</strong> Vibration-isolated camera mounts</li>
+            <li><strong>Top models:</strong> Shendrones Squirt, ImpulseRC Apex, custom builds</li>
+        </ul>
+
+        <h3>🏁 X-Class / Beast (10"+)</h3>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Prop size</td><td class="spec">10-14 inch</td></tr>
+            <tr><td>Weight</td><td class="spec">2-6kg</td></tr>
+            <tr><td>Speed</td><td class="spec">200-300+ km/h</td></tr>
+            <tr><td>Battery</td><td class="spec">12S-14S</td></tr>
+            <tr><td>Cost</td><td>$1500-5000+</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Exhibition racing and speed records. These monsters are designed for one thing: going fast. The DRL (Drone Racing League) uses X-class drones in their professional races.</p>
+        <ul>
+            <li><br><strong>Warning:</strong> Extremely dangerous — requires large, open flying fields</li>
+            <li><strong>Not for beginners:</strong> Requires expert piloting skills</li>
+        </ul>
+
+        <h2>Size Comparison Summary</h2>
+        <table>
+            <tr><th>Size</th><th>Props</th><th>Weight</th><th>Battery</th><th>Best For</th><th>Cost</th></tr>
+            <tr><td class="spec">Tiny Whoop</td><td>65-75mm</td><td>20-35g</td><td>1S</td><td>Indoor, beginner</td><td>$80-150</td></tr>
+            <tr><td class="spec">Cinewhoop</td><td>2-3"</td><td>100-250g</td><td>4S</td><td>Cinematic, safe</td><td>$200-400</td></tr>
+            <tr><td class="spec">3-3.5"</td><td>3-3.5"</td><td>150-300g</td><td>4S/6S</td><td>Backyard, light</td><td>$200-350</td></tr>
+            <tr><td class="spec">5"</td><td>5"</td><td>500-750g</td><td>6S</td><td>Freestyle, racing</td><td>$300-600</td></tr>
+            <tr><td class="spec">7"</td><td>6-7"</td><td>600-1000g</td><td>6S/Li-Ion</td><td>Long range</td><td>$400-800</td></tr>
+            <tr><td class="spec">Cinelifter</td><td>8-10"</td><td>2-5kg</td><td>6S-12S</td><td>Professional film</td><td>$1000-3000</td></tr>
+            <tr><td class="spec">X-Class</td><td>10-14"</td><td>2-6kg</td><td>12S-14S</td><td>Speed racing</td><td>$1500-5000</td></tr>
+        </table>
+
+        <h2>Flying Styles</h2>
+        <ul>
+            <li><strong>Freestyle:</strong> Flips, rolls, gaps, proximity — creative expression. Most popular.</li>
+            <li><strong>Racing:</strong> Gates, speed, competition. DRL/MultiGP leagues.</li>
+            <li><strong>Cinematic:</strong> Smooth, controlled footage for film/TV/real estate.</li>
+            <li><strong>Long Range:</strong> Exploration. 10-30km flights over mountains/coast.</li>
+            <li><strong>Tiny Whoop:</strong> Indoor fun. Cheapest real FPV experience.</li>
+        </ul>
 
         <h2>Evolution Timeline</h2>
         <table>
@@ -81,27 +210,22 @@
             <tr><td>2014-2016</td><td>FPV racing explodes, DRL founded, Betaflight</td></tr>
             <tr><td>2017-2019</td><td>Tiny Whoops, 5-inch standard, 6S batteries</td></tr>
             <tr><td>2019-2020</td><td>DJI digital FPV system launches</td></tr>
-            <tr><td>2022-2023</td><td>Ukraine war demonstrates military value</td></tr>
-            <tr><td>2024-2026</td><td>DJI O4 Pro, ELRS standard, AI integration</td></tr>
+            <tr><td>2022-2023</td><td>Ukraine war demonstrates military drone value</td></tr>
+            <tr><td>2024-2026</td><td>DJI O4 Pro, ELRS standard, AI integration, OpenIPC</td></tr>
         </table>
 
         <h2>Choosing Your First Drone</h2>
-        <h3>Budget Options</h3>
-        <ul>
-            <li><strong>$400 minimum:</strong> RadioMaster Pocket + Tiny Whoop + Analog goggles</li>
-            <li><strong>$800-1200:</strong> RadioMaster Boxer + 5-inch BNF + DJI N3 goggles</li>
-            <li><strong>$1800+:</strong> Full DJI O4 system + custom build + Goggles 3</li>
-        </ul>
+        <div class="info-box">
+            <strong>Learning Path:</strong> Buy radio → 10+ hours simulator → Tiny Whoop OR 5-inch BNF → 100+ crashes → Upgrade
+        </div>
 
-        <h3>Recommended Learning Path</h3>
-        <ol style="margin:1rem 0 1rem 2rem;color:var(--text-dim)">
-            <li>Buy a radio controller ($65-150)</li>
-            <li>Practice in simulator (10+ hours)</li>
-            <li>Master Acro mode (manual flight)</li>
-            <li>Choose your flying style</li>
-            <li>Buy or build your first drone</li>
-            <li>Crash 100+ times before upgrading</li>
-        </ol>
+        <h3>Budget Options</h3>
+        <table>
+            <tr><th>Budget</th><th>Setup</th><th>What You Get</th></tr>
+            <tr><td class="spec">~$400</td><td>RadioMaster Pocket + Tiny Whoop + Analog goggles</td><td>Indoor practice, cheap crashes</td></tr>
+            <tr><td class="spec">~$800-1200</td><td>RadioMaster Boxer + 5" BNF + DJI N3 goggles</td><td>Full outdoor FPV experience</td></tr>
+            <tr><td class="spec">$1800+</td><td>Full DJI O4 system + custom build + Goggles 3</td><td>Premium everything</td></tr>
+        </table>
 
         <p style="margin-top:2rem"><a href="/knowledge-base/components/" style="color:var(--accent)">Next: Components →</a></p>
     </section>

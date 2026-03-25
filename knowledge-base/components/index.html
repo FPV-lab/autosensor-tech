@@ -1,45 +1,151 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Components - AutoSensor Tech</title><style>*{margin:0;padding:0;box-sizing:border-box}:root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}body{font-family:-apple-system,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}.logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}.nav-links a{color:var(--text);text-decoration:none;margin-left:2rem}section{padding:4rem 2rem;max-width:1000px;margin:0 auto}h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}h3{color:var(--accent2);margin:1.5rem 0 0.5rem}p{margin-bottom:1rem;color:var(--text-dim)}table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}.breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}.info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}@media(max-width:768px){.nav-links{display:none}}</style></head>
-<body><nav><a href="/" class="logo">Auto<span>Sensor</span> Tech</a><div class="nav-links"><a href="/">Home</a><a href="/knowledge-base/">Knowledge Base</a></div></nav>
-<section><div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Components</div>
-<h1>⚙️ FPV Drone Components</h1><p>Detailed guide to every component in an FPV drone</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
 
-<h2>Frame - The Skeleton</h2>
-<p>Carbon fiber structure that holds all components. Available in True X (freestyle), Wide X (cinematic), and Stretched X (racing) layouts.</p>
-<table><tr><th>Size</th><th>Arm Thickness</th><th>Stack Mount</th><th>Best For</th></tr>
-<tr><td>5-inch</td><td class="spec">4-6mm</td><td>30.5mm</td><td>Freestyle/Racing</td></tr>
-<tr><td>7-inch</td><td class="spec">5-6mm</td><td>30.5mm</td><td>Long Range</td></tr>
-<tr><td>3-inch</td><td class="spec">3-4mm</td><td>20-25.5mm</td><td>Micro</td></tr></table>
-<p><strong>Top Brands:</strong> GEPRC Vapor ($50), TBS Source One ($30), AxisFlying Manta ($40)</p>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Components</div>
 
-<h2>Flight Controller - The Brain</h2>
-<p>Circuit board with gyro/accelerometer that stabilizes flight. Runs Betaflight firmware at 8kHz loop time.</p>
-<table><tr><th>Processor</th><th>Speed</th><th>Memory</th><th>Status</th></tr>
-<tr><td>F405</td><td class="spec">168MHz</td><td>1MB</td><td>✅ Standard</td></tr>
-<tr><td>F722</td><td class="spec">216MHz</td><td>512KB</td><td>✅ Advanced</td></tr>
-<tr><td>H743</td><td class="spec">480MHz</td><td>2MB</td><td>✅ Future-proof</td></tr></table>
-<p><strong>Top FC:</strong> SpeedyBee F405 V4 ($35), T-Hobby VELOX F7 ($45)</p>
+        <h1>⚙️ FPV Drone Components</h1>
+        <p>Complete component guide for all FPV drone sizes</p>
 
-<h2>ESC - Motor Controllers</h2>
-<p>Electronic Speed Controllers convert DC battery power to 3-phase AC for brushless motors. Usually bought as 4-in-1 boards.</p>
-<table><tr><th>Type</th><th>Current</th><th>Firmware</th></tr>
-<tr><td>4-in-1</td><td class="spec">30-70A</td><td>BLHeli_32 / Bluejay</td></tr>
-<tr><td>AIO</td><td class="spec">20-55A</td><td>Integrated with FC</td></tr></table>
+        <h2>Frame — The Skeleton</h2>
+        <p>Carbon fiber structure that holds everything together. Layout affects flight characteristics.</p>
+        <table>
+            <tr><th>Size</th><th>Arm Thickness</th><th>Stack Mount</th><th>Weight</th><th>Layout</th></tr>
+            <tr><td class="spec">65-75mm (Whoop)</td><td>Plastic/AIO</td><td>AIO integrated</td><td>3-5g</td><td>All-in-one</td></tr>
+            <tr><td class="spec">2-3" (Cinewhoop)</td><td>3mm</td><td>25.5mm</td><td>20-40g</td><td>Ducted</td></tr>
+            <tr><td class="spec">3-3.5"</td><td>3-4mm</td><td>20-25.5mm</td><td>40-80g</td><td>True X / Deadcat</td></tr>
+            <tr><td class="spec">5"</td><td>4-6mm</td><td>30.5mm</td><td>80-120g</td><td>True X / Wide X</td></tr>
+            <tr><td class="spec">7"</td><td>5-6mm</td><td>30.5mm</td><td>100-160g</td><td>True X / Stretched</td></tr>
+            <tr><td class="spec">10"+ (X-Class)</td><td>6-10mm</td><td>30.5mm</td><td>200-500g</td><td>Wide X</td></tr>
+        </table>
+        <p><strong>Top Brands:</strong> GEPRC, TBS, AxisFlying, Flywoo, iFlight. Prices $30-150 depending on size.</p>
 
-<h2>Motors - The Power</h2>
-<p>Brushless motors spin the propellers. Size format: StatorWidth × StatorHeight (e.g., 2207 = 22mm × 7mm)</p>
-<table><tr><th>Model</th><th>Size</th><th>KV</th><th>Thrust</th><th>Price</th></tr>
-<tr><td>EMAX ECO II</td><td class="spec">2207</td><td>1900</td><td>~1500g</td><td>$16</td></tr>
-<tr><td>T-Motor Velox</td><td class="spec">2207</td><td>1750</td><td>~1400g</td><td>$15</td></tr>
-<tr><td>iFlight Xing2</td><td class="spec">2207</td><td>1855</td><td>~1600g</td><td>$21</td></tr></table>
-<p><strong>KV = RPM per Volt.</strong> Higher KV = faster but less torque. 1700-1900KV for 6S, 2400-2600KV for 4S.</p>
+        <h2>Flight Controller — The Brain</h2>
+        <p>The FC runs Betaflight and stabilizes flight using a gyro/accelerometer chip at 8kHz loop rate.</p>
+        <table>
+            <tr><th>Processor</th><th>Speed</th><th>Memory</th><th>Best For</th><th>Status</th></tr>
+            <tr><td class="spec">F411</td><td>100MHz</td><td>512KB</td><td>Whoops, micros</td><td>Budget</td></tr>
+            <tr><td class="spec">F405</td><td>168MHz</td><td>1MB</td><td>5-inch standard</td><td>✅ Best value</td></tr>
+            <tr><td class="spec">F722</td><td>216MHz</td><td>512KB</td><td>Advanced builds</td><td>✅ Popular</td></tr>
+            <tr><td class="spec">H743</td><td>480MHz</td><td>2MB</td><td>Future-proof</td><td>✅ Premium</td></tr>
+        </table>
+        <p><strong>Top FCs:</strong> SpeedyBee F405 V4 ($35), SpeedyBee F7 V3 ($55), Diatone Mamba F722 ($45)</p>
 
-<h2>Propellers - The Thrust</h2>
-<p>Blades that convert motor rotation into lift. Format: Diameter × Pitch × Blades (e.g., 5×4.3×3)</p>
-<table><tr><th>Model</th><th>Type</th><th>Best For</th></tr>
-<tr><td>HQ 5×4.3×3 V2S</td><td class="spec">3-blade</td><td>Freestyle (best overall)</td></tr>
-<tr><td>Gemfan 51466</td><td class="spec">3-blade</td><td>Racing</td></tr>
-<tr><td>HQ 5×4.3×2</td><td class="spec">2-blade</td><td>Efficiency</td></tr></table>
+        <h2>ESC — Motor Controllers</h2>
+        <p>Converts DC battery power to 3-phase AC for brushless motors. Usually 4-in-1 boards.</p>
+        <table>
+            <tr><th>Type</th><th>Current</th><th>Firmware</th><th>Best For</th></tr>
+            <tr><td class="spec">4-in-1 30A</td><td>30A per motor</td><td>BLHeli_32 / Bluejay</td><td>Micros, 3-inch</td></tr>
+            <tr><td class="spec">4-in-1 55A</td><td>55A per motor</td><td>BLHeli_32 / Bluejay</td><td>5-inch freestyle</td></tr>
+            <tr><td class="spec">4-in-1 65A+</td><td>65-70A</td><td>BLHeli_32</td><td>5-inch racing, 7"</td></tr>
+            <tr><td class="spec">AIO (FC+ESC)</td><td>20-40A</td><td>Integrated</td><td>Whoops, micros</td></tr>
+            <tr><td class="spec">Individual ESC</td><td>40-80A</td><td>BLHeli_32</td><td>X-Class, large</td></tr>
+        </table>
 
-<p style="margin-top:2rem"><a href="/knowledge-base/video-systems/" style="color:var(--accent)">Next: Video Transmission →</a></p>
-</section><footer><p>&copy; 2026 AutoSensor Tech</p></footer></body></html>
+        <h2>Motors — The Power</h2>
+        <p>Brushless motors spin the propellers. Format: StatorWidth×StatorHeight (e.g., 2207 = 22mm×7mm). KV = RPM per Volt.</p>
+        <table>
+            <tr><th>Motor Size</th><th>KV (6S)</th><th>KV (4S)</th><th>Prop Size</th><th>Use</th></tr>
+            <tr><td class="spec">0802</td><td>—</td><td>16000-22000</td><td>31-40mm</td><td>Tiny Whoop</td></tr>
+            <tr><td class="spec">1103-1204</td><td>—</td><td>6000-8000</td><td>2-2.5"</td><td>Micro, Cinewhoop</td></tr>
+            <tr><td class="spec">1404-1507</td><td>2700-3500</td><td>3400-4500</td><td>3-3.5"</td><td>Micro freestyle</td></tr>
+            <tr><td class="spec">2207</td><td>1700-1950</td><td>2300-2700</td><td>5"</td><td>Standard freestyle</td></tr>
+            <tr><td class="spec">2806-2807</td><td>1300-1500</td><td>1700-2000</td><td>7"</td><td>Long range</td></tr>
+            <tr><td class="spec">3115+</td><td>900-1200</td><td>—</td><td>10-12"</td><td>X-Class</td></tr>
+        </table>
+        <h3>Motor Recommendations (5-inch)</h3>
+        <table>
+            <tr><th>Motor</th><th>KV</th><th>Thrust</th><th>Price</th><th>Level</th></tr>
+            <tr><td class="spec">EMAX ECO II 2207</td><td>1900</td><td>~1500g</td><td>$16</td><td>Budget</td></tr>
+            <tr><td class="spec">T-Motor Velox V2207</td><td>1750</td><td>~1400g</td><td>$15</td><td>Mid-range</td></tr>
+            <tr><td class="spec">iFlight Xing2 2207</td><td>1855</td><td>~1600g</td><td>$21</td><td>Premium</td></tr>
+            <tr><td class="spec">Scorpion SII-2207</td><td>1750</td><td>~1500g</td><td>$28</td><td>Top-tier</td></tr>
+        </table>
+
+        <h2>Propellers — The Thrust</h2>
+        <p>Blades that convert motor rotation into lift. Format: Diameter × Pitch × Blades.</p>
+        <table>
+            <tr><th>Prop</th><th>Size</th><th>Type</th><th>Best For</th></tr>
+            <tr><td class="spec">Gemfan 1208</td><td>31mm</td><td>2-blade</td><td>Tiny Whoop</td></tr>
+            <tr><td class="spec">HQ 3x2x3</td><td>3"</td><td>3-blade</td><td>Micro freestyle</td></tr>
+            <tr><td class="spec">HQ 5x4.3x3 V2S</td><td>5"</td><td>3-blade</td><td>Freestyle (best all-round)</td></tr>
+            <tr><td class="spec">Gemfan 51466</td><td>5"</td><td>3-blade</td><td>Racing</td></tr>
+            <tr><td class="spec">HQ 5x4.3x2</td><td>5"</td><td>2-blade</td><td>Efficiency</td></tr>
+            <tr><td class="spec">HQ 7x4x3</td><td>7"</td><td>3-blade</td><td>Long range</td></tr>
+        </table>
+        <p><strong>Props are consumables!</strong> Buy at least 10 pairs when starting. Budget $1-2 per pair.</p>
+
+        <h2>Video Transmitter (VTX)</h2>
+        <table>
+            <tr><th>System</th><th>Weight</th><th>Power</th><th>Price</th><th>Size Range</th></tr>
+            <tr><td class="spec">DJI O4 Pro</td><td>33g</td><td>—</td><td>$229</td><td>3"+ only</td></tr>
+            <tr><td class="spec">DJI O4 Lite</td><td>15g</td><td>—</td><td>$109</td><td>2"+ (tiny!)</td></tr>
+            <tr><td class="spec">HDZero Micro V3</td><td>9g</td><td>400mW</td><td>$40</td><td>Whoops+</td></tr>
+            <tr><td class="spec">Walksnail Nano</td><td>7g</td><td>—</td><td>$60</td><td>Whoops+</td></tr>
+            <tr><td class="spec">Analog (TBS Unify)</td><td>3-5g</td><td>400mW-1W</td><td>$25</td><td>All sizes</td></tr>
+        </table>
+
+        <h2>Receiver</h2>
+        <table>
+            <tr><th>Receiver</th><th>Size</th><th>Weight</th><th>Price</th><th>Best For</th></tr>
+            <tr><td class="spec">BetaFPV ELRS Nano</td><td>10x10mm</td><td>0.9g</td><td>$15</td><td>Racing, micros</td></tr>
+            <tr><td class="spec">Happymodel EP2</td><td>15x12mm</td><td>1.2g</td><td>$12</td><td>Budget</td></tr>
+            <tr><td class="spec">RadioMaster RP3</td><td>15x12mm</td><td>1.5g</td><td>$18</td><td>Diversity</td></tr>
+            <tr><td class="spec">BetaFPV SuperD</td><td>20x15mm</td><td>3g</td><td>$22</td><td>Long range 900MHz</td></tr>
+        </table>
+
+        <h2>Build by Size — Quick Reference</h2>
+        <h3>Tiny Whoop Build (65mm)</h3>
+        <p>AIO board (FC+ESC+VTX+RX), 0802 motors, 31mm props, 1S battery. Total: $80-120.</p>
+
+        <h3>3-Inch Micro Build</h3>
+        <p>20x20 stack, 1404 motors, 3" props, 4S 450-650mAh, analog or HDZero. Total: $180-280.</p>
+
+        <h3>5-Inch Standard Build</h3>
+        <p>30.5mm stack (F405+55A ESC), 2207 1900KV motors, 5" props, 6S 1300mAh, DJI O4, ELRS. Total: $470-550.</p>
+
+        <h3>7-Inch Long Range Build</h3>
+        <p>30.5mm stack, 2806 1500KV motors, 7" props, 6S 3000mAh or Li-Ion, 900MHz ELRS, GPS. Total: $500-700.</p>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/video-systems/" style="color:var(--accent)">Next: Video Systems →</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

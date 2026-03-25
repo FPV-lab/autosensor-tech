@@ -1,46 +1,162 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Video Systems - AutoSensor Tech</title><style>*{margin:0;padding:0;box-sizing:border-box}:root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}body{font-family:-apple-system,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}.logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}.nav-links a{color:var(--text);text-decoration:none;margin-left:2rem}section{padding:4rem 2rem;max-width:1000px;margin:0 auto}h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}h3{color:var(--accent2);margin:1.5rem 0 0.5rem}p{margin-bottom:1rem;color:var(--text-dim)}table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}.breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}.info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}@media(max-width:768px){.nav-links{display:none}}</style></head>
-<body><nav><a href="/" class="logo">Auto<span>Sensor</span> Tech</a><div class="nav-links"><a href="/">Home</a><a href="/knowledge-base/">Knowledge Base</a></div></nav>
-<section><div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Video Systems</div>
-<h1>📡 Video Transmission Systems</h1><p>Digital vs Analog - Complete comparison for 2026</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Transmission Systems - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
 
-<h2>System Overview</h2>
-<div class="info-box"><strong>Key Decision:</strong> Once you choose an FPV system, you're locked into that ecosystem. DJI goggles don't work with Walksnail, etc. Choose wisely!</div>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Video Systems</div>
 
-<table><tr><th>System</th><th>Quality</th><th>Latency</th><th>Range</th><th>Price</th><th>Best For</th></tr>
-<tr><td>DJI O4 Pro</td><td class="spec">4K/1080p</td><td>15-30ms</td><td>13km+</td><td>High</td><td>Freestyle/Cinematic</td></tr>
-<tr><td>Analog</td><td>700 TVL</td><td class="spec">&lt;10ms</td><td>1-10km</td><td>Low</td><td>Racing/Budget</td></tr>
-<tr><td>HDZero</td><td>720-1080p</td><td class="spec">Fixed low</td><td>2-5km</td><td>Mid</td><td>Racing</td></tr>
-<tr><td>Walksnail</td><td class="spec">1080p</td><td>Medium</td><td>4km+</td><td>Mid</td><td>DJI Alternative</td></tr>
-<tr><td>OpenIPC</td><td>720p</td><td>25ms</td><td>Limited</td><td>Low</td><td>Tinkerers</td></tr></table>
+        <h1>📡 Video Transmission Systems</h1>
+        <p>Digital vs Analog — Complete comparison for all drone sizes (2026)</p>
 
-<h2>DJI O4 Pro (Recommended)</h2>
-<table><tr><th>Spec</th><th>Value</th></tr>
-<tr><td>Sensor</td><td class="spec">1/1.3" CMOS</td></tr>
-<tr><td>Recording</td><td class="spec">4K 60/120fps @ 130Mbps</td></tr>
-<tr><td>Live Feed</td><td class="spec">1080p 60Mbps</td></tr>
-<tr><td>Range</td><td class="spec">13km+ (26km tested)</td></tr>
-<tr><td>Latency</td><td class="spec">15ms (Race Mode)</td></tr>
-<tr><td>Weight</td><td class="spec">33g</td></tr>
-<tr><td>Stabilization</td><td class="spec">RockSteady</td></tr>
-<tr><td>Price</td><td class="spec">$229</td></tr></table>
-<p><strong>Can replace GoPro!</strong> Best image quality in FPV.</p>
+        <div class="info-box">
+            <strong>⚠️ Ecosystem Lock-In:</strong> Once you choose an FPV video system, you're locked in. DJI goggles only work with DJI air units. HDZero goggles only work with HDZero/Analog. Choose wisely!
+        </div>
 
-<h3>DJI Goggles Comparison</h3>
-<table><tr><th>Model</th><th>Display</th><th>FOV</th><th>Price</th></tr>
-<tr><td>Goggles 3</td><td class="spec">100Hz OLED</td><td>44°</td><td>$499</td></tr>
-<tr><td>Goggles 2</td><td class="spec">100Hz OLED</td><td>51°</td><td>$449</td></tr>
-<tr><td>Integra</td><td class="spec">100Hz OLED</td><td>44°</td><td>$349</td></tr>
-<tr><td>N3</td><td class="spec">60Hz LCD</td><td>54°</td><td>$229</td></tr></table>
+        <h2>System Overview</h2>
+        <table>
+            <tr><th>System</th><th>Quality</th><th>Latency</th><th>Range</th><th>Price (Full Kit)</th><th>Best For</th></tr>
+            <tr><td class="spec">DJI O4 Pro</td><td>4K/1080p</td><td>15-30ms</td><td>13km+</td><td>$730+</td><td>Freestyle/Cinematic</td></tr>
+            <tr><td class="spec">DJI O4 Lite</td><td>1080p</td><td>20-30ms</td><td>10km+</td><td>$550+</td><td>Micro/Whoop+</td></tr>
+            <tr><td class="spec">Analog</td><td>700 TVL</td><td class="spec">&lt;10ms</td><td>1-10km</td><td>$130+</td><td>Racing/Budget</td></tr>
+            <tr><td class="spec">HDZero</td><td>720-1080p</td><td class="spec">Fixed low</td><td>2-5km</td><td>$350+</td><td>Racing</td></tr>
+            <tr><td class="spec">Walksnail</td><td>1080p</td><td>Medium</td><td>4km+</td><td>$350+</td><td>DJI Alternative</td></tr>
+            <tr><td class="spec">OpenIPC</td><td>720-1080p</td><td>25ms</td><td>Limited</td><td>$100+</td><td>Tinkerers/Open Source</td></tr>
+        </table>
 
-<h2>Analog System</h2>
-<table><tr><th>Component</th><th>Price</th><th>Top Brands</th></tr>
-<tr><td>Camera</td><td class="spec">$15-40</td><td>Caddx, Foxeer, RunCam</td></tr>
-<tr><td>VTX</td><td class="spec">$15-40</td><td>Up to 10W power!</td></tr>
-<tr><td>Goggles</td><td class="spec">$80-500</td><td>Skyzone SKY04X Pro</td></tr></table>
-<p><strong>Pros:</strong> Cheapest, lowest latency, no lock-in, video sharing. <strong>Cons:</strong> Poor image quality.</p>
+        <h2>DJI O4 Pro (Recommended)</h2>
+        <p>The best image quality in FPV. Can replace GoPro for most pilots.</p>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Sensor</td><td class="spec">1/1.3" CMOS (same as GoPro Hero 11)</td></tr>
+            <tr><td>Recording</td><td class="spec">4K 60/120fps @ 130Mbps, D-Log M</td></tr>
+            <tr><td>Live Feed</td><td class="spec">1080p 60Mbps to goggles</td></tr>
+            <tr><td>Range</td><td class="spec">13km+ (tested 26km)</td></tr>
+            <tr><td>Latency</td><td class="spec">15ms Race Mode, 30ms Normal</td></tr>
+            <tr><td>Weight</td><td class="spec">33g</td></tr>
+            <tr><td>Stabilization</td><td class="spec">RockSteady 3.0</td></tr>
+            <tr><td>Price</td><td class="spec">$229</td></tr>
+        </table>
+        <p><strong>⚠️ Min drone size:</strong> 3-inch+ (too heavy for Tiny Whoops). Use O4 Lite for micros.</p>
 
-<h2>HDZero (Racing)</h2>
-<p>"Analog Plus" - behaves like analog but with better image quality. Fixed ultra-low latency, perfect for competitive racing. 720p@90fps or 1080p@60fps.</p>
+        <h3>DJI O4 Lite</h3>
+        <p>Released late 2025 — brings DJI quality to Tiny Whoops and micros for the first time.</p>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Weight</td><td class="spec">15g (tiny!)</td></tr>
+            <tr><td>Recording</td><td class="spec">1080p 60fps</td></tr>
+            <tr><td>Compatible with</td><td class="spec">DJI Goggles 2/3/Integra/N3</td></tr>
+            <tr><td>Price</td><td class="spec">$109</td></tr>
+        </table>
 
-<p style="margin-top:2rem"><a href="/knowledge-base/radio/" style="color:var(--accent)">Next: Radio Control →</a></p>
-</section><footer><p>&copy; 2026 AutoSensor Tech</p></footer></body></html>
+        <h3>DJI Goggles Comparison</h3>
+        <table>
+            <tr><th>Model</th><th>Display</th><th>FOV</th><th>Weight</th><th>Price</th><th>O4 Support</th></tr>
+            <tr><td class="spec">Goggles 3</td><td>100Hz OLED</td><td>44°</td><td>290g</td><td>$499</td><td>✅ Full</td></tr>
+            <tr><td class="spec">Goggles 2</td><td>100Hz OLED</td><td>51°</td><td>290g</td><td>$449</td><td>✅ Full</td></tr>
+            <tr><td class="spec">Integra</td><td>100Hz OLED</td><td>44°</td><td>290g</td><td>$349</td><td>✅ Full</td></tr>
+            <tr><td class="spec">N3</td><td>60Hz LCD</td><td>54°</td><td>320g</td><td>$229</td><td>✅ Budget</td></tr>
+        </table>
+
+        <h2>Analog System</h2>
+        <p>Still the standard for racing and budget builds. Cheapest, lightest, no lock-in.</p>
+        <table>
+            <tr><th>Component</th><th>Price</th><th>Weight</th><th>Top Brands</th></tr>
+            <tr><td>Camera</td><td class="spec">$15-40</td><td>3-8g</td><td>Caddx Ratel, Foxeer, RunCam</td></tr>
+            <tr><td>VTX</td><td class="spec">$15-40</td><td>2-5g</td><td>TBS Unify, Rush Tank, HGLRC Zeus</td></tr>
+            <tr><td>Goggles</td><td class="spec">$80-500</td><td>—</td><td>Skyzone SKY04X Pro (best), Eachine EV800DM (budget)</td></tr>
+        </table>
+        <h3>Analog Pros & Cons</h3>
+        <ul>
+            <li><strong>Pros:</strong> Cheapest, lightest (great for whoops), lowest latency, no lock-in, video sharing</li>
+            <li><strong>Cons:</strong> Poor image quality (like 1970s TV), static/snow, no onboard recording</li>
+            <li><strong>Best for:</strong> Racing (latency matters), budget builds, Tiny Whoops</li>
+        </ul>
+
+        <h2>HDZero (Racing Focus)</h2>
+        <p>"Analog Plus" — digital image quality with analog-like latency behavior. Fixed low latency regardless of signal strength.</p>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Resolution</td><td class="spec">720p@90fps or 1080p@60fps</td></tr>
+            <tr><td>Latency</td><td class="spec">Fixed low (~25ms worst case)</td></tr>
+            <tr><td>Behavior</td><td class="spec">Freezes/snow when signal lost (like analog)</td></tr>
+            <tr><td>Weight</td><td class="spec">3-9g (multiple VTX sizes)</td></tr>
+            <tr><td>Lock-in</td><td class="spec">HDZero goggles also support Analog!</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Competitive racing where every millisecond matters.</p>
+
+        <h2>Walksnail (DJI Alternative)</h2>
+        <p>Good image quality, reasonable latency, and some goggle flexibility.</p>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Resolution</td><td class="spec">1080p recording + 1080p live</td></tr>
+            <tr><td>Range</td><td class="spec">4km+ typical</td></tr>
+            <tr><td>Weight</td><td class="spec">7-28g (Nano to Pro)</td></tr>
+            <tr><td>Price</td><td class="spec">~$100-200 (air unit + goggles)</td></tr>
+        </table>
+
+        <h2>OpenIPC (Open Source)</h2>
+        <p>The newcomer — fully open-source digital FPV. No lock-in, cheap hardware, but still maturing.</p>
+        <table>
+            <tr><th>Spec</th><th>Value</th></tr>
+            <tr><td>Resolution</td><td class="spec">720-1080p</td></tr>
+            <tr><td>Latency</td><td class="spec">~25ms</td></tr>
+            <tr><td>Hardware</td><td class="spec">WiFi chips (ESP32, etc.)</td></tr>
+            <tr><td>Price</td><td class="spec">$30-80 (air unit)</td></tr>
+            <tr><td>Status</td><td class="spec">Early — not fully stable</td></tr>
+        </table>
+        <p><strong>Best for:</strong> Hobbyists who like tinkering and supporting open source.</p>
+
+        <h2>By Drone Size</h2>
+        <table>
+            <tr><th>Drone Size</th><th>Recommended System</th><th>Why</th></tr>
+            <tr><td class="spec">Tiny Whoop (65mm)</td><td>Analog or HDZero Nano</td><td>Lightest, cheapest</td></tr>
+            <tr><td class="spec">75mm Whoop</td><td>DJI O4 Lite or Analog</td><td>Quality vs weight tradeoff</td></tr>
+            <tr><td class="spec">Cinewhoop (2-3")</td><td>DJI O4 Lite</td><td>HD recording for cinematic</td></tr>
+            <tr><td class="spec">3-3.5" Micro</td><td>DJI O4 Lite or HDZero</td><td>Good balance</td></tr>
+            <tr><td class="spec">5" Freestyle</td><td>DJI O4 Pro</td><td>Best quality, replaces GoPro</td></tr>
+            <tr><td class="spec">5" Racing</td><td>Analog or HDZero</td><td>Lowest latency</td></tr>
+            <tr><td class="spec">7" Long Range</td><td>DJI O4 Pro</td><td>Range + recording</td></tr>
+            <tr><td class="spec">Cinelifter</td><td>DJI O4 Pro + GoPro</td><td>Maximum quality</td></tr>
+        </table>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/radio/" style="color:var(--accent)">Next: Radio Control →</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>
