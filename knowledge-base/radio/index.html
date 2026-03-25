@@ -1,35 +1,145 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Radio Control - AutoSensor Tech</title><style>*{margin:0;padding:0;box-sizing:border-box}:root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}body{font-family:-apple-system,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}.logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}.nav-links a{color:var(--text);text-decoration:none;margin-left:2rem}section{padding:4rem 2rem;max-width:1000px;margin:0 auto}h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}h3{color:var(--accent2);margin:1.5rem 0 0.5rem}p{margin-bottom:1rem;color:var(--text-dim)}table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}.breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}.info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}@media(max-width:768px){.nav-links{display:none}}</style></head>
-<body><nav><a href="/" class="logo">Auto<span>Sensor</span> Tech</a><div class="nav-links"><a href="/">Home</a><a href="/knowledge-base/">Knowledge Base</a></div></nav>
-<section><div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Radio Control</div>
-<h1>📻 Radio Control Systems</h1><p>How you control your FPV drone</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Control - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
 
-<h2>ExpressLRS (ELRS) - The 2026 Standard</h2>
-<div class="info-box"><strong>ExpressLRS</strong> is the industry standard radio protocol. Open source, cheapest, best performance. Available in 2.4GHz (most popular) and 900MHz (long range).</div>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Radio Control</div>
 
-<table><tr><th>Band</th><th>Update Rate</th><th>Range</th><th>Best For</th></tr>
-<tr><td>2.4 GHz</td><td class="spec">1000Hz</td><td>10km+</td><td>General use</td></tr>
-<tr><td>900 MHz</td><td class="spec">200Hz</td><td>30km+</td><td>Long range</td></tr></table>
+        <h1>📻 Radio Control</h1>
+        <p>Transmitters, receivers, and the protocols that connect you to your drone</p>
 
-<h2>Recommended Radios</h2>
-<table><tr><th>Model</th><th>Price</th><th>Best For</th></tr>
-<tr><td>RadioMaster Pocket</td><td class="spec">$65</td><td>Budget/Beginner</td></tr>
-<tr><td>RadioMaster Boxer</td><td class="spec">$100</td><td>Best Value</td></tr>
-<tr><td>RadioMaster TX15</td><td class="spec">$139</td><td>Color Screen</td></tr>
-<tr><td>Jumper T20S</td><td class="spec">$110</td><td>Portable</td></tr></table>
+        <h2>How Radio Control Works</h2>
+        <p>Your radio transmitter sends control signals to a receiver on the drone. The receiver passes commands to the flight controller. In 2026, ExpressLRS (ELRS) has become the dominant protocol, offering the best combination of range, speed, and price.</p>
 
-<h2>Control Inputs</h2>
-<table><tr><th>Stick</th><th>Axis</th><th>Function</th></tr>
-<tr><td>Left - Up/Down</td><td class="spec">Throttle</td><td>Motor speed</td></tr>
-<tr><td>Left - Left/Right</td><td class="spec">Yaw</td><td>Rotate left/right</td></tr>
-<tr><td>Right - Up/Down</td><td class="spec">Pitch</td><td>Tilt forward/back</td></tr>
-<tr><td>Right - Left/Right</td><td class="spec">Roll</td><td>Tilt left/right</td></tr></table>
+        <div class="info-box">
+            <strong>2026 Standard:</strong> EdgeTX firmware + ExpressLRS protocol + 2.4GHz band. This combination offers 1000Hz update rate, 10km+ range, and costs under $100 for the transmitter.
+        </div>
 
-<h2>ELRS vs Crossfire</h2>
-<table><tr><th>Feature</th><th>ELRS</th><th>Crossfire</th></tr>
-<tr><td>Cost</td><td class="spec">Cheaper</td><td>More expensive</td></tr>
-<tr><td>Update Rate</td><td class="spec">1000Hz</td><td>150Hz</td></tr>
-<tr><td>Open Source</td><td class="spec">Yes</td><td>No</td></tr>
-<tr><td>Range</td><td class="spec">10-30km</td><td>30km+</td></tr></table>
+        <h2>Radio Protocols Comparison</h2>
+        <table>
+            <tr><th>Protocol</th><th>Frequency</th><th>Update Rate</th><th>Range</th><th>Open Source</th><th>Price</th></tr>
+            <tr><td class="spec">ExpressLRS</td><td>2.4GHz / 900MHz</td><td>25-1000Hz</td><td>10-50km</td><td>✅ Yes</td><td>$10-20</td></tr>
+            <tr><td>Crossfire</td><td>900MHz</td><td>150Hz</td><td>40km+</td><td>❌ No</td><td>$50-80</td></tr>
+            <tr><td>Tracer</td><td>2.4GHz</td><td>250Hz</td><td>5km</td><td>❌ No</td><td>$50-70</td></tr>
+            <tr><td>FrSky ACCST</td><td>2.4GHz</td><td>9ms</td><td>2km</td><td>❌ No</td><td>$15-30</td></tr>
+            <tr><td>DJI RC (SBus)</td><td>2.4GHz</td><td>7ms</td><td>10km+</td><td>❌ No</td><td>Built-in</td></tr>
+        </table>
 
-<p style="margin-top:2rem"><a href="/knowledge-base/batteries/" style="color:var(--accent)">Next: Batteries →</a></p>
-</section><footer><p>&copy; 2026 AutoSensor Tech</p></footer></body></html>
+        <h2>ExpressLRS (ELRS) Deep Dive</h2>
+        <p>ExpressLRS is an open-source radio control protocol that has revolutionized FPV. It offers the best performance at the lowest cost, which is why it's become the industry standard.</p>
+
+        <h3>ELRS 2.4GHz vs 900MHz</h3>
+        <table>
+            <tr><th>Feature</th><th>2.4GHz</th><th>900MHz</th></tr>
+            <tr><td class="spec">Update Rate</td><td>25-1000Hz</td><td>25-200Hz</td></tr>
+            <tr><td>Penetration</td><td>Good</td><td>Excellent</td></tr>
+            <tr><td>Range (default)</td><td>10km+</td><td>30km+</td></tr>
+            <tr><td>Antenna Size</td><td>Small</td><td>Larger</td></tr>
+            <tr><td>Best For</td><td>Freestyle, racing</td><td>Long range</td></tr>
+            <tr><td>Packet Rate</td><td>500Hz (sweet spot)</td><td>100Hz (sweet spot)</td></tr>
+        </table>
+
+        <h3>ELRS Setup</h3>
+        <ol style="margin:1rem 0 1rem 2rem;color:var(--text-dim)">
+            <li>Flash ELRS firmware to TX module using <strong>flasher.expresslrs.org</strong></li>
+            <li>Flash ELRS firmware to RX with same binding phrase</li>
+            <li>Set packet rate (250Hz recommended for range, 500Hz for racing)</li>
+            <li>Bind: power cycle RX 3 times within 30 seconds of powering TX</li>
+            <li>In Betaflight: set receiver to CRSF protocol on the correct UART</li>
+        </ol>
+
+        <h2>Recommended Transmitters (2026)</h2>
+        <table>
+            <tr><th>Transmitter</th><th>Price</th><th>Protocol</th><th>Gimbals</th><th>Best For</th></tr>
+            <tr><td class="spec">RadioMaster Pocket</td><td>$65</td><td>ELRS</td><td>Hall</td><td>Budget, portable</td></tr>
+            <tr><td class="spec">RadioMaster Boxer</td><td>$100</td><td>ELRS</td><td>Hall</td><td>Best value</td></tr>
+            <tr><td class="spec">Jumper T20S</td><td>$110</td><td>ELRS</td><td>Hall</td><td>Compact, feature-rich</td></tr>
+            <tr><td class="spec">RadioMaster TX16S II</td><td>$150</td><td>Multi</td><td>Hall</td><td>Multi-protocol</td></tr>
+            <tr><td class="spec">RadioMaster TX15</td><td>$139</td><td>ELRS</td><td>AG01 Hall</td><td>Premium feel</td></tr>
+            <tr><td class="spec">DJI FPV Remote 3</td><td>$199</td><td>DJI</td><td>Hall</td><td>DJI ecosystem only</td></tr>
+        </table>
+
+        <h2>Firmware: EdgeTX</h2>
+        <p>EdgeTX is the open-source firmware that runs on most modern transmitters. It's a fork of OpenTX with more features and active development.</p>
+
+        <h3>EdgeTX Features</h3>
+        <ul>
+            <li>Custom mixes and curves for precise control</li>
+            <li>Logical switches and special functions</li>
+            <li>Model profiles (up to 60+ models)</li>
+            <li>Telemetry display (battery voltage, RSSI, GPS)</li>
+            <li>Multi-protocol support</li>
+            <li>Color touchscreen UI (on supported radios)</li>
+        </ul>
+
+        <h2>Receiver Options</h2>
+        <table>
+            <tr><th>Receiver</th><th>Protocol</th><th>Size</th><th>Price</th><th>Notes</th></tr>
+            <tr><td class="spec">BetaFPV ELRS Nano</td><td>2.4GHz ELRS</td><td>10x10mm</td><td>$15</td><td>Tiny, great for racing</td></tr>
+            <tr><td class="spec">Happymodel EP2</td><td>2.4GHz ELRS</td><td>15x12mm</td><td>$12</td><td>Budget choice</td></tr>
+            <tr><td class="spec">RadioMaster RP3</td><td>2.4GHz ELRS</td><td>15x12mm</td><td>$18</td><td>Diversity antenna</td></tr>
+            <tr><td class="spec">BetaFPV SuperD</td><td>900MHz ELRS</td><td>20x15mm</td><td>$22</td><td>Long range</td></tr>
+            <tr><td class="spec">RadioMaster RP4TD</td><td>2.4GHz ELRS</td><td>20x15mm</td><td>$25</td><td>Dual antenna diversity</td></tr>
+        </table>
+
+        <h2>Control Rates & Expo</h2>
+        <p>Rates determine how fast your drone rotates at different stick positions. Expo adds a dead zone around center for fine control.</p>
+
+        <table>
+            <tr><th>Style</th><th>Rate</th><th>Expo</th><th>Max deg/s</th></tr>
+            <tr><td class="spec">Beginner</td><td>0.5-0.7</td><td>0.3-0.5</td><td>250-350</td></tr>
+            <tr><td class="spec">Freestyle</td><td>0.7-1.0</td><td>0.1-0.3</td><td>400-600</td></tr>
+            <tr><td class="spec">Racing</td><td>0.8-1.2</td><td>0-0.1</td><td>500-800</td></tr>
+            <tr><td class="spec">Cinematic</td><td>0.4-0.6</td><td>0.4-0.6</td><td>150-250</td></tr>
+        </table>
+
+        <h2>Antenna Placement</h2>
+        <ul>
+            <li>Mount RX antenna away from carbon fiber (blocks RF)</li>
+            <li>Use zip ties to keep antenna rigid and exposed</li>
+            <li>For diversity: mount antennas 90° apart</li>
+            <li>Keep antenna away from VTX antenna (interference)</li>
+            <li>T-antenna: mount vertically for best omnidirectional coverage</li>
+        </ul>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/batteries/" style="color:var(--accent)">Next: Batteries →</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

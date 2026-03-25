@@ -1,10 +1,175 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Batteries - AutoSensor Tech</title><style>*{margin:0;padding:0;box-sizing:border-box}:root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}body{font-family:-apple-system,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}.logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}.nav-links a{color:var(--text);text-decoration:none;margin-left:2rem}section{padding:4rem 2rem;max-width:1000px;margin:0 auto}h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}h3{color:var(--accent2);margin:1.5rem 0 0.5rem}p{margin-bottom:1rem;color:var(--text-dim)}table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}.breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}.info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}@media(max-width:768px){.nav-links{display:none}}</style></head>
-<body><nav><a href="/" class="logo">Auto<span>Sensor</span> Tech</a><div class="nav-links"><a href="/">Home</a><a href="/knowledge-base/">Knowledge Base</a></div></nav>
-<section><div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Batteries</div>
-<h1>🔋 LiPo Batteries</h1><p>Power source - handle with care!</p>
-<h2>Cell Count (S Rating)</h2><table><tr><th>Cells</th><th>Nominal V</th><th>Full V</th><th>Use</th></tr><tr><td>1S</td><td class="spec">3.7V</td><td>4.2V</td><td>Tiny Whoop</td></tr><tr><td>4S</td><td class="spec">14.8V</td><td>16.8V</td><td>Older 5-inch</td></tr><tr><td>6S</td><td class="spec">22.2V</td><td>25.2V</td><td>Modern 5-inch</td></tr></table>
-<h2>C Rating</h2><p>Max Current = Capacity × C Rating. Example: 1300mAh × 100C = 130A max draw.</p>
-<h2>Battery Types</h2><table><tr><th>Type</th><th>Full V</th><th>Energy</th><th>Use</th></tr><tr><td>LiPo</td><td class="spec">4.2V/cell</td><td>Standard</td><td>Most FPV</td></tr><tr><td>LiHV</td><td class="spec">4.35V/cell</td><td>+10%</td><td>Tiny Whoop</td></tr><tr><td>Li-Ion</td><td class="spec">4.2V/cell</td><td>Higher density</td><td>Long range</td></tr></table>
-<h2>⚠️ Safety Rules</h2><table><tr><th>Rule</th><th>Why</th></tr><tr><td>Never charge unattended</td><td class="spec">Fire risk</td></tr><tr><td>Use LiPo safe bags</td><td class="spec">Contain fire</td></tr><tr><td>Storage: 3.85V/cell</td><td class="spec">Prevent degradation</td></tr><tr><td>Never below 3.0V/cell</td><td class="spec">Permanent damage</td></tr><tr><td>Stop if swollen</td><td class="spec">Fire/damage risk</td></tr></table>
-<p style="margin-top:2rem"><a href="/knowledge-base/software/" style="color:var(--accent)">Next: Software →</a></p>
-</section><footer><p>&copy; 2026 AutoSensor Tech</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiPo Batteries - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Batteries</div>
+
+        <h1>🔋 LiPo Batteries for FPV Drones</h1>
+        <p>Everything you need to know about choosing, charging, and safely using LiPo batteries</p>
+
+        <h2>LiPo Basics</h2>
+        <p>Lithium Polymer (LiPo) batteries are the standard power source for FPV drones. They provide high energy density and high discharge rates, making them ideal for the demanding power requirements of multirotor motors.</p>
+
+        <h3>Understanding Cell Count (S Rating)</h3>
+        <table>
+            <tr><th>Cell Count</th><th>Nominal Voltage</th><th>Fully Charged</th><th>Storage Voltage</th><th>Common Use</th></tr>
+            <tr><td class="spec">1S</td><td>3.7V</td><td>4.2V</td><td>3.85V</td><td>Tiny Whoop, micro</td></tr>
+            <tr><td class="spec">2S</td><td>7.4V</td><td>8.4V</td><td>7.7V</td><td>Small quads</td></tr>
+            <tr><td class="spec">3S</td><td>11.1V</td><td>12.6V</td><td>11.55V</td><td>3-inch, beginner</td></tr>
+            <tr><td class="spec">4S</td><td>14.8V</td><td>16.8V</td><td>15.4V</td><td>5-inch (legacy)</td></tr>
+            <tr><td class="spec">6S</td><td>22.2V</td><td>25.2V</td><td>23.1V</td><td>5-inch (2026 standard)</td></tr>
+        </table>
+
+        <div class="info-box">
+            <strong>2026 Standard:</strong> 6S is now the standard for 5-inch FPV drones. Higher voltage means lower current for the same power, resulting in cooler ESCs and longer component life.
+        </div>
+
+        <h3>Key Parameters</h3>
+        <table>
+            <tr><th>Parameter</th><th>What It Means</th><th>What to Look For</th></tr>
+            <tr><td class="spec">Capacity (mAh)</td><td>How much energy stored</td><td>1100-1300mAh for 5-inch</td></tr>
+            <tr><td class="spec">C Rating</td><td>Max discharge rate</td><td>100C+ (higher is better)</td></tr>
+            <tr><td class="spec">Internal Resistance</td><td>Efficiency loss</td><td>Lower is better (&lt;5mΩ per cell)</td></tr>
+            <tr><td class="spec">Weight</td><td>Affects flight performance</td><td>Lighter = more agile</td></tr>
+            <tr><td class="spec">Connector</td><td>How it plugs in</td><td>XT60 (standard), XT30 (micro)</td></tr>
+        </table>
+
+        <h3>C Rating Explained</h3>
+        <p>The C rating indicates how fast a battery can safely discharge. <strong>Max current = Capacity × C Rating</strong>.</p>
+        <p>Example: A 1300mAh 100C battery can deliver: 1.3Ah × 100 = 130A continuous.</p>
+        <ul>
+            <li><strong>50-80C:</strong> Budget batteries, fine for casual flying</li>
+            <li><strong>100-120C:</strong> Good quality, recommended</li>
+            <li><strong>130-150C:</strong> Premium, racing grade</li>
+        </ul>
+
+        <h2>Battery Types</h2>
+        <table>
+            <tr><th>Type</th><th>Voltage/Cell</th><th>Pros</th><th>Cons</th><th>Best For</th></tr>
+            <tr><td class="spec">LiPo</td><td>3.7V nominal</td><td>High power, light</td><td>Fragile, fire risk</td><td>Freestyle, racing</td></tr>
+            <tr><td class="spec">LiHV</td><td>3.8V nominal</td><td>5-10% more capacity</td><td>Shorter lifespan</td><td>Racing (extra edge)</td></tr>
+            <tr><td class="spec">Li-Ion</td><td>3.6V nominal</td><td>High capacity, safe</td><td>Low discharge rate</td><td>Long range cruising</td></tr>
+        </table>
+
+        <h2>Recommended Batteries (2026)</h2>
+        <h3>5-Inch Freestyle/Racing (6S)</h3>
+        <table>
+            <tr><th>Battery</th><th>Capacity</th><th>C Rating</th><th>Weight</th><th>Price</th></tr>
+            <tr><td class="spec">CNHL Black 1300mAh 6S</td><td>1300mAh</td><td>100C</td><td>205g</td><td>$28</td></tr>
+            <tr><td class="spec">Tattu R-Line V4 1300mAh</td><td>1300mAh</td><td>130C</td><td>195g</td><td>$42</td></tr>
+            <tr><td class="spec">Auline 1100mAh 6S</td><td>1100mAh</td><td>120C</td><td>175g</td><td>$25</td></tr>
+            <tr><td class="spec">GNB 1100mAh 6S LiHV</td><td>1100mAh</td><td>100C</td><td>168g</td><td>$22</td></tr>
+        </table>
+
+        <h3>Long Range (6S)</h3>
+        <table>
+            <tr><th>Battery</th><th>Capacity</th><th>Type</th><th>Weight</th><th>Flight Time</th></tr>
+            <tr><td class="spec">CNHL 3000mAh 6S</td><td>3000mAh</td><td>LiPo</td><td>420g</td><td>10-15 min</td></tr>
+            <tr><td class="spec">Molicel P42A 6S Li-Ion</td><td>4200mAh</td><td>Li-Ion</td><td>380g</td><td>15-25 min</td></tr>
+            <tr><td class="spec">Samsung 50E 6S Li-Ion</td><td>5000mAh</td><td>Li-Ion</td><td>420g</td><td>20-30 min</td></tr>
+        </table>
+
+        <h2>Charging</h2>
+
+        <h3>Charging Rules</h3>
+        <div class="warn-box">
+            <ul>
+                <li><strong>ALWAYS</strong> use balance charging (never charge through main leads only)</li>
+                <li><strong>NEVER</strong> leave charging batteries unattended</li>
+                <li><strong>ALWAYS</strong> charge in a LiPo-safe bag or ammo box</li>
+                <li><strong>NEVER</strong> charge at more than 1C rate (1300mAh = max 1.3A charge current)</li>
+                <li><strong>NEVER</strong> charge a damaged, puffy, or swollen battery</li>
+                <li><strong>ALWAYS</strong> check cell voltages before charging — discard if any cell below 2.5V</li>
+            </ul>
+        </div>
+
+        <h3>Charger Recommendations</h3>
+        <table>
+            <tr><th>Charger</th><th>Max Power</th><th>Channels</th><th>Price</th></tr>
+            <tr><td class="spec">ISDT D2</td><td>200W</td><td>2</td><td>$75</td></tr>
+            <tr><td class="spec">HOTA D6 Pro</td><td>325W</td><td>2</td><td>$95</td></tr>
+            <tr><td class="spec">ToolkitRC M8S</td><td>200W</td><td>1</td><td>$45</td></tr>
+            <tr><td class="spec">iSDT Q6 Nano</td><td>200W</td><td>1</td><td>$35</td></tr>
+        </table>
+
+        <h3>Charging Steps</h3>
+        <ol style="margin:1rem 0 1rem 2rem;color:var(--text-dim)">
+            <li>Connect main power lead to charger</li>
+            <li>Connect balance lead to balance board</li>
+            <li>Select "LiPo Balance Charge" mode</li>
+            <li>Set cell count (6S = 6 cells)</li>
+            <li>Set charge current to 1C (e.g., 1.3A for 1300mAh)</li>
+            <li>Start charge and monitor</li>
+        </ol>
+
+        <h2>Storage</h2>
+
+        <h3>Storage Voltage</h3>
+        <p>When not flying for more than 3 days, storage-charge your batteries to <strong>3.85V per cell</strong> (3.8V for LiHV). This maximizes lifespan.</p>
+
+        <h3>Storage Rules</h3>
+        <ul>
+            <li>Store at room temperature (15-25°C)</li>
+            <li>Use LiPo-safe bags or ammo box</li>
+            <li>Don't store fully charged for more than 2-3 days</li>
+            <li>Don't store fully discharged — causes cell damage</li>
+            <li>Check voltage every 2 weeks during long storage</li>
+        </ul>
+
+        <h3>When to Retire a Battery</h3>
+        <ul>
+            <li><strong>Puffy/swollen:</strong> Dispose immediately</li>
+            <li><strong>High internal resistance:</strong> Cell IR > 15mΩ = retire</li>
+            <li><strong>Damaged wrapping:</strong> Tape it or retire</li>
+            <li><strong>Below 3.0V per cell:</strong> May be recoverable, but risky</li>
+            <li><strong>After 200-300 cycles:</strong> Performance noticeably drops</li>
+        </ul>
+
+        <h2>LiPo Disposal</h2>
+        <div class="info-box">
+            <strong>Never throw LiPo batteries in regular trash!</strong> Discharge fully (using a light bulb or resistor), then take to a battery recycling center or electronics store with recycling.
+        </div>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/software/" style="color:var(--accent)">Next: Software & Betaflight →</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>
