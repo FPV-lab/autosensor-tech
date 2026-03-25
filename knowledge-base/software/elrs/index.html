@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELRS & ESC Firmware - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/software/">Software</a> → ELRS & ESC</div>
+        <h1>ELRS & ESC Firmware</h1>
+        <p>ExpressLRS (ELRS) is the dominant open-source radio link for FPV, offering sub-1ms latency and multi-kilometer range. Paired with modern ESC firmware, your control link and motor control are the foundation of a responsive quad.</p>
+
+        <h2>ExpressLRS (ELRS)</h2>
+        <p>ExpressLRS is an open-source radio control link operating on 900MHz or 2.4GHz. It's free, community-driven, and outperforms commercial systems in both latency and range. ELRS is now the standard for FPV drones worldwide.</p>
+
+        <h3>Key ELRS Specs</h3>
+        <table>
+            <tr><th>Parameter</th><th>2.4 GHz</th><th>900 MHz</th></tr>
+            <tr><td>Packet Rate</td><td>50–1000 Hz</td><td>25–200 Hz</td></tr>
+            <tr><td>Latency</td><td>~1ms (at 1000Hz)</td><td>~5ms (at 200Hz)</td></tr>
+            <tr><td>Range (typical)</td><td>5–15 km</td><td>10–40+ km</td></tr>
+            <tr><td>Power Output</td><td>25–1000 mW</td><td>25–1000 mW</td></tr>
+            <tr><td>Best For</td><td>Racing, freestyle</td><td>Long range, penetration</td></tr>
+        </table>
+
+        <h3>ELRS Setup — Step by Step</h3>
+        <h3>1. Flash Transmitter Module</h3>
+        <ul>
+            <li>Go to the <a href="https://expresslrs.github.io/web-flasher/" style="color:var(--accent)">ELRS Web Flasher</a></li>
+            <li>Select your TX module type (e.g., BetaFPV Nano, Happymodel ES24TX)</li>
+            <li>Choose firmware version (latest stable recommended)</li>
+            <li>Set your binding phrase — <strong>same phrase on ALL devices</strong></li>
+            <li>Select 2.4 GHz or 900 MHz frequency band</li>
+            <li>Download the firmware and flash via USB or WiFi</li>
+        </ul>
+        <h3>2. Flash Receiver</h3>
+        <ul>
+            <li>Same Web Flasher — select your RX type</li>
+            <li>Use the <strong>exact same binding phrase</strong> as the TX</li>
+            <li>Flash via WiFi: power the RX, connect to its WiFi AP, upload firmware</li>
+            <li>Or flash via UART: connect to Betaflight Passthrough in ELRS Configurator</li>
+        </ul>
+        <div class="info-box">
+            <h3>Binding Without Binding Phrase</h3>
+            <p>If not using a binding phrase, use the traditional bind method: power the RX 3 times quickly (plug-unplug-plug-unplug-plug) to enter bind mode, then select "Bind" in the ELRS Lua script on your radio.</p>
+        </div>
+
+        <h3>Packet Rate Selection</h3>
+        <table>
+            <tr><th>Packet Rate</th><th>Latency</th><th>Range</th><th>Best Use</th></tr>
+            <tr><td class="spec">1000 Hz</td><td>~1ms</td><td>Short</td><td>Racing, indoor proximity</td></tr>
+            <tr><td class="spec">500 Hz</td><td>~2ms</td><td>Medium</td><td>Freestyle (best balance)</td></tr>
+            <tr><td class="spec">250 Hz</td><td>~4ms</td><td>Long</td><td>General, good all-around</td></tr>
+            <tr><td class="spec">150 Hz</td><td>~6ms</td><td>Very Long</td><td>Long range cruising</td></tr>
+            <tr><td class="spec">50 Hz</td><td>~15ms</td><td>Maximum</td><td>Extreme long range</td></tr>
+        </table>
+        <div class="warn-box">
+            <h3>⚠️ 1000 Hz Warning</h3>
+            <p>While 1000 Hz gives the lowest latency, it has significantly reduced range and can cause failsafes at distance. For most freestyle flying, <strong>500 Hz</strong> is the sweet spot. Use 1000 Hz only for racing gates.</p>
+        </div>
+
+        <h3>ELRS Lua Script</h3>
+        <p>The ELRS Lua script runs on your radio (EdgeTX/OpenTX) to control ELRS settings:</p>
+        <ul>
+            <li>Adjust packet rate on the fly</li>
+            <li>Change TX power output (25–1000mW)</li>
+            <li>Set switch mode (Wide/AUX1 or 16ch Hybrid)</li>
+            <li>View link statistics (RSSI, LQ, SNR)</li>
+            <li>Download from: <a href="https://github.com/ExpressLRS/ExpressLRS" style="color:var(--accent)">ELRS GitHub</a></li>
+        </ul>
+
+        <h2>ESC Firmware</h2>
+        <p>ESC firmware controls your brushless motors. Modern ESCs use BLHeli_32, BLHeli_S, or AM32 firmware, configured via their respective configurator apps.</p>
+
+        <h3>ESC Firmware Comparison</h3>
+        <table>
+            <tr><th>Firmware</th><th>MCU Type</th><th>Protocol</th><th>Features</th></tr>
+            <tr><td>BLHeli_32</td><td>STM32 (32-bit)</td><td>DSHOT, PWM</td><td>Most features, telemetry, braking</td></tr>
+            <tr><td>BLHeli_S (JESC)</td><td>ATmega (8-bit)</td><td>DSHOT300/600</td><td>Good performance, lightweight</td></tr>
+            <tr><td>AM32</td><td>Various 32-bit</td><td>DSHOT</td><td>Open source, growing support</td></tr>
+            <tr><td>KISS</td><td>Proprietary</td><td>KISS DSHOT</td><td>Smooth, KISS ESCs only</td></tr>
+        </table>
+
+        <h3>BLHeli Configurator</h3>
+        <p>BLHeli_32 Configurator (or BLHeliSuite for older ESCs) lets you configure your ESCs via USB passthrough from Betaflight.</p>
+        <h3>Key Settings</h3>
+        <table>
+            <tr><th>Setting</th><th>Recommended</th><th>Notes</th></tr>
+            <tr><td>Motor Direction</td><td>Normal or Reversed</td><td>Match the X-frame motor layout</td></tr>
+            <tr><td>PWM Frequency</td><td>24-48 kHz</td><td>Higher = smoother, slightly more heat</td></tr>
+            <tr><td>Motor Timing</td><td>16-23°</td><td>16° for racing, 23° for smoothness</td></tr>
+            <tr><td>Rampup Power</td><td>0.25-0.5</td><td>Lower = softer throttle response</td></tr>
+            <tr><td>Brake on Stop</td><td>Enabled</td><td>Better prop braking on zero throttle</td></tr>
+            <tr><td>Demag Compensation</td><td>High</td><td>Prevents desync on rapid throttle changes</td></tr>
+            <tr><td>Bidirectional DSHOT</td><td>Enabled</td><td>Required for RPM filtering</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>RPM Filtering</h3>
+            <p>Bidirectional DSHOT sends motor RPM data back to the FC. Betaflight uses this for <strong>RPM Filter</strong> — the single most impactful filter. It automatically notches out each motor's noise frequency. Enable it in Configuration → DSHOT Bidirectional = ON. This alone can clean up a noisy build dramatically.</p>
+        </div>
+
+        <h2>Motor Direction Setup</h2>
+        <p>Standard X-frame motor direction (props-in configuration):</p>
+        <table>
+            <tr><th>Position</th><th>Motor #</th><th>Direction</th><th>Prop</th></tr>
+            <tr><td>Front Right</td><td>Motor 1</td><td>CW (clockwise)</td><td>CW prop</td></tr>
+            <tr><td>Rear Right</td><td>Motor 2</td><td>CCW (counter-clockwise)</td><td>CCW prop</td></tr>
+            <tr><td>Rear Left</td><td>Motor 3</td><td>CW (clockwise)</td><td>CW prop</td></tr>
+            <tr><td>Front Left</td><td>Motor 4</td><td>CCW (counter-clockwise)</td><td>CCW prop</td></tr>
+        </table>
+        <p>To reverse a motor: use BLHeli Configurator to flip direction, or physically swap any two motor wires. BLHeli method is preferred as it's software-based and reversible.</p>
+
+        <h2>Other Flight Firmware Options</h2>
+        <h3>INAV</h3>
+        <p>INAV focuses on GPS navigation, autonomous flight, and fixed-wing/multirotor support. It's the go-to for:</p>
+        <ul>
+            <li>GPS waypoint missions</li>
+            <li>Return-to-home with precision landing</li>
+            <li>Fixed-wing planes and VTOLs</li>
+            <li>Radar and ground control station integration</li>
+        </ul>
+
+        <h3>ArduPilot</h3>
+        <p>ArduPilot is the most capable open-source autopilot. It supports everything from 250mm quads to full-size helicopters.</p>
+        <ul>
+            <li>Advanced autonomous capabilities</li>
+            <li>Extensive sensor support (LiDAR, optical flow, etc.)</li>
+            <li>Used in commercial and research applications</li>
+            <li>Steeper learning curve than Betaflight/INAV</li>
+        </ul>
+
+        <table>
+            <tr><th>Feature</th><th>Betaflight</th><th>INAV</th><th>ArduPilot</th></tr>
+            <tr><td>Best For</td><td>FPV racing/freestyle</td><td>GPS nav, fixed-wing</td><td>Full autonomy</td></tr>
+            <tr><td>Flight Performance</td><td class="spec">★★★★★</td><td>★★★★☆</td><td>★★★☆☆</td></tr>
+            <tr><td>GPS Features</td><td>★★☆☆☆</td><td class="spec">★★★★★</td><td class="spec">★★★★★</td></tr>
+            <tr><td>Ease of Setup</td><td class="spec">★★★★★</td><td>★★★★☆</td><td>★★☆☆☆</td></tr>
+            <tr><td>Community Size</td><td class="spec">★★★★★</td><td>★★★★☆</td><td>★★★★☆</td></tr>
+        </table>
+
+        <p style="margin-top:2rem"><a href="../../build-guide/tools/" style="color:var(--accent)">Next: Tools & Parts List →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

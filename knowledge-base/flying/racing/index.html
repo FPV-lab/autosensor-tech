@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPV Racing - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/flying/">Flying</a> → Racing</div>
+        <h1>FPV Racing</h1>
+        <p>FPV racing is drone motorsport — pure speed, precision, and split-second decisions. Pilots navigate courses at 100+ mph through gates, flags, and obstacles. It's competitive, thrilling, and one of the fastest-growing motorsports in the world.</p>
+
+        <h2>What is FPV Racing?</h2>
+        <p>Racing pits pilots against each other on defined courses with timing gates. Races are typically 3-5 laps on courses with gates, flags, and elevation changes. Pilots fly in heats, with the fastest times or positions advancing to finals.</p>
+        <div class="info-box">
+            <h3>Racing Characteristics</h3>
+            <ul>
+                <li>Speeds typically 80-120+ mph (130-200+ km/h)</li>
+                <li>Courses include gates (3-8m wide), flags, and obstacles</li>
+                <li>Races last 60-120 seconds</li>
+                <li>Pilots compete in heats of 2-4 drones simultaneously</li>
+                <li>Crashes are common — durability is essential</li>
+                <li>Every millisecond counts — marginal gains matter</li>
+            </ul>
+        </div>
+
+        <h2>Racing vs Freestyle Setup</h2>
+        <table>
+            <tr><th>Aspect</th><th>Racing</th><th>Freestyle</th></tr>
+            <tr><td class="spec">Priority</td><td>Speed + precision</td><td>Creativity + flow</td></tr>
+            <tr><td>Weight</td><td>Lighter (450-550g dry)</td><td>Heavier (550-700g)</td></tr>
+            <tr><td>Motors</td><td>High KV (1950-2300KV)</td><td>Mid KV (1700-1950KV)</td></tr>
+            <tr><td>Frame</td><td>Stiff, minimal, lightweight</td><td>Durable, slightly heavier</td></tr>
+            <tr><td>Props</td><td>Aggressive pitch (51499+)</td><td>Moderate pitch</td></tr>
+            <tr><td>Rates</td><td>Fast (800-1200°/s)</td><td>Medium (600-800°/s)</td></tr>
+            <tr><td>Camera Angle</td><td>High (35-55°)</td><td>Medium (20-35°)</td></tr>
+            <tr><td>Battery</td><td>Smaller (1050-1300mAh)</td><td>Larger (1300-1550mAh)</td></tr>
+            <tr><td>GPS/LEDs</td><td>None (weight saving)</td><td>Optional</td></tr>
+        </table>
+
+        <h2>Best Setup for Racing</h2>
+        <h3>5-Inch Race Build Specs</h3>
+        <table>
+            <tr><th>Component</th><th>Racing Specs</th><th>Notes</th></tr>
+            <tr><td class="spec">Frame</td><td>Lightweight carbon, minimal design</td><td>Armattan Badger, ImpulseRC Apex</td></tr>
+            <tr><td class="spec">Motors</td><td>2306 or 2207, 1950-2150KV</td><td>T-Motor Velox, EMAX ECO II</td></tr>
+            <tr><td class="spec">Stack</td><td>Lightweight F7 + 45A ESC</td><td>High PID loop (8kHz)</td></tr>
+            <tr><td class="spec">Props</td><td>Gemfan 51499 or 51466</td><td>High pitch for thrust</td></tr>
+            <tr><td class="spec">Video</td><td>DJI O3/O4 or analog</td><td>Low latency is critical</td></tr>
+            <tr><td class="spec">Receiver</td><td>ELRS 2.4GHz at 1000Hz</td><td>Sub-1ms latency</td></tr>
+            <tr><td class="spec">Battery</td><td>6S 1050-1300mAh 120C+</td><td>High discharge rate</td></tr>
+        </table>
+
+        <h2>Racing Tips</h2>
+        <h3>Track Flying</h3>
+        <ul>
+            <li><strong>Fly the track, not the quad</strong> — Look through gates, not at your nose</li>
+            <li><strong>Smooth is fast</strong> — Jerky inputs waste energy and time</li>
+            <li><strong>Hit your marks</strong> — Same line every lap beats random fast laps</li>
+            <li><strong>Throttle management</strong> — Don't punch through corners; carry speed</li>
+            <li><strong>Corner speed</strong> — Slower entry = faster exit. Wide in, tight out.</li>
+            <li><strong>Practice one section</strong> — Master the hardest turn before running full laps</li>
+        </ul>
+
+        <h3>Qualifying vs Racing</h3>
+        <ul>
+            <li><strong>Qualifying:</strong> Fly alone, set your fastest single lap. Push limits.</li>
+            <li><strong>Racing:</strong> Multi-pilot heat. Manage traffic, take clean lines, avoid crashes.</li>
+            <li>In a race, finishing > crashing. Points matter more than one fast lap.</li>
+        </ul>
+
+        <h2>Notable Racing Organizations</h2>
+        <table>
+            <tr><th>Organization</th><th>Type</th><th>Description</th></tr>
+            <tr><td class="spec">DRL (Drone Racing League)</td><td>Professional</td><td>Top-tier professional league with stadium events. All pilots use identical DRL Racer4 drones. Broadcast on ESPN, NBC.</td></tr>
+            <tr><td class="spec">MultiGP</td><td>Community</td><td>Global community racing league with local chapters. Grassroots racing with standardized class rules. Largest FPV racing network.</td></tr>
+            <tr><td class="spec">FAI (F3U)</td><td>International</td><td>Fédération Aéronautique Internationale. Official drone racing world championships under international aviation body.</td></tr>
+            <tr><td class="spec">IDRA</td><td>Professional</td><td>International Drone Racing Association. Organized professional events worldwide.</td></tr>
+            <tr><td class="spec">Drone Champions League</td><td>Professional</td><td>European-based professional league with team format racing.</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Getting into Racing</h3>
+            <p>Start with <strong>MultiGP</strong> — they have local chapters everywhere. Most races have beginner classes. You don't need a professional build to compete locally. Show up with a working quad, learn the format, and improve from there. Community is welcoming to newcomers.</p>
+        </div>
+
+        <h2>Race Classes</h2>
+        <table>
+            <tr><th>Class</th><th>Size</th><th>Specs</th></tr>
+            <tr><td>Micro (Whoop)</td><td>65-75mm</td><td>Indoor, tiny courses, low speed</td></tr>
+            <tr><td>Spec Class</td><td>5"</td><td>Standardized parts, equal competition</td></tr>
+            <tr><td>Open Class</td><td>5"</td><td>Any parts, maximum performance</td></tr>
+            <tr><td>7" Long Range</td><td>7"</td><td>Bigger courses, endurance racing</td></tr>
+            <tr><td>DRL Racer</td><td>~280mm</td><td>Identical spec drones, pure pilot skill</td></tr>
+        </table>
+
+        <p style="margin-top:2rem"><a href="../cinematic/" style="color:var(--accent)">Next: Cinematic & Long Range →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

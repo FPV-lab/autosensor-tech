@@ -7,28 +7,22 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
         nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
         .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
         .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
-        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        section{padding:5rem 2rem;max-width:1000px;margin:0 auto}
         h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
-        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
-        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
         p{margin-bottom:1rem;color:var(--text-dim)}
-        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
-        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
         .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
-        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
-        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
-        .stat-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
-        .stat{background:var(--secondary);padding:1.5rem;border-radius:10px;text-align:center}
-        .stat .num{font-size:2rem;color:var(--accent);font-weight:bold}
-        .stat .label{color:var(--text-dim);font-size:0.9rem}
-        .layer{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1rem 0}
-        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0}
+        .card{background:var(--secondary);border-radius:15px;padding:1.5rem;border:1px solid rgba(0,212,255,0.2);transition:all 0.3s;display:block;text-decoration:none}
+        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,0.1)}
+        .card h3{color:var(--accent);margin-bottom:0.5rem}
+        .card p{color:var(--text-dim);font-size:0.95rem}
+        .card .arrow{color:var(--accent2);margin-top:1rem;font-weight:bold}
         footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
-        @media(max-width:768px){.nav-links{display:none}}
+        @media(max-width:768px){.nav-links{display:none}.cards{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -40,219 +34,28 @@
             <a href="/forum/">Forum</a>
         </div>
     </nav>
-
     <section>
-        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Counter-UAS Technology</div>
-        
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Counter-UAS</div>
         <h1>🛡️ Counter-UAS Technology</h1>
         <p>Detection, tracking, and neutralization of hostile drones</p>
-
-        <div class="info-box">
-            <strong>Educational Purpose:</strong> This page covers publicly available information about counter-drone technology. The counter-UAS industry is one of the fastest-growing defense sectors globally.
+        <div class="cards">
+            <a href="./detection/" class="card">
+                <h3>📡 Detection Technologies</h3>
+                <p>RF detection, radar, EO/IR cameras, acoustic sensors, multi-sensor fusion</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./jamming/" class="card">
+                <h3>📻 Electronic Warfare & Jamming</h3>
+                <p>RF jamming, GPS spoofing, frequency hopping, anti-jamming countermeasures</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./weapons/" class="card">
+                <h3>💥 Directed Energy & Kinetic Defense</h3>
+                <p>Lasers, HPM, interceptor drones, missiles, nets, integrated defense layers</p>
+                <div class="arrow">Learn more →</div>
+            </a>
         </div>
-
-        <h2>The Threat</h2>
-        <p>Small drones are now the #1 threat to military forces, critical infrastructure, and public events. Traditional air defense systems (designed for jets and missiles) struggle to detect and engage small, low-flying, low-RCS drones.</p>
-
-        <div class="stat-box">
-            <div class="stat">
-                <div class="num">$50B</div>
-                <div class="label">Counter-UAS market 2025</div>
-            </div>
-            <div class="stat">
-                <div class="num">$150B+</div>
-                <div class="label">Projected 2030</div>
-            </div>
-            <div class="stat">
-                <div class="num">25-30%</div>
-                <div class="label">Annual growth rate</div>
-            </div>
-            <div class="stat">
-                <div class="num">200+</div>
-                <div class="label">C-UAS systems worldwide</div>
-            </div>
-        </div>
-
-        <h2>The Detection-Engagement Chain</h2>
-        <p>Counter-UAS follows a simple chain: <strong>Detect → Track → Identify → Engage</strong>. Each step has different technologies.</p>
-
-        <h2>Detection Technologies</h2>
-
-        <h3>1. RF Detection (Passive Listening)</h3>
-        <p>Listen for drone radio signals (control links, video feeds, WiFi).</p>
-        <table>
-            <tr><th>Feature</th><th>Details</th></tr>
-            <tr><td class="spec">How it works</td><td>Passively scans for known drone RF signatures</td></tr>
-            <tr><td>Range</td><td>1-15 km depending on environment</td></tr>
-            <tr><td>Pros</td><td>Passive (no emissions), identifies drone type</td></tr>
-            <tr><td>Cons</td><td>Useless against autonomous/pre-programmed drones</td></tr>
-            <tr><td>Examples</td><td>Dedrone DroneTracker, Rohde & Schwarz ARDRONIS</td></tr>
-        </table>
-
-        <h3>2. Radar</h3>
-        <p>Active radar detects small flying objects by their radar cross-section (RCS).</p>
-        <table>
-            <tr><th>Feature</th><th>Details</th></tr>
-            <tr><td class="spec">How it works</td><td>Sends RF pulses, measures reflections from drone body/propellers</td></tr>
-            <tr><td>Range</td><td>1-10 km (depends on drone size)</td></tr>
-            <tr><td>Pros</td><td>Works on autonomous drones, all-weather</td></tr>
-            <tr><td>Cons</td><td>Clutter (birds, insects), high false positive rate</td></tr>
-            <tr><td>Examples</td><td>Robin Radar ELVIRA, Blighter A800, Echodyne EchoGuard</td></tr>
-        </table>
-
-        <h3>3. Electro-Optical / Infrared (EO/IR)</h3>
-        <p>Cameras (visible light and thermal) detect and track drones visually.</p>
-        <table>
-            <tr><th>Feature</th><th>Details</th></tr>
-            <tr><td class="spec">How it works</td><td>AI-powered cameras detect drone shape/heat signature</td></tr>
-            <tr><td>Range</td><td>1-5 km (visible), 1-3 km (thermal)</td></tr>
-            <tr><td>Pros</td><td>Visual confirmation, no false positives on birds</td></tr>
-            <tr><td>Cons</td><td>Weather dependent, limited range</td></tr>
-            <tr><td>Examples</td><td>FLIR Ranger HDC, Axis PTZ cameras with AI</td></tr>
-        </table>
-
-        <h3>4. Acoustic Detection</h3>
-        <p>Microphone arrays detect the unique sound signature of drone motors and propellers.</p>
-        <table>
-            <tr><th>Feature</th><th>Details</th></tr>
-            <tr><td class="spec">How it works</td><td>Matches audio signatures against drone sound database</td></tr>
-            <tr><td>Range</td><td>150-500m (very limited)</td></tr>
-            <tr><td>Pros</td><td>Works on autonomous drones, 360° coverage</td></tr>
-            <tr><td>Cons</td><td>Short range, noisy environments reduce effectiveness</td></tr>
-            <tr><td>Examples</td><td>Squarehead Technology ACS-RF-1000, DroneShield</td></tr>
-        </table>
-
-        <h2>Neutralization Technologies</h2>
-
-        <h3>1. RF Jamming</h3>
-        <p>Flood drone control frequencies with noise, severing the link between pilot and drone.</p>
-        <table>
-            <tr><th>Feature</th><th>Details</th></tr>
-            <tr><td class="spec">How it works</td><td>High-power RF transmitter blocks 2.4/5.8 GHz (and other bands)</td></tr>
-            <tr><td>Range</td><td>500m - 5 km</td></tr>
-            <tr><td>Effect</td><td>Drone lands, returns home, or crashes (failsafe dependent)</td></tr>
-            <tr><td>Pros</td><td>Effective, non-kinetic</td></tr>
-            <tr><td>Cons</td><td>Non-selective (jams all devices in band), illegal in many countries</td></tr>
-            <tr><td>Examples</td><td>DroneGun MKIII, Battelle DroneDefender, Blighter AUDS</td></tr>
-        </table>
-
-        <h3>2. GPS Spoofing</h3>
-        <p>Transmit fake GPS signals to confuse the drone's navigation.</p>
-        <ul>
-            <li><strong>Method:</strong> Broadcast stronger GPS-like signals with wrong position data</li>
-            <li><strong>Effect:</strong> Drone flies to wrong location or lands</li>
-            <li><strong>Limitation:</strong> Doesn't work on drones without GPS or with inertial backup</li>
-        </ul>
-
-        <h3>3. Kinetic (Physical Destruction)</h3>
-        <table>
-            <tr><th>Method</th><th>Range</th><th>Cost</th><th>Notes</th></tr>
-            <tr><td class="spec">Anti-drone missiles</td><td>1-10 km</td><td>$100K+</td><td>Overkill for small drones</td></tr>
-            <tr><td>Drone-on-drone intercept</td><td>1-5 km</td><td>$1K-10K</td><td>Interceptor drone crashes into target</td></tr>
-            <tr><td>Nets (drone-deployed)</td><td>100m</td><td>$500</td><td>Captures without destroying</td></tr>
-            <tr><td>Shotguns</td><td>50-100m</td><td>Low</td><td>Last resort, limited range</td></tr>
-            <tr><td>Anti-aircraft guns</td><td>1-3 km</td><td>Medium</td><td>Old tech, limited against swarms</td></tr>
-        </table>
-
-        <h3>4. Directed Energy Weapons (DEW)</h3>
-        <p>High-energy lasers or high-power microwaves disable drones without projectiles.</p>
-
-        <h4>High-Energy Lasers (HEL)</h4>
-        <ul>
-            <li><strong>Power:</strong> 10-300 kW class</li>
-            <li><strong>Speed:</strong> Light speed (instant hit)</li>
-            <li><strong>Cost per shot:</strong> $1-10 (extremely cheap)</li>
-            <li><strong>Range:</strong> 1-5 km</li>
-            <li><strong>Examples:</strong> Raytheon HELWS, Rafael Drone Dome Laser, Israeli Iron Beam</li>
-        </ul>
-
-        <h4>High-Power Microwave (HPM)</h4>
-        <ul>
-            <li><strong>Method:</strong> EMP-like burst fries drone electronics</li>
-            <li><strong>Advantage:</strong> Can affect entire swarms simultaneously</li>
-            <li><strong>Range:</strong> 100m - 1 km</li>
-            <li><strong>Examples:</strong> Epirus Leonidas, Raytheon PHASER</li>
-        </ul>
-
-        <h2>Integrated Defense Layers</h2>
-        <p>Effective C-UAS requires multiple layers working together:</p>
-
-        <div class="layer">
-            <strong>Layer 1: Outer Detection (5-15 km)</strong><br>
-            Long-range radar + RF detection. Early warning. Time to prepare.
-        </div>
-        <div class="layer">
-            <strong>Layer 2: Mid-Range Engagement (1-5 km)</strong><br>
-            Electronic warfare (jamming/spoofing) + kinetic interceptors.
-        </div>
-        <div class="layer">
-            <strong>Layer 3: Close Defense (0-1 km)</strong><br>
-            Directed energy (lasers/HPM) + nets + last-resort kinetic.
-        </div>
-
-        <h2>Key Players in C-UAS Industry</h2>
-        <table>
-            <tr><th>Company</th><th>Country</th><th>Specialty</th></tr>
-            <tr><td class="spec">Dedrone</td><td>🇩🇪 Germany</td><td>RF detection, software platform</td></tr>
-            <tr><td class="spec">DroneShield</td><td>🇦🇺 Australia</td><td>RF detection + jamming</td></tr>
-            <tr><td class="spec">Rafael</td><td>🇮🇱 Israel</td><td>Drone Dome (laser + EW)</td></tr>
-            <tr><td class="spec">Raytheon (RTX)</td><td>🇺🇸 USA</td><td>HELWS, PHASER, Coyote</td></tr>
-            <tr><td class="spec">Epirus</td><td>🇺🇸 USA</td><td>Leonidas HPM</td></tr>
-            <tr><td class="spec">Robin Radar</td><td>🇳🇱 Netherlands</td><td>Drone-specific radar</td></tr>
-            <tr><td class="spec">Blighter</td><td>🇬🇧 UK</td><td>Radar + AUDS system</td></tr>
-            <tr><td class="spec">Rohde & Schwarz</td><td>🇩🇪 Germany</td><td>RF detection/analysis</td></tr>
-            <tr><td class="spec">Liteye</td><td>🇺🇸 USA</td><td>Containerized C-UAS</td></tr>
-            <tr><td class="spec">Northrop Grumman</td><td>🇺🇸 USA</td><td>Integrated air defense</td></tr>
-        </table>
-
-        <h2>Challenges</h2>
-        <div class="warn-box">
-            <ul>
-                <li><strong>Swarm defense:</strong> Current systems designed for single drones. 100+ drone swarms overwhelm defenses</li>
-                <li><strong>Autonomous drones:</strong> No RF signal to jam. Need radar/EO detection + kinetic or DEW to engage</li>
-                <li><strong>Cost asymmetry:</strong> A $100K missile to shoot down a $500 drone is economically unsustainable</li>
-                <li><strong>Collateral damage:</strong> Jamming affects all devices. Kinetic interceptors have falling debris</li>
-                <li><strong>Legal restrictions:</strong> Jamming illegal for civilians in most countries. Government use only</li>
-                <li><strong>False positives:</strong> Distinguishing hostile drones from delivery/photography drones</li>
-                <li><strong>Evolving threats:</strong> Fiber-optic guided drones bypass all RF jamming</li>
-            </ul>
-        </div>
-
-        <h2>C-UAS for Critical Infrastructure</h2>
-        <p>Protecting airports, stadiums, power plants, and government buildings requires permanent installation.</p>
-        <table>
-            <tr><th>Facility Type</th><th>Threat Level</th><th>Recommended System</th></tr>
-            <tr><td>Airport</td><td class="spec">Critical</td><td>RF detect + radar + jamming + EO/IR</td></tr>
-            <tr><td>Stadium / Event</td><td class="spec">High</td><td>RF detect + EO/IR + portable jammer</td></tr>
-            <tr><td>Power Plant</td><td class="spec">Critical</td><td>Full layered defense</td></tr>
-            <tr><td>Government Building</td><td class="spec">High</td><td>RF detect + radar + DEW</td></tr>
-            <tr><td>Border</td><td class="spec">Medium</td><td>Long-range radar + EO/IR</td></tr>
-            <tr><td>Private Facility</td><td class="spec">Low-Medium</td><td>RF detection + alerts</td></tr>
-        </table>
-
-        <h2>Technology Roadmap (2025-2030)</h2>
-        <ul>
-            <li><strong>AI-Enhanced Detection:</strong> Machine learning reduces false positives by 90%+</li>
-            <li><strong>Laser cost reduction:</strong> HEL systems dropping from $100M to $10M per unit</li>
-            <li><strong>Swarm-on-swarm:</strong> Counter-drone swarms to fight drone swarms</li>
-            <li><strong>Mesh sensor networks:</strong> Distributed detection across large areas</li>
-            <li><strong>Regulatory frameworks:</strong> Governments establishing drone zones and no-fly enforcement</li>
-            <li><strong>Commercial C-UAS:</strong> Affordable systems for commercial use ($50K-200K range)</li>
-        </ul>
-
-        <h2>Regional Market Breakdown</h2>
-        <table>
-            <tr><th>Region</th><th>2025 Market</th><th>2030 Projection</th><th>CAGR</th></tr>
-            <tr><td class="spec">North America</td><td>$17.9B</td><td>$52.2B</td><td>23.8%</td></tr>
-            <tr><td class="spec">Europe</td><td>$12.4B</td><td>$41.6B</td><td>27.5%</td></tr>
-            <tr><td class="spec">Asia Pacific</td><td>$10.5B</td><td>$38.9B</td><td>30.0%</td></tr>
-            <tr><td class="spec">Middle East</td><td>$5.2B</td><td>$18.5B</td><td>29.0%</td></tr>
-            <tr><td class="spec">Rest of World</td><td>$4.0B</td><td>$12.8B</td><td>26.2%</td></tr>
-        </table>
-
-        <p style="margin-top:2rem"><a href="/knowledge-base/" style="color:var(--accent)">← Back to Knowledge Base</a></p>
     </section>
-
     <footer>
         <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
     </footer>

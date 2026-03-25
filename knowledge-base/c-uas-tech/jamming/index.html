@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Warfare & Jamming - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/c-uas-tech/">Counter-UAS</a> → Jamming</div>
+
+        <h1>📻 Electronic Warfare & Jamming</h1>
+        <p>Disrupting the link between drone and pilot</p>
+
+        <h2>How RF Jamming Works</h2>
+        <p>RF jamming floods drone control frequencies (2.4 GHz, 5.8 GHz, 900 MHz) with high-power noise, severing the connection between the pilot and the drone. When the link is lost, the drone's failsafe activates — typically returning home, landing, or hovering.</p>
+
+        <div class="info-box">
+            <strong>Key Concept:</strong> Jamming doesn't destroy the drone — it just cuts the signal. The drone's behavior after jamming depends on its failsafe programming. Well-programmed drones may switch to GPS return-to-home.
+        </div>
+
+        <h2>RF Jamming Types</h2>
+
+        <h3>Broadband Jamming</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">Method</td><td>Floods entire frequency band (2.4-5.8 GHz) with noise</td></tr>
+            <tr><td>Range</td><td>500m - 5 km</td></tr>
+            <tr><td>Selectivity</td><td>None — jams ALL devices in band (WiFi, Bluetooth, etc.)</td></tr>
+            <tr><td>Power</td><td>High (10-100W)</td></tr>
+            <tr><td>Effectiveness</td><td>High against commercial drones</td></tr>
+        </table>
+
+        <h3>Spot Jamming</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">Method</td><td>Targets specific frequency with high-power signal</td></tr>
+            <tr><td>Range</td><td>1-10 km (focused energy)</td></tr>
+            <tr><td>Selectivity</td><td>Higher — targets specific drone frequency</td></tr>
+            <tr><td>Power</td><td>Medium (5-50W)</td></tr>
+            <tr><td>Effectiveness</td><td>Good if drone frequency is known</td></tr>
+        </table>
+
+        <h3>Sweep Jamming</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">Method</td><td>Rapidly sweeps jammer across frequencies</td></tr>
+            <tr><td>Range</td><td>500m - 3 km</td></tr>
+            <tr><td>Selectivity</td><td>Medium — disrupts frequency hopping</td></tr>
+            <tr><td>Power</td><td>Medium</td></tr>
+            <tr><td>Effectiveness</td><td>Good against FHSS systems</td></tr>
+        </table>
+
+        <h2>GPS Jamming & Spoofing</h2>
+
+        <h3>GPS Jamming</h3>
+        <p>Overwhelms GPS receiver with noise, causing loss of position data. Drone loses ability to hold position or return home via GPS.</p>
+        <ul>
+            <li><strong>Method:</strong> Transmit high-power noise on L1/L2 GPS frequencies (1575.42 MHz, 1227.60 MHz)</li>
+            <li><strong>Range:</strong> 1-5 km</li>
+            <li><strong>Effect:</strong> Drone loses GPS lock, drifts or lands</li>
+            <li><strong>Limitation:</strong> Doesn't affect drones with inertial navigation backup</li>
+        </ul>
+
+        <h3>GPS Spoofing</h3>
+        <p>Transmits fake GPS signals that appear legitimate, causing the drone to calculate an incorrect position.</p>
+        <ul>
+            <li><strong>Method:</strong> Broadcast stronger GPS-like signals with false position data</li>
+            <li><strong>Effect:</strong> Drone "thinks" it's somewhere else, flies to wrong location</li>
+            <li><strong>Sophistication:</strong> Can gradually shift position (soft spoof) to avoid detection</li>
+            <li><strong>Limitation:</strong> Doesn't work on drones without GPS or with anti-spoofing measures</li>
+        </ul>
+
+        <h2>Anti-Jamming Countermeasures</h2>
+        <p>As jamming becomes common, drone systems have developed countermeasures:</p>
+
+        <h3>Frequency Hopping Spread Spectrum (FHSS)</h3>
+        <table>
+            <tr><th>Feature</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Rapidly hops between 50-200+ frequencies per second</td></tr>
+            <tr><td>Example</td><td>ELRS hops across 80+ channels at 250Hz</td></tr>
+            <tr><td>Counter</td><td>Sweep jamming or barrage jamming required</td></tr>
+            <tr><td>Effectiveness</td><td>Good — makes jamming much harder</td></tr>
+        </table>
+
+        <h3>Direct Sequence Spread Spectrum (DSSS)</h3>
+        <table>
+            <tr><th>Feature</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Spreads signal across wide bandwidth using chipping codes</td></tr>
+            <tr><td>Effect</td><td>Signal appears like noise to jammers</td></tr>
+            <tr><td>Counter</td><td>Requires high-power barrage jamming</td></tr>
+            <tr><td>Effectiveness</td><td>Very good — military-grade</td></tr>
+        </table>
+
+        <h3>Fiber-Optic Guidance</h3>
+        <table>
+            <tr><th>Feature</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Physical fiber-optic wire connects drone to operator</td></tr>
+            <tr><td>Range</td><td>5-20 km of fiber cable</td></tr>
+            <tr><td>Counter</td><td>Cannot be jammed — no RF emissions</td></tr>
+            <tr><td>Example</td><td>Used in Ukraine on FPV attack drones</td></tr>
+            <tr><td>Limitation</td><td>Speed limited by cable drag, cable can snag</td></tr>
+        </table>
+
+        <h3>Autonomous / Pre-Programmed Flight</h3>
+        <ul>
+            <li>Drone follows pre-loaded GPS waypoints</li>
+            <li>No control link needed during flight</li>
+            <li>RF jamming completely ineffective</li>
+            <li>Counter: GPS jamming/spoofing, kinetic intercept</li>
+        </ul>
+
+        <h2>Major EW Jamming Systems</h2>
+        <table>
+            <tr><th>System</th><th>Manufacturer</th><th>Range</th><th>Type</th></tr>
+            <tr><td class="spec">DroneGun MKIII</td><td>DroneShield (🇦🇺)</td><td>2 km</td><td>Handheld</td></tr>
+            <tr><td class="spec">DroneDefender</td><td>Battelle (🇺🇸)</td><td>400m</td><td>Handheld</td></tr>
+            <tr><td class="spec">AUDS</td><td>Blighter (🇬🇧)</td><td>3 km</td><td>Vehicle-mounted</td></tr>
+            <tr><td class="spec">SkyWall Patrol</td><td>OpenWorks (🇬🇧)</td><td>100m</td><td>Net launcher</td></tr>
+            <tr><td class="spec">TITAN</td><td>Rafael (🇮🇱)</td><td>5 km</td><td>Integrated</td></tr>
+        </table>
+
+        <h2>EW Challenges</h2>
+        <div class="warn-box">
+            <ul>
+                <li><strong>Collateral effects:</strong> Broadband jamming disrupts WiFi, Bluetooth, and legitimate communications</li>
+                <li><strong>Legal restrictions:</strong> Jamming is illegal for civilians in most countries</li>
+                <li><strong>Adaptive drones:</strong> Modern drones can detect jamming and switch frequencies or modes</li>
+                <li><strong>Fiber-optic drones:</strong> Completely immune to all RF jamming</li>
+                <li><strong>Swarm saturation:</strong> Jamming 100+ drones simultaneously requires enormous power</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/c-uas-tech/weapons/" style="color:var(--accent)">Next: Directed Energy & Kinetic Defense →</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

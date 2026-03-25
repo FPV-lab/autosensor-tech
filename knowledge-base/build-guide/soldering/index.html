@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soldering & Final Setup - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/build-guide/">Build Guide</a> → Soldering & Setup</div>
+        <h1>Soldering & Final Setup</h1>
+        <p>Good soldering is the difference between a reliable quad and one that falls apart mid-flight. This guide covers soldering fundamentals and finishes the build with DJI O4 installation, Betaflight config, and the final checklist.</p>
+
+        <h2>Soldering Techniques</h2>
+        <h3>Essential Soldering Tools</h3>
+        <table>
+            <tr><th>Tool</th><th>Recommended</th><th>Temp Setting</th><th>Purpose</th></tr>
+            <tr><td class="spec">Soldering Iron</td><td>Pinecil V2 / TS101</td><td>350-380°C (660-720°F)</td><td>Primary tool</td></tr>
+            <tr><td class="spec">Solder</td><td>Kester 63/37 0.8mm</td><td>Melts at 183°C</td><td>Lead-based, best flow</td></tr>
+            <tr><td class="spec">Flux</td><td>Amtech NC-559-TF</td><td>—</td><td>Prevents oxidation, improves flow</td></tr>
+            <tr><td class="spec">Tip</td><td>Chisel tip (BC2 or similar)</td><td>—</td><td>Best heat transfer for pads</td></tr>
+            <tr><td class="spec">Brass Wool</td><td>Hakko 599B</td><td>—</td><td>Clean tip between joints</td></tr>
+            <tr><td class="spec">Desoldering</td><td>Solder wick + solder sucker</td><td>—</td><td>Fix mistakes</td></tr>
+        </table>
+
+        <h3>Soldering Temperature Guide</h3>
+        <table>
+            <tr><th>Pad Type</th><th>Temperature</th><th>Dwell Time</th><th>Notes</th></tr>
+            <tr><td>Small signal pads (UART, LED)</td><td>320-350°C</td><td>1-2 sec</td><td>Delicate, don't overheat</td></tr>
+            <tr><td>Motor pads</td><td>350-370°C</td><td>2-3 sec</td><td>Medium thermal mass</td></tr>
+            <tr><td>Battery / XT60 pads</td><td class="spec">370-400°C</td><td>3-5 sec</td><td>Large pad, needs more heat</td></tr>
+            <tr><td>Ground plane connections</td><td class="spec">380-400°C</td><td>3-5 sec</td><td>Heat sink effect, be patient</td></tr>
+        </table>
+
+        <h3>The Soldering Process</h3>
+        <ul>
+            <li><strong>Step 1: Clean</strong> — Wipe pads with isopropyl alcohol (90%+)</li>
+            <li><strong>Step 2: Tin the pad</strong> — Apply flux to pad, heat the pad (not the solder), feed a small amount of solder onto the pad</li>
+            <li><strong>Step 3: Tin the wire</strong> — Apply flux to stripped wire, heat the wire, flow solder into the strands</li>
+            <li><strong>Step 4: Join</strong> — Place tinned wire on tinned pad, heat both simultaneously for 2-3 seconds, solder flows together</li>
+            <li><strong>Step 5: Inspect</strong> — Joint should be shiny, smooth, volcano-shaped. Not blobby or dull.</li>
+            <li><strong>Step 6: Clean tip</strong> — Wipe tip in brass wool between every joint</li>
+        </ul>
+
+        <h3>Common Soldering Mistakes</h3>
+        <table>
+            <tr><th>Mistake</th><th>Result</th><th>Fix</th></tr>
+            <tr><td>Cold joint (not enough heat)</td><td>Dull, grainy, high resistance</td><td>Reheat pad and wire together</td></tr>
+            <tr><td>Too much solder</td><td>Blob, potential shorts</td><td>Use solder wick to remove excess</td></tr>
+            <tr><td>No flux</td><td>Poor flow, oxidation</td><td>Apply flux, reheat</td></tr>
+            <tr><td>Heating solder, not pad</td><td>Solder rolls off, won't stick</td><td>Heat pad first, then feed solder</td></tr>
+            <tr><td>Moving during cooling</td><td>Crystallized cold joint</td><td>Hold still for 3 seconds after</td></tr>
+            <tr><td>Bridged pads</td><td>Short circuit</td><td>Solder wick between pads</td></tr>
+        </table>
+        <div class="warn-box">
+            <h3>⚠️ Safety First</h3>
+            <p>Soldering irons are 350°C+ — they will burn skin instantly. Use in a well-ventilated area (flux fumes are irritating). Never touch the tip. Always return the iron to its stand. Keep away from flammable materials.</p>
+        </div>
+
+        <h2>Step 7: Install DJI O4 Air Unit</h2>
+        <p>The DJI O4 connects to the FC via UART for MSP commands and OSD display. It also needs power from the FC or direct from battery.</p>
+        <h3>Wiring</h3>
+        <table>
+            <tr><th>O4 Wire</th><th>FC Connection</th><th>Notes</th></tr>
+            <tr><td class="spec">Red (Power)</td><td>9V or VBAT pad</td><td>Most FCs have a 9V pad for VTX</td></tr>
+            <tr><td class="spec">Black (GND)</td><td>GND pad</td><td>Common ground</td></tr>
+            <tr><td class="spec">Yellow (TX)</td><td>RX on FC UART</td><td>O4 TX → FC RX</td></tr>
+            <tr><td class="spec">White (RX)</td><td>TX on FC UART</td><td>O4 RX → FC TX</td></tr>
+        </table>
+        <ul>
+            <li>Mount the O4 unit with vibration-dampening foam or rubber grommets</li>
+            <li>Position the antenna where it has clear transmission path (not blocked by battery)</li>
+            <li>Secure all cables with zip ties — vibration kills connections</li>
+            <li>Keep the O4 away from ESC power wires to reduce interference</li>
+        </ul>
+
+        <h2>Step 8: Power-On Test (Smoke Stopper)</h2>
+        <div class="warn-box">
+            <h3>⚠️ ALWAYS Use a Smoke Stopper!</h3>
+            <p>Connect your smoke stopper in-line with the battery on first power-up. If it trips (light stays dim), you have a short. Disconnect immediately and inspect all solder joints. If it stays bright, you're good to proceed.</p>
+        </div>
+        <ul>
+            <li>Remove all propellers</li>
+            <li>Connect smoke stopper to XT60, then plug in battery</li>
+            <li>Check for: LED lights on FC, no smoke, no burning smell</li>
+            <li>Verify FC boots up — you should see LEDs blink</li>
+            <li>Connect USB to FC and open Betaflight Configurator</li>
+            <li>Verify gyro responds to tilting the quad</li>
+        </ul>
+
+        <h2>Step 9: Betaflight Configuration</h2>
+        <p>Configure your FC in Betaflight Configurator. Refer to the <a href="../../software/betaflight/" style="color:var(--accent)">Betaflight Configuration</a> guide for full details.</p>
+        <h3>Quick Setup Checklist</h3>
+        <ul>
+            <li>Flash latest stable firmware</li>
+            <li>Ports tab: enable Serial RX on receiver UART, enable MSP + Displayport on O4 UART</li>
+            <li>Configuration tab: set motor protocol to DSHOT600, enable bidirectional DSHOT</li>
+            <li>Receiver tab: set protocol to CRSF (for ELRS)</li>
+            <li>Modes tab: assign ARM switch, ANGLE mode, BEEPER</li>
+            <li>OSD tab: customize elements (battery voltage, RSSI, flight time, warnings)</li>
+            <li>Failsafe tab: set to GPS Rescue or Drop</li>
+        </ul>
+
+        <h2>Step 10: Verify Motor Direction</h2>
+        <p>Go to the Motors tab in Betaflight and spin each motor individually. Verify direction matches the standard layout.</p>
+        <table>
+            <tr><th>Motor</th><th>Expected Direction</th><th>If Wrong</th></tr>
+            <tr><td>M1 (Front Right)</td><td>CW (clockwise)</td><td>Reverse in BLHeli or swap 2 wires</td></tr>
+            <tr><td>M2 (Rear Right)</td><td>CCW (counter-clockwise)</td><td>Reverse in BLHeli or swap 2 wires</td></tr>
+            <tr><td>M3 (Rear Left)</td><td>CW (clockwise)</td><td>Reverse in BLHeli or swap 2 wires</td></tr>
+            <tr><td>M4 (Front Left)</td><td>CCW (counter-clockwise)</td><td>Reverse in BLHeli or swap 2 wires</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Reversing Methods</h3>
+            <p><strong>Software (preferred):</strong> Open BLHeli_32 Configurator → connect via Betaflight → change motor direction for the wrong motor. <strong>Hardware:</strong> Swap any two of the three motor wires at the ESC. This reverses direction physically.</p>
+        </div>
+
+        <h2>Step 11: Final Assembly</h2>
+        <ul>
+            <li>Install top plate with standoffs and screws (use Loctite on frame screws)</li>
+            <li>Mount antenna on zip tie or 3D-printed holder</li>
+            <li>Apply battery pad (Ummagrip or similar) to top plate</li>
+            <li>Thread battery strap through frame slots</li>
+            <li>Zip-tie all loose wires to the frame</li>
+            <li>Double-check antenna placement — clear path, not touching carbon</li>
+            <li>Verify the battery fits and CG is roughly centered</li>
+            <li>Install props — make sure CW/CCW props are on correct motors!</li>
+        </ul>
+
+        <h2>Post-Build Checklist</h2>
+        <table>
+            <tr><th>#</th><th>Check</th><th>Pass?</th></tr>
+            <tr><td>1</td><td>All frame screws tight with Loctite</td><td>☐</td></tr>
+            <tr><td>2</td><td>Motor screws tight with Loctite</td><td>☐</td></tr>
+            <tr><td>3</td><td>All solder joints shiny and solid</td><td>☐</td></tr>
+            <tr><td>4</td><td>No solder bridges between pads</td><td>☐</td></tr>
+            <tr><td>5</td><td>Smoke stopper test passed</td><td>☐</td></tr>
+            <tr><td>6</td><td>FC connects to Betaflight Configurator</td><td>☐</td></tr>
+            <tr><td>7</td><td>Gyro responding correctly</td><td>☐</td></tr>
+            <tr><td>8</td><td>All 4 motors spin correct direction</td><td>☐</td></tr>
+            <tr><td>9</td><td>Receiver bound and responding</td><td>☐</td></tr>
+            <tr><td>10</td><td>Video feed working in goggles</td><td>☐</td></tr>
+            <tr><td>11</td><td>ARM switch works</td><td>☐</td></tr>
+            <tr><td>12</td><td>Failsafe tested (turn off radio)</td><td>☐</td></tr>
+            <tr><td>13</td><td>Props correct CW/CCW placement</td><td>☐</td></tr>
+            <tr><td>14</td><td>Battery strap secure</td><td>☐</td></tr>
+            <tr><td>15</td><td>Antenna placement verified</td><td>☐</td></tr>
+            <tr><td>16</td><td>OSD shows voltage, RSSI, timer</td><td>☐</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>First Flight Tips</h3>
+            <p>Find an open field with no people. Start in ANGLE mode if you're new. Hover at 2-3 meters, test basic controls. If anything feels wrong — disarm immediately. Your first flight should be about building confidence, not stunting. Fly conservatively, check battery voltage in OSD, and land at 3.5V per cell (14V for 6S).</p>
+        </div>
+
+        <p style="margin-top:2rem"><a href="../../flying/freestyle/" style="color:var(--accent)">Next: Freestyle Flying →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Detection Technologies - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/c-uas-tech/">Counter-UAS</a> → Detection</div>
+
+        <h1>📡 Drone Detection Technologies</h1>
+        <p>Finding hostile drones before they reach their target</p>
+
+        <h2>The Detection Challenge</h2>
+        <p>Small drones are extremely difficult to detect. They fly low, have tiny radar signatures (RCS), and move slowly. Traditional air defense radar was designed for jets and missiles — not for plastic quadcopters the size of a dinner plate.</p>
+
+        <div class="info-box">
+            <strong>Detection → Track → Identify → Engage:</strong> The C-UAS kill chain starts with detection. Without reliable detection, no defense system can function.
+        </div>
+
+        <h2>1. RF Detection (Passive Listening)</h2>
+        <p>RF sensors passively scan for known drone radio signatures — control links, video feeds, and WiFi signals.</p>
+
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Passively scans for known drone RF protocol signatures (DJI, ELRS, WiFi)</td></tr>
+            <tr><td>Range</td><td>1-15 km depending on environment and drone transmit power</td></tr>
+            <tr><td>Coverage</td><td>360° horizontal, depends on antenna design</td></tr>
+            <tr><td>Identification</td><td>Can identify drone make/model from RF fingerprint</td></tr>
+            <tr><td>Direction finding</td><td>Can determine drone bearing and locate pilot</td></tr>
+        </table>
+
+        <h3>Pros</h3>
+        <ul>
+            <li>Passive — no emissions, undetectable by enemy</li>
+            <li>Can identify specific drone types</li>
+            <li>Can locate the drone pilot (direction finding)</li>
+            <li>Low false positive rate for DJI/commercial drones</li>
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            <li>Useless against autonomous/pre-programmed drones (no RF signal)</li>
+            <li>Useless against fiber-optic guided drones</li>
+            <li>Crowded RF environments increase false positives</li>
+            <li>Encrypted/proprietary protocols harder to detect</li>
+        </ul>
+
+        <h3>Major RF Detection Systems</h3>
+        <table>
+            <tr><th>System</th><th>Manufacturer</th><th>Range</th></tr>
+            <tr><td class="spec">DroneTracker 4</td><td>Dedrone (🇩🇪)</td><td>5+ km</td></tr>
+            <tr><td class="spec">ARDRONIS</td><td>Rohde & Schwarz (🇩🇪)</td><td>10+ km</td></tr>
+            <tr><td class="spec">DroneSentry</td><td>DroneShield (🇦🇺)</td><td>3+ km</td></tr>
+            <tr><td class="spec">KREDO-PR</td><td>CerbAir (🇫🇷)</td><td>5+ km</td></tr>
+        </table>
+
+        <h2>2. Radar Detection</h2>
+        <p>Active radar sends RF pulses and measures reflections from the drone's body and spinning propellers. Modern AI-enhanced radar can distinguish drones from birds.</p>
+
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Active RF pulses, measures reflected signals from drone body/propellers</td></tr>
+            <tr><td>Range</td><td>1-10 km depending on drone size and radar power</td></tr>
+            <tr><td>All-weather</td><td>Works in rain, fog, darkness</td></tr>
+            <tr><td>Speed detection</td><td>Can measure drone speed and direction (Doppler)</td></tr>
+            <tr><td>AI classification</td><td>Modern systems use ML to distinguish drones from birds</td></tr>
+        </table>
+
+        <h3>Pros</h3>
+        <ul>
+            <li>Works on autonomous drones (no RF needed)</li>
+            <li>All-weather, 24/7 capability</li>
+            <li>Provides range, speed, and direction data</li>
+            <li>Can track multiple targets simultaneously</li>
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            <li>Clutter — birds, insects, weather cause false positives</li>
+            <li>Ground clutter near buildings reduces effectiveness</li>
+            <li>Active emissions — enemy can detect radar</li>
+            <li>Expensive to deploy at scale</li>
+        </ul>
+
+        <h3>Major Radar Systems</h3>
+        <table>
+            <tr><th>System</th><th>Manufacturer</th><th>Range</th><th>Type</th></tr>
+            <tr><td class="spec">ELVIRA</td><td>Robin Radar (🇳🇱)</td><td>5 km</td><td>Micro-Doppler</td></tr>
+            <tr><td class="spec">A800</td><td>Blighter (🇬🇧)</td><td>10 km</td><td>FMCW</td></tr>
+            <tr><td class="spec">EchoGuard</td><td>Echodyne (🇺🇸)</td><td>3.5 km</td><td>Metamaterial ESA</td></tr>
+            <tr><td class="spec">RPS-42</td><td>Liteye (🇺🇸)</td><td>8 km</td><td>3D AESA</td></tr>
+        </table>
+
+        <h2>3. Electro-Optical / Infrared (EO/IR)</h2>
+        <p>Cameras using visible light and thermal infrared detect and track drones visually. AI software identifies drone shapes and heat signatures.</p>
+
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>AI-powered cameras detect drone shape (EO) and heat signature (IR)</td></tr>
+            <tr><td>Range (EO)</td><td>1-5 km in daylight</td></tr>
+            <tr><td>Range (IR)</td><td>1-3 km, works day and night</td></tr>
+            <tr><td>Identification</td><td>Visual confirmation — confirms drone vs bird</td></tr>
+            <tr><td>Tracking</td><td>Can maintain visual lock on moving drone</td></tr>
+        </table>
+
+        <h3>Pros</h3>
+        <ul>
+            <li>Visual confirmation eliminates false positives</li>
+            <li>Passive — no emissions</li>
+            <li>Works on autonomous drones</li>
+            <li>Can provide targeting data for kinetic/DEW engagement</li>
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            <li>Weather dependent — fog, rain, clouds reduce effectiveness</li>
+            <li>Limited range compared to radar</li>
+            <li>Expensive (FLIR cameras cost $10K-100K+)</li>
+            <li>Requires line of sight</li>
+        </ul>
+
+        <h3>Major EO/IR Systems</h3>
+        <table>
+            <tr><th>System</th><th>Manufacturer</th><th>Type</th></tr>
+            <tr><td class="spec">Ranger HDC</td><td>FLIR/Teledyne (🇺🇸)</td><td>Cooled MWIR</td></tr>
+            <tr><td class="spec">HRC Series</td><td>Hensoldt (🇩🇪)</td><td>Multi-sensor</td></tr>
+            <tr><td class="spec">PTZ Cameras</td><td>Axis (🇸🇪) + AI</td><td>Visible + Thermal</td></tr>
+        </table>
+
+        <h2>4. Acoustic Detection</h2>
+        <p>Microphone arrays detect the unique sound signature of drone motors and propellers. AI matches audio against a database of known drone sounds.</p>
+
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Microphone arrays + AI audio classification</td></tr>
+            <tr><td>Range</td><td>150-500m (very limited)</td></tr>
+            <tr><td>Coverage</td><td>360° spherical</td></tr>
+            <tr><td>Weather</td><td>Wind and rain reduce effectiveness</td></tr>
+        </table>
+
+        <h3>Pros</h3>
+        <ul>
+            <li>Works on autonomous drones</li>
+            <li>Passive — no emissions</li>
+            <li>360° coverage, no blind spots</li>
+            <li>Low cost per sensor</li>
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            <li>Very short range (max 500m)</li>
+            <li>Urban/noisy environments reduce effectiveness</li>
+            <li>Cannot provide precise location or speed</li>
+            <li>Wind, rain, and aircraft noise cause false alarms</li>
+        </ul>
+
+        <h2>Multi-Sensor Fusion</h2>
+        <p>The best C-UAS systems combine multiple sensor types for reliable detection:</p>
+
+        <table>
+            <tr><th>Layer</th><th>Sensor</th><th>Role</th></tr>
+            <tr><td class="spec">Early Warning</td><td>RF + Radar</td><td>Detect at long range</td></tr>
+            <tr><td class="spec">Tracking</td><td>Radar + EO/IR</td><td>Track and classify</td></tr>
+            <tr><td class="spec">Identification</td><td>EO/IR + Acoustic</td><td>Visual confirmation</td></tr>
+            <tr><td class="spec">Engagement Cue</td><td>Combined data</td><td>Feed to weapons system</td></tr>
+        </table>
+
+        <div class="info-box">
+            <strong>AI is the glue:</strong> Modern C-UAS platforms use machine learning to fuse data from all sensors, reducing false positives by 90%+ and providing a single integrated air picture.
+        </div>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/c-uas-tech/jamming/" style="color:var(--accent)">Next: Electronic Warfare & Jamming →</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

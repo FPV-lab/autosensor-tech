@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PID Tuning & Filters - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/software/">Software</a> → PID Tuning</div>
+        <h1>PID Tuning & Filters</h1>
+        <p>PID tuning is the art of making your quad fly exactly how you want. Properly tuned PIDs give you locked-in, responsive flight with no oscillations or sluggishness. This guide covers what PIDs do, how to tune them, and the critical role of filters.</p>
+
+        <h2>What Are PIDs?</h2>
+        <p>PID stands for <strong>Proportional, Integral, Derivative</strong> — a feedback control loop that keeps your quad stable. Every axis (Roll, Pitch, Yaw) has its own PID values. The FC reads the gyro, compares actual rotation to desired rotation (from your sticks), and adjusts motor speeds thousands of times per second.</p>
+        <div class="info-box">
+            <h3>The Analogy</h3>
+            <p>Imagine driving a car toward a lane center. <strong>P</strong> (Proportional) steers harder the further from center you are. <strong>I</strong> (Integral) builds up correction if you keep drifting. <strong>D</strong> (Derivative) slows steering as you approach center to prevent overshoot. Your quad does this on 3 axes simultaneously, 8,000 times per second.</p>
+        </div>
+
+        <h2>Default PID Values</h2>
+        <p>Betaflight ships with reasonable defaults. These work for most builds out of the box. Tune from here only if needed.</p>
+        <table>
+            <tr><th>Axis</th><th>Roll P</th><th>Roll I</th><th>Roll D</th><th>Pitch P</th><th>Pitch I</th><th>Pitch D</th><th>Yaw P</th><th>Yaw I</th></tr>
+            <tr><td>BF 4.4+ Defaults</td><td class="spec">42</td><td class="spec">85</td><td class="spec">30</td><td class="spec">46</td><td class="spec">90</td><td class="spec">32</td><td class="spec">42</td><td class="spec">85</td></tr>
+            <tr><td>5" Freestyle</td><td class="spec">45</td><td class="spec">90</td><td class="spec">28</td><td class="spec">50</td><td class="spec">95</td><td class="spec">30</td><td class="spec">45</td><td class="spec">90</td></tr>
+            <tr><td>5" Racing</td><td class="spec">55</td><td class="spec">100</td><td class="spec">32</td><td class="spec">58</td><td class="spec">105</td><td class="spec">35</td><td class="spec">50</td><td class="spec">95</td></tr>
+            <tr><td>Cinematic (smooth)</td><td class="spec">38</td><td class="spec">80</td><td class="spec">25</td><td class="spec">42</td><td class="spec">85</td><td class="spec">28</td><td class="spec">40</td><td class="spec">80</td></tr>
+            <tr><td>3" Toothpick</td><td class="spec">50</td><td class="spec">90</td><td class="spec">26</td><td class="spec">55</td><td class="spec">95</td><td class="spec">28</td><td class="spec">45</td><td class="spec">85</td></tr>
+        </table>
+
+        <h2>What Each PID Term Does</h2>
+        <h3>Proportional (P) — The Reactor</h3>
+        <p>P responds to the <em>current</em> error. Higher P = more aggressive correction. Too high and the quad oscillates rapidly (high-frequency buzz). Too low and it feels sloppy, drifting on turns.</p>
+        <ul>
+            <li><strong>Too high:</strong> Fast oscillations, "shakes" in hover, hot motors</li>
+            <li><strong>Too low:</strong> Sluggish response, poor tracking, wobbles on hard stops</li>
+            <li><strong>Sweet spot:</strong> Quick, clean response with no visible oscillation</li>
+        </ul>
+
+        <h3>Integral (I) — The Corrector</h3>
+        <p>I accumulates error over time. It corrects for sustained drift (like wind or unbalanced props). Higher I holds angle better but can cause slow "wobbles" or drift in hover.</p>
+        <ul>
+            <li><strong>Too high:</strong> Slow "I-term bounce," drift after fast maneuvers</li>
+            <li><strong>Too low:</strong> Quad drifts to one side, doesn't hold position in wind</li>
+            <li><strong>Sweet spot:</strong> Holds angle perfectly, no visible I-term wobble</li>
+        </ul>
+
+        <h3>Derivative (D) — The Damper</h3>
+        <p>D responds to the <em>rate of change</em> of error. It dampens oscillations by counteracting fast changes. Think of it as a shock absorber.</p>
+        <ul>
+            <li><strong>Too high:</strong> Motor noise, grinding sound, prop wash on hard turns</li>
+            <li><strong>Too low:</strong> Oscillations overshoot, "bounces" on stops</li>
+            <li><strong>Sweet spot:</strong> Clean stops, no bounce, smooth recovery</li>
+        </ul>
+
+        <h2>Quick Tuning Tips</h2>
+        <div class="info-box">
+            <h3>The 5-Minute Tune</h3>
+            <ol style="margin-left:1.5rem;color:var(--text-dim)">
+                <li>Start with Betaflight defaults — most 5" builds fly fine</li>
+                <li>If oscillating → lower <strong>P</strong> by 5 at a time</li>
+                <li>If drifting → increase <strong>I</strong> by 5-10</li>
+                <li>If bouncy on stops → increase <strong>D</strong> by 3-5</li>
+                <li>Always change one axis at a time (Roll first, then Pitch)</li>
+                <li>Test in smooth air, not gusty conditions</li>
+            </ol>
+        </div>
+        <div class="warn-box">
+            <h3>⚠️ Golden Rule</h3>
+            <p>If defaults fly well, DON'T TUNE. Many pilots spend hours chasing a "perfect tune" on an already good setup. Save your time for flying! Only tune when you notice a specific problem.</p>
+        </div>
+
+        <h2>Filters</h2>
+        <p>Filters clean up gyro noise before the PID loop processes it. Noisy gyro = bad flight performance regardless of PID values. Betaflight has several filter types working together.</p>
+
+        <h3>Lowpass Filters</h3>
+        <p>Lowpass filters remove high-frequency noise above a cutoff frequency. Lower cutoff = smoother but adds latency. Higher cutoff = more responsive but noisier.</p>
+        <table>
+            <tr><th>Filter</th><th>Default Cutoff</th><th>Recommended</th><th>Purpose</th></tr>
+            <tr><td>Gyro Lowpass 1</td><td>250 Hz</td><td>200-250 Hz</td><td>Removes motor/prop noise</td></tr>
+            <tr><td>Gyro Lowpass 2</td><td>500 Hz</td><td>400-500 Hz</td><td>Secondary noise filtering</td></tr>
+            <tr><td>DTerm Lowpass 1</td><td>150 Hz</td><td>120-150 Hz</td><td>Cleans D-term noise</td></tr>
+            <tr><td>DTerm Lowpass 2</td><td>250 Hz</td><td>200-250 Hz</td><td>Additional D filtering</td></tr>
+        </table>
+
+        <h3>Notch Filters</h3>
+        <p>Notch filters cut a specific frequency band — like surgical noise removal. Use them to target known noise sources.</p>
+        <ul>
+            <li><strong>Gyro Notch:</strong> Targets a specific frequency (e.g., 200 Hz motor noise). Set center frequency and cutoff.</li>
+            <li><strong>DTerm Notch:</strong> Same concept but applied to the D-term signal.</li>
+            <li>Default: Enabled at 200 Hz center, 150 Hz cutoff — works for most builds.</li>
+        </ul>
+
+        <h3>Dynamic Notch Filter</h3>
+        <p>The dynamic notch automatically tracks and filters the loudest noise frequency. This is incredibly effective for varying motor/prop noise across RPM ranges.</p>
+        <div class="info-box">
+            <h3>Dynamic Notch Settings</h3>
+            <ul>
+                <li><strong>Enabled by default</strong> in Betaflight 4.3+</li>
+                <li><strong>Min Hz:</strong> 100 (won't filter below this)</li>
+                <li><strong>Max Hz:</strong> 600 (won't filter above this)</li>
+                <li><strong>Q value:</strong> 300-450 (higher = narrower band, more precise)</li>
+                <li><strong>Count:</strong> 3-4 notches (how many frequency peaks to track)</li>
+            </ul>
+        </div>
+
+        <h2>Rates Explained</h2>
+        <p>Rates control how fast your quad rotates per stick input. They don't affect PID stability — only the feel of the sticks.</p>
+        <table>
+            <tr><th>Rate Type</th><th>Description</th><th>Best For</th></tr>
+            <tr><td>Betaflight (default)</td><td>RC Rate + Super Rate + Expo</td><td>Most pilots, good balance</td></tr>
+            <tr><td>Raceflight</td><td>Rate + Acro + Expo</td><td>Racers, very linear center</td></tr>
+            <tr><td>KISS</td><td>Rate + RC Curve + Expo</td><td>Smooth cinematic feel</td></tr>
+            <tr><td>Actual</td><td>Max deg/s at full stick</td><td>Easy to understand, direct</td></tr>
+        </table>
+        <p>A common freestyle starting point: <strong>RC Rate 1.0, Super Rate 0.7, Expo 0.2</strong> on all axes. This gives ~670°/s max rotation with a soft center stick feel.</p>
+
+        <h2>Blackbox Analysis</h2>
+        <p>Betaflight's Blackbox recorder captures gyro data, PID outputs, and motor signals. Analyzing this data is the most accurate way to tune.</p>
+        <h3>How to Use Blackbox</h3>
+        <ul>
+            <li>Enable Blackbox in Configuration tab — set logging rate to 2kHz minimum</li>
+            <li>Use an SD card (fast, Class 10) for onboard logging</li>
+            <li>Fly 30-60 seconds with varied maneuvers (punchouts, turns, flips)</li>
+            <li>Download the log file and open in <strong>Blackbox Explorer</strong></li>
+        </ul>
+        <h3>What to Look For</h3>
+        <table>
+            <tr><th>Signal</th><th>Healthy</th><th>Problem</th></tr>
+            <tr><td>Gyro trace</td><td>Smooth, follows setpoint</td><td>Noisy / oscillating</td></tr>
+            <tr><td>Setpoint vs Gyro</td><td>Gyro tracks setpoint closely</td><td>Large gap = weak P or I</td></tr>
+            <tr><td>DTerm trace</td><td>Clean, slight noise</td><td>Very noisy = lower D or add filtering</td></tr>
+            <tr><td>Motor outputs</td><td>Smooth, synchronized</td><td>Erratic = over-filtered or bad PIDs</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>FFT Analysis</h3>
+            <p>Blackbox Explorer has an FFT (frequency spectrum) view. Use it to identify dominant noise frequencies — these are your targets for notch filters. Sharp peaks in FFT = exact frequencies to notch out.</p>
+        </div>
+
+        <h2>PID Profiles & Rate Profiles</h2>
+        <p>Betaflight supports 3 PID profiles and 3 rate profiles. Use them for different flying styles:</p>
+        <ul>
+            <li><strong>Profile 0:</strong> Freestyle (moderate PIDs, medium rates)</li>
+            <li><strong>Profile 1:</strong> Racing (higher PIDs, fast rates)</li>
+            <li><strong>Profile 2:</strong> Cinematic (lower PIDs, slow rates, heavy expo)</li>
+        </ul>
+        <p>Switch profiles via stick commands or assigned switches on your radio.</p>
+
+        <p style="margin-top:2rem"><a href="../elrs/" style="color:var(--accent)">Next: ELRS & ESC Firmware →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

@@ -7,25 +7,22 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
         nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
         .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
         .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
-        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        section{padding:5rem 2rem;max-width:1000px;margin:0 auto}
         h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
-        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
-        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
         p{margin-bottom:1rem;color:var(--text-dim)}
-        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
-        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
         .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
-        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
-        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
-        .step{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
-        .step-num{color:var(--accent);font-size:1.5rem;font-weight:bold;margin-bottom:0.5rem}
-        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0}
+        .card{background:var(--secondary);border-radius:15px;padding:1.5rem;border:1px solid rgba(0,212,255,0.2);transition:all 0.3s;display:block;text-decoration:none}
+        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,0.1)}
+        .card h3{color:var(--accent);margin-bottom:0.5rem}
+        .card p{color:var(--text-dim);font-size:0.95rem}
+        .card .arrow{color:var(--accent2);margin-top:1rem;font-weight:bold}
         footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
-        @media(max-width:768px){.nav-links{display:none}}
+        @media(max-width:768px){.nav-links{display:none}.cards{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -37,222 +34,28 @@
             <a href="/forum/">Forum</a>
         </div>
     </nav>
-
     <section>
         <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Build Guide</div>
-        
         <h1>🔧 Build Guide</h1>
         <p>Step-by-step assembly of a 5-inch FPV drone from parts to first flight</p>
-
-        <h2>Parts List (5-Inch DJI O4 Pro Build)</h2>
-        <p>This build uses the most popular configuration for 2026. Total cost: approximately $470-490.</p>
-
-        <table>
-            <tr><th>Component</th><th>Recommended</th><th>Price</th></tr>
-            <tr><td>Frame</td><td class="spec">GEPRC Vapor D5</td><td>$50</td></tr>
-            <tr><td>FC + ESC Stack</td><td class="spec">SpeedyBee F405 V4 + 60A 4-in-1</td><td>$70</td></tr>
-            <tr><td>Motors (x4)</td><td class="spec">EMAX ECO II 2207 1900KV</td><td>$64</td></tr>
-            <tr><td>Propellers (x4)</td><td class="spec">HQ 5x4.3x3 V2S</td><td>$8</td></tr>
-            <tr><td>Receiver</td><td class="spec">BetaFPV ELRS 2.4GHz Nano</td><td>$15</td></tr>
-            <tr><td>Video TX</td><td class="spec">DJI O4 Pro Air Unit</td><td>$229</td></tr>
-            <tr><td>Battery Strap</td><td>Standard Velcro</td><td>$2</td></tr>
-            <tr><td>Antenna</td><td>Lollipop 4 / TBS Triumph</td><td>$8-15</td></tr>
-            <tr><td>Battery</td><td>6S 1300mAh LiPo</td><td>$30-50</td></tr>
-        </table>
-
-        <div class="info-box">
-            <strong>Alternative Budget Build:</strong> Replace DJI O4 Pro ($229) with Analog setup ($40 total) for a total cost under $300.
+        <div class="cards">
+            <a href="./tools/" class="card">
+                <h3>🛠️ Tools & Parts List</h3>
+                <p>Complete parts list with prices, required tools, alternative builds, where to buy</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./assembly/" class="card">
+                <h3>🔩 Assembly Steps</h3>
+                <p>Frame assembly, motor installation, ESC wiring, FC stacking, receiver setup</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./soldering/" class="card">
+                <h3>🔥 Soldering & Final Setup</h3>
+                <p>Soldering techniques, DJI O4 install, power-on test, Betaflight config, post-build checklist</p>
+                <div class="arrow">Learn more →</div>
+            </a>
         </div>
-
-        <h2>Required Tools</h2>
-        <table>
-            <tr><th>Tool</th><th>Use</th><th>Cost</th></tr>
-            <tr><td class="spec">Soldering Iron (TS101/Pinecil)</td><td>All wiring connections</td><td>$30-80</td></tr>
-            <tr><td>Solder (63/37 rosin core)</td><td>Soldering</td><td>$5</td></tr>
-            <tr><td>Flux (no-clean)</td><td>Better solder flow</td><td>$5</td></tr>
-            <tr><td>Hex Drivers (1.5/2.0/2.5mm)</td><td>Frame/motor screws</td><td>$10</td></tr>
-            <tr><td>Phillips Screwdriver (#1)</td><td>Various screws</td><td>$3</td></tr>
-            <tr><td>Wire Strippers</td><td>Cutting/stripping wire</td><td>$8</td></tr>
-            <tr><td>Helping Hands / Tweezers</td><td>Holding parts while soldering</td><td>$10</td></tr>
-            <tr><td>Electrical Tape / Heat Shrink</td><td>Insulation</td><td>$5</td></tr>
-            <tr><td>Prop Tool / Wrench</td><td>Propeller nuts</td><td>$3</td></tr>
-            <tr><td>Zip Ties</td><td>Cable management</td><td>$2</td></tr>
-            <tr><td>Multimeter</td><td>Continuity/voltage checks</td><td>$15</td></tr>
-        </table>
-
-        <h2>Assembly Steps</h2>
-
-        <div class="step">
-            <div class="step-num">Step 1: Frame Assembly</div>
-            <p>Assemble the frame bottom plate with arms. Tighten all screws but don't over-tighten carbon fiber (it can crack).</p>
-            <ul>
-                <li>Identify front, back, left, right arms</li>
-                <li>Stack bottom plate + arms + hardware</li>
-                <li>Leave standoffs for FC/ESC stack</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 2: Install Motors</div>
-            <p>Mount all 4 motors to the arms. Pay attention to motor direction (2 clockwise, 2 counter-clockwise).</p>
-            <ul>
-                <li>Use M3 screws (usually 6-8mm length)</li>
-                <li>Motor wires should face toward center</li>
-                <li>Tighten screws firmly but not excessively</li>
-                <li>Label motors: front-left (CCW), front-right (CW), back-left (CW), back-right (CCW)</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 3: Solder ESC Power Wires</div>
-            <p>Solder the XT60 pigtail (battery connector wire) to the ESC power pads.</p>
-            <ul>
-                <li><strong>Red wire → + (positive) pad</strong></li>
-                <li><strong>Black wire → - (negative) pad</strong></li>
-                <li>Use plenty of flux</li>
-                <li>Heat pad first, then add solder</li>
-                <li>Add capacitor (1000µF 35V) across power pads</li>
-            </ul>
-            <div class="warn-box">
-                <strong>⚠️ Triple-check polarity!</strong> Reversed polarity will destroy your ESC instantly. Red goes to +, black to -. No exceptions.
-            </div>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 4: Connect Motors to ESC</div>
-            <p>Solder the 3 motor wires to the corresponding ESC motor pads. Wire order determines direction.</p>
-            <ul>
-                <li>Use 3 motor wires per motor (any order for now)</li>
-                <li>Solder to ESC M1-M4 motor pads</li>
-                <li>Keep wires short but with enough slack</li>
-                <li>Motor direction will be fixed in BLHeli later</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 5: Stack FC on ESC</div>
-            <p>Connect the flight controller on top of the 4-in-1 ESC using the included connector.</p>
-            <ul>
-                <li>Align the connector pins correctly</li>
-                <li>Use rubber standoffs/grommets for vibration dampening</li>
-                <li>The FC arrow should point toward the FRONT of the drone</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 6: Solder ELRS Receiver</div>
-            <p>Connect the ELRS receiver to a UART on the FC.</p>
-            <table>
-                <tr><th>ELRS Wire</th><th>FC Pad</th></tr>
-                <tr><td class="spec">TX</td><td>RX (UART 1)</td></tr>
-                <tr><td class="spec">RX</td><td>TX (UART 1)</td></tr>
-                <tr><td class="spec">5V</td><td>5V</td></tr>
-                <tr><td class="spec">GND</td><td>G</td></tr>
-            </table>
-            <ul>
-                <li>Mount antenna at back, away from carbon (90° to each other for diversity)</li>
-                <li>Use zip ties to secure antenna wire</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 7: Install DJI O4 Pro Air Unit</div>
-            <p>Connect the DJI O4 Pro to a UART with MSP + DisplayPort for OSD.</p>
-            <table>
-                <tr><th>DJI O4 Wire</th><th>FC Pad</th></tr>
-                <tr><td class="spec">TX</td><td>RX (UART 2)</td></tr>
-                <tr><td class="spec">RX</td><td>TX (UART 2)</td></tr>
-                <tr><td class="spec">9V / VBAT</td><td>9V or VBAT pad</td></tr>
-                <tr><td class="spec">GND</td><td>G</td></tr>
-            </table>
-            <ul>
-                <li>Mount the air unit with double-sided tape or soft mount</li>
-                <li>Attach the camera to the front of the frame</li>
-                <li>Route antenna out the back, keep away from props</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 8: First Power-On Test</div>
-            <p>Before closing everything up, do a power-on test.</p>
-            <ul>
-                <li>Use a smoke stopper if you have one</li>
-                <li>Connect USB first → verify FC recognized by Betaflight Configurator</li>
-                <li>Disconnect USB, connect battery briefly</li>
-                <li>Check for heat, smoke, or odd smells</li>
-                <li>Verify DJI O4 link to goggles</li>
-                <li>Bind ELRS receiver to transmitter</li>
-            </ul>
-            <div class="warn-box">
-                <strong>⚠️ Use a smoke stopper!</strong> A $15 smoke stopper can save a $400 build. It limits current and prevents shorts from destroying components.
-            </div>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 9: Betaflight Configuration</div>
-            <p>Configure all settings in Betaflight Configurator. See the <a href="/knowledge-base/software/" style="color:var(--accent)">Software page</a> for details.</p>
-            <ul>
-                <li>Ports: Enable Serial RX on UART 1, MSP+DisplayPort on UART 2</li>
-                <li>Receiver: CRSF protocol</li>
-                <li>Motors: Set motor direction (props out or props in)</li>
-                <li>Arming: Set AUX1 switch</li>
-                <li>Failsafe: GPS Rescue or Drop</li>
-                <li>OSD: Enable voltage, timer, LQ, throttle</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 10: Motor Direction & Propellers</div>
-            <p>Verify motor direction. Use the Betaflight motor tab to check each motor.</p>
-            <ul>
-                <li><strong>Props-out (default):</strong> Front motors spin outward, rear motors spin outward</li>
-                <li><strong>Props-in:</strong> Opposite direction</li>
-                <li>If direction is wrong: use BLHeli Suite or ESC Configurator to reverse</li>
-                <li>Install propellers matching motor direction (check prop A/B markings)</li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <div class="step-num">Step 11: Final Assembly</div>
-            <p>Close up the frame, secure all wires, and do final checks.</p>
-            <ul>
-                <li>Tuck all wires inside frame, away from props</li>
-                <li>Secure battery connector at bottom</li>
-                <li>Tighten all frame screws</li>
-                <li>Verify antenna placement</li>
-                <li>Add battery strap</li>
-                <li>Test all switches and failsafe</li>
-            </ul>
-        </div>
-
-        <h2>Common Mistakes</h2>
-        <div class="warn-box">
-            <ul>
-                <li><strong>Reversed polarity:</strong> Double and triple check +/- on all power connections</li>
-                <li><strong>Cold solder joints:</strong> Heat the pad, not the solder. Shiny = good, dull = bad</li>
-                <li><strong>Props on during testing:</strong> Never have props on during motor direction tests</li>
-                <li><strong>Short FC arrow:</strong> The arrow on the FC points FORWARD. Get this wrong and your drone flies backward</li>
-                <li><strong>Loose antenna:</strong> A loose antenna = short range and failsafes</li>
-                <li><strong>No capacitor:</strong> Always add a capacitor on the power lead to reduce electrical noise</li>
-            </ul>
-        </div>
-
-        <h2>Post-Build Checklist</h2>
-        <table>
-            <tr><th>Check</th><th>How</th></tr>
-            <tr><td>Motor direction</td><td>Betaflight motor tab (props off!)</td></tr>
-            <tr><td>Receiver responds</td><td>Betaflight receiver tab, move sticks</td></tr>
-            <tr><td>Video link works</td><td>DJI goggles show image</td></tr>
-            <tr><td>Voltage reading</td><td>Battery voltage shows in OSD</td></tr>
-            <tr><td>Failsafe works</td><td>Turn off TX → drone should drop or GPS rescue</td></tr>
-            <tr><td>Vibration check</td><td>Betaflight config → gyro tab, shake frame</td></tr>
-            <tr><td>All screws tight</td><td>Physical inspection</td></tr>
-            <tr><td>Props correct direction</td><td>Visual check, props A/B facing correct way</td></tr>
-        </table>
-
-        <p style="margin-top:2rem"><a href="/knowledge-base/flying/" style="color:var(--accent)">Next: Flying Styles →</a></p>
     </section>
-
     <footer>
         <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
     </footer>

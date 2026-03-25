@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning to Fly - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/flying/">Flying</a> → Learning</div>
+        <h1>Learning to Fly</h1>
+        <p>Learning FPV is like learning to ride a bike — the first hours are frustrating, then suddenly everything clicks. This guide maps the path from complete beginner to confident pilot. Spoiler: simulators save you hundreds of dollars in crashes.</p>
+
+        <h2>Flight Modes Explained</h2>
+        <p>Betaflight offers three main flight modes. Understanding them is crucial for learning progression.</p>
+        <table>
+            <tr><th>Mode</th><th>Behavior</th><th>Use Case</th></tr>
+            <tr><td class="spec">ANGLE (Self-Level)</td><td>Quad auto-levels when sticks are centered. Max tilt angle limited (default 45°). Sticks control angle, not rotation rate.</td><td>Beginners, first flights, GPS rescue mode</td></tr>
+            <tr><td class="spec">HORIZON</td><td>Self-levels at low stick inputs, allows flips/rolls at full stick. Hybrid between Angle and Acro.</td><td>Transition mode between Angle and Acro</td></tr>
+            <tr><td class="spec">ACRO (Rate)</td><td>Sticks control rotation rate. Quad holds whatever angle you leave it at. No auto-level. Full 3D control.</td><td>All FPV flying once learned. This is the mode.</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Start in Acro</h3>
+            <p>Most FPV instructors recommend starting in <strong>Acro mode from day one</strong> — on a simulator. Angle mode builds bad habits (relying on auto-level). Acro is harder initially but builds proper muscle memory that transfers to real flying.</p>
+        </div>
+
+        <h2>Simulator Recommendations</h2>
+        <p>Sims are essential. You'll crash 100+ times in a sim with zero cost. Crash 100 times on a real quad = $1000+ in repairs.</p>
+        <table>
+            <tr><th>Simulator</th><th>Price</th><th>Best For</th><th>Platform</th></tr>
+            <tr><td class="spec">Liftoff</td><td>$20</td><td>Best overall experience, great maps</td><td>PC, Mac, PS, Xbox</td></tr>
+            <tr><td class="spec">Velocidrone</td><td>$20</td><td>Most realistic physics, racing focus</td><td>PC</td></tr>
+            <tr><td class="spec">DRL Simulator</td><td>$10</td><td>Official DRL tracks, beginner-friendly</td><td>PC, PS, Xbox</td></tr>
+            <tr><td class="spec">Uncrashed</td><td>$15</td><td>Beautiful graphics, freestyle focus</td><td>PC</td></tr>
+            <tr><td class="spec">FPV SkyDive</td><td>Free</td><td>Free option, decent for basics</td><td>PC</td></tr>
+            <tr><td class="spec">Tiny Whoop GO</td><td>Free</td><td>Indoor micro drone simulation</td><td>PC</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Connect Your Radio</h3>
+            <p>All sims support USB connection from your radio (Radiomaster, Jumper, etc.). This is crucial — sim flying must feel identical to real flying. Configure the sim to match your radio's channel order (AETR) and rates.</p>
+        </div>
+
+        <h2>Learning Phases</h2>
+        <h3>Phase 1: Simulator (2-10 hours)</h3>
+        <ul>
+            <li>Learn to hover, pitch, roll, and yaw in Acro mode</li>
+            <li>Practice basic turns around a course</li>
+            <li>Goal: Fly a complete lap without crashing</li>
+            <li>Goal: Smooth turns maintaining altitude</li>
+        </ul>
+
+        <h3>Phase 2: Tiny Whoop / Micro (5-20 flights)</h3>
+        <ul>
+            <li>Indoor micro drones (65-75mm) — crash-safe, cheap to repair</li>
+            <li>Apply sim skills to real hardware</li>
+            <li>Learn throttle control in real gravity</li>
+            <li>Practice in your house — navigate rooms, doorways</li>
+            <li>Budget: BetaFPV Cetus Pro ($80-120 all-in-one kit)</li>
+        </ul>
+
+        <h3>Phase 3: 5-Inch Outdoors (20-50+ flights)</h3>
+        <ul>
+            <li>First flights in wide open field — no obstacles</li>
+            <li>Start with hover and basic orientation</li>
+            <li>Gradually add speed, turns, altitude changes</li>
+            <li>Practice in Angle mode first if nervous, switch to Acro ASAP</li>
+            <li>Expect crashes — they happen to everyone</li>
+        </ul>
+
+        <h3>Phase 4: Progression (ongoing)</h3>
+        <ul>
+            <li>Explore different flying styles (freestyle, racing, cinematic)</li>
+            <li>Try new spots and environments</li>
+            <li>Record and review your flights — Blackbox and GoPro footage</li>
+            <li>Join local FPV groups and fly with others</li>
+        </ul>
+
+        <h2>Stick Rates</h2>
+        <p>Rates control how fast your quad responds to stick input. Start slow, increase as your skills improve.</p>
+        <table>
+            <tr><th>Skill Level</th><th>Max Rate (°/s)</th><th>Expo</th><th>Feel</th></tr>
+            <tr><td class="spec">Beginner</td><td>400-500</td><td>0.3-0.4</td><td>Very gentle, soft center</td></tr>
+            <tr><td class="spec">Intermediate</td><td>600-700</td><td>0.2-0.3</td><td>Balanced, responsive</td></tr>
+            <tr><td class="spec">Advanced</td><td>800-1000</td><td>0.1-0.2</td><td>Fast, snappy</td></tr>
+            <tr><td class="spec">Pro Racer</td><td>1000-1500</td><td>0.05-0.15</td><td>Maximum speed</td></tr>
+        </table>
+
+        <h2>FPV Etiquette & Safety</h2>
+        <div class="warn-box">
+            <h3>⚠️ Safety Rules — Always Follow</h3>
+            <ul>
+                <li><strong>Never fly over people</strong> — Drones can fall, fail, and hurt someone</li>
+                <li><strong>Stay below 120m / 400ft AGL</strong> (check local limits)</li>
+                <li><strong>Keep visual line of sight</strong> or use a spotter</li>
+                <li><strong>Register your drone</strong> if required by local laws</li>
+                <li><strong>Don't fly near airports</strong> — check NOTAMs and restricted zones</li>
+                <li><strong>Respect private property</strong> — ask permission before flying</li>
+                <li><strong>Be aware of other aircraft</strong> — manned aircraft always have right of way</li>
+                <li><strong>Fly sober</strong> — no alcohol or drugs while operating</li>
+            </ul>
+        </div>
+        <h3>Community Etiquette</h3>
+        <ul>
+            <li>Share spots responsibly — don't blow up secret locations on social media</li>
+            <li>Help newcomers — everyone was a beginner once</li>
+            <li>Don't fly over others' races or filming sessions</li>
+            <li>Pick up your trash — leave spots cleaner than you found them</li>
+            <li>Respect wildlife — don't chase birds or disturb animals</li>
+        </ul>
+
+        <h2>Notable FPV Pilots</h2>
+        <p>Follow these pilots for inspiration and to learn techniques through observation.</p>
+        <table>
+            <tr><th>Pilot</th><th>Style</th><th>Known For</th></tr>
+            <tr><td class="spec">Johnny Schaer (JohnnyFPV)</td><td>Cinematic</td><td>Hollywood-level drone shots, car commercials, Netflix</td></tr>
+            <tr><td class="spec">Gab707</td><td>Cinematic/Long Range</td><td>Stunning landscape cinematography, Iceland/Norway footage</td></tr>
+            <tr><td class="spec">Mr. Steele</td><td>Freestyle</td><td>Iconic freestyle content, smooth and aggressive style</td></tr>
+            <tr><td class="spec">Joshua Bardwell</td><td>Educational</td><td>"The FPV know-it-all," tutorials, build guides</td></tr>
+            <tr><td class="spec">Rotor Riot Crew</td><td>Freestyle/Team</td><td>Chad Nowak, Skitzo, Le Drib — OG freestyle crew</td></tr>
+            <tr><td class="spec">MCK FPV</td><td>Racing</td><td>DRL pilot, world-class racing skills</td></tr>
+            <tr><td class="spec">Killian Rousseau</td><td>Freestyle</td><td>French freestyle pilot, incredible proximity</td></tr>
+            <tr><td class="spec">FPV Pilot Skeet</td><td>Freestyle</td><td>Popular YouTube tutorials and content</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Learning Resources</h3>
+            <ul>
+                <li><strong>Joshua Bardwell's YouTube</strong> — The definitive FPV education channel</li>
+                <li><strong>Joshua Bardwell's website</strong> — Written guides and product reviews</li>
+                <li><strong>RCGroups forums</strong> — Community discussions and troubleshooting</li>
+                <li><strong>Reddit r/fpv & r/Multicopter</strong> — Active communities for help</li>
+                <li><strong>Betaflight Wiki</strong> — Official documentation for all settings</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:2rem"><a href="../../military/attack-drones/" style="color:var(--accent)">Next: Attack FPV Drones →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

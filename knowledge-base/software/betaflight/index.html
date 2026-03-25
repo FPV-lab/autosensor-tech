@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betaflight Configuration - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/software/">Software</a> → Betaflight Config</div>
+        <h1>Betaflight Configuration</h1>
+        <p>Betaflight is the most popular open-source flight controller firmware for FPV drones. It runs on STM32-based flight controllers and provides everything from basic stabilization to advanced features like GPS rescue, OSD, and LED control. This guide covers the essential setup steps to get your quad flying.</p>
+
+        <h2>What is Betaflight?</h2>
+        <p>Betaflight started as a fork of Cleanflight in 2015 and has since become the de facto standard for FPV freestyle and racing. It's maintained by a large community of developers and supports a wide range of flight controllers.</p>
+        <div class="info-box">
+            <h3>Key Features</h3>
+            <ul>
+                <li>High-performance PID loop (up to 8kHz)</li>
+                <li>Built-in OSD (On-Screen Display) for compatible FCs</li>
+                <li>GPS Rescue mode for failsafe recovery</li>
+                <li>Advanced filtering for smooth flight performance</li>
+                <li>Support for DSHOT, bidirectional DSHOT motor protocols</li>
+                <li>Integrated Blackbox flight recorder</li>
+                <li>Wireless configuration via Bluetooth/Wi-Fi</li>
+            </ul>
+        </div>
+
+        <h2>Step 1: Flash the Firmware</h2>
+        <p>Always start by flashing the latest stable Betaflight firmware. This ensures you have the newest features and bug fixes.</p>
+        <h3>Using Betaflight Configurator</h3>
+        <ul>
+            <li>Download <strong>Betaflight Configurator</strong> from the <a href="https://github.com/betaflight/betaflight-configurator/releases" style="color:var(--accent)">GitHub releases page</a> or use the Chrome Web App version</li>
+            <li>Connect your FC via USB — hold the BOOT button if it's a new board</li>
+            <li>Open Betaflight Configurator and select the correct COM port</li>
+            <li>Go to the <strong>Firmware Flasher</strong> tab</li>
+            <li>Select your target (usually auto-detected from the board name)</li>
+            <li>Choose the latest stable release (or release candidate for testing)</li>
+            <li>Click <strong>Load Firmware [Online]</strong> then <strong>Flash Firmware</strong></li>
+        </ul>
+        <div class="warn-box">
+            <h3>⚠️ Important</h3>
+            <p>Always verify your FC target before flashing! Using the wrong target can brick your board. Check the target name printed on your FC or in the documentation. When in doubt, use <code>diff all</code> in CLI to save your current configuration first.</p>
+        </div>
+
+        <h2>Step 2: Ports Configuration</h2>
+        <p>The Ports tab configures which peripherals connect to your FC's UART ports. Getting this right is critical for everything to communicate.</p>
+        <table>
+            <tr><th>Peripheral</th><th>Typical UART</th><th>Port Settings</th></tr>
+            <tr><td>Receiver (Serial)</td><td>UART1 or UART2</td><td>Serial RX ✓</td></tr>
+            <tr><td>DJI O3/O4 VTX</td><td>UART3 or UART4</td><td>VTX (MSP) + Displayport for OSD</td></tr>
+            <tr><td>GPS Module</td><td>UART3 or UART4</td><td>GPS (Baud: 57600)</td></tr>
+            <tr><td>SmartAudio (Analog)</td><td>Any free UART</td><td>Peripherals → TBS SmartAudio</td></tr>
+            <tr><td>ESC Telemetry</td><td>Any free UART</td><td>ESC Sensor ✓ (Baud: 115200)</td></tr>
+            <tr><td>Bluetooth</td><td>Any free UART</td><td>Bluetooth (Baud: 19200)</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Port Assignment Tips</h3>
+            <p>Each UART has a TX and RX pad. For serial receivers, connect the receiver's TX to the FC's RX pad (and vice versa). Only enable one feature per UART. If using DJI, the MSP + Displayport settings go on the same UART.</p>
+        </div>
+
+        <h2>Step 3: Receiver Setup</h2>
+        <p>Configure your radio link in the Receiver tab. This is where your transmitter communicates with the quad.</p>
+        <h3>Protocol Selection</h3>
+        <table>
+            <tr><th>Protocol</th><th>Serial Provider</th><th>Notes</th></tr>
+            <tr><td>ExpressLRS (CRSF)</td><td>CRSF</td><td>Most popular, low latency</td></tr>
+            <tr><td>TBS Crossfire</td><td>CRSF</td><td>Long range, reliable</td></tr>
+            <tr><td>FrSky (SBUS)</td><td>SBUS</td><td>Budget friendly</td></tr>
+            <tr><td>Spektrum (SRXL2)</td><td>SRXL2</td><td>Spektrum radios</td></tr>
+            <tr><td>Ghost (GHST)</td><td>GHST</td><td>ImmersionRC, low latency</td></tr>
+        </table>
+        <ul>
+            <li>Go to <strong>Receiver</strong> tab → set Serial Receiver Provider to match your radio system</li>
+            <li>Map your channel order (AETR is standard for most radios)</li>
+            <li>Verify stick movements match the on-screen visualization</li>
+            <li>Set channel ranges: 1000–2000, with center at 1500</li>
+            <li>Enable <strong>RSSI channel</strong> if your receiver supports it</li>
+            <li>Configure failsafe in the <strong>Failsafe</strong> tab (set to Drop or GPS Rescue)</li>
+        </ul>
+
+        <h2>Step 4: Modes & Switches</h2>
+        <p>Assign switches on your transmitter to Betaflight flight modes.</p>
+        <table>
+            <tr><th>Mode</th><th>Recommended Switch</th><th>Purpose</th></tr>
+            <tr><td>ARM</td><td>SC (2-pos)</td><td>Arms/disarms the motors</td></tr>
+            <tr><td>ANGLE</td><td>SA (3-pos)</td><td>Self-leveling mode for beginners</td></tr>
+            <tr><td>BEEPER</td><td>SD (2-pos)</td><td>Locate your quad by sound</td></tr>
+            <tr><td>PREARM</td><td>—</td><td>Safety: prevents accidental arming</td></tr>
+            <tr><td>FLIP OVER AFTER CRASH</td><td>SB (3-pos)</td><td>Turtle mode to flip the quad</td></tr>
+            <tr><td>GPS RESCUE</td><td>SA (3-pos mid)</td><td>Emergency return-to-home</td></tr>
+        </table>
+
+        <h2>Step 5: Motor Test</h2>
+        <div class="warn-box">
+            <h3>⚠️ Remove Props First!</h3>
+            <p>ALWAYS remove propellers before testing motors. This prevents injury and damage. Make sure the LiPo is connected and motors spin freely.</p>
+        </div>
+        <ul>
+            <li>Go to the <strong>Motors</strong> tab</li>
+            <li>Enable the motor test safety checkbox</li>
+            <li>Slowly raise each motor slider one at a time</li>
+            <li>Verify each motor spins in the correct direction (check the motor diagram)</li>
+            <li>Motor 1 = Front Right (CW), Motor 2 = Rear Right (CCW), Motor 3 = Rear Left (CW), Motor 4 = Front Left (CCW)</li>
+            <li>If a motor spins the wrong way, swap any two of its three wires, or use BLHeli Configurator to reverse it</li>
+        </ul>
+
+        <h2>Step 6: Configuration Tab Settings</h2>
+        <p>Essential settings in the Configuration tab for a proper setup.</p>
+        <table>
+            <tr><th>Setting</th><th>Recommended Value</th><th>Notes</th></tr>
+            <tr><td>Gyro Update Frequency</td><td>8kHz</td><td>Match to your FC's capability</td></tr>
+            <tr><td>PID Loop Frequency</td><td>8kHz</td><td>Usually same as gyro</td></tr>
+            <tr><td>Motor Protocol</td><td>DSHOT600</td><td>Or DSHOT300 for older ESCs</td></tr>
+            <tr><td>Board Alignment</td><td>0, 0, 0</td><td>Adjust if FC is mounted sideways</td></tr>
+            <tr><td>Arming Angle</td><td>180°</td><td>Allow arm at any angle</td></tr>
+            <tr><td>GPS Provider</td><td>NMEA / UBLOX</td><td>If using GPS module</td></tr>
+            <tr><td>VBAT / Current Meter</td><td>Enabled</td><td>For battery monitoring</td></tr>
+            <tr><td>OSD</td><td>Enabled</td><td>If your FC has OSD chip</td></tr>
+        </table>
+
+        <h2>Useful CLI Commands</h2>
+        <p>Betaflight's Command Line Interface allows direct configuration. Access it via the CLI tab in Configurator.</p>
+        <table>
+            <tr><th>Command</th><th>Description</th></tr>
+            <tr><td><code>status</code></td><td>Show board status, firmware version, CPU load</td></tr>
+            <tr><td><code>diff all</code></td><td>Show all changed settings from defaults (BACKUP!)</td></tr>
+            <tr><td><code>dump</code></td><td>Show complete configuration</td></tr>
+            <tr><td><code>resource</code></td><td>Show pin assignments</td></tr>
+            <tr><td><code>resource list</code></td><td>Show all available resources</td></tr>
+            <tr><td><code>get &lt;name&gt;</code></td><td>Get value of a specific setting</td></tr>
+            <tr><td><code>set &lt;name&gt;=&lt;value&gt;</code></td><td>Set a configuration value</td></tr>
+            <tr><td><code>save</code></td><td>Save configuration and reboot</td></tr>
+            <tr><td><code>defaults</code></td><td>Reset all settings to defaults</td></tr>
+            <tr><td><code>motor</code></td><td>Test motors (motor 1 1200)</td></tr>
+            <tr><td><code>profile</code></td><td>Switch PID profile (0-2)</td></tr>
+            <tr><td><code>rateprofile</code></td><td>Switch rate profile (0-2)</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Backup Strategy</h3>
+            <p>Always run <code>diff all</code> in CLI and save the output to a text file before flashing new firmware or making major changes. You can paste this output back into CLI to restore your settings. Store backups in a cloud folder for safety.</p>
+        </div>
+
+        <h2>Essential Tools</h2>
+        <table>
+            <tr><th>Tool</th><th>Purpose</th><th>Link</th></tr>
+            <tr><td>Betaflight Configurator</td><td>Main configuration app</td><td><a href="https://github.com/betaflight/betaflight-configurator" style="color:var(--accent)">GitHub</a></td></tr>
+            <tr><td>BLHeli Configurator</td><td>ESC firmware configuration</td><td><a href="https://github.com/bitdump/BLHeli" style="color:var(--accent)">GitHub</a></td></tr>
+            <tr><td>Betaflight Blackbox Explorer</td><td>Analyze flight recordings</td><td><a href="https://github.com/betaflight/blackbox-log-viewer" style="color:var(--accent)">GitHub</a></td></tr>
+            <tr><td>ExpressLRS Configurator</td><td>ELRS firmware flashing</td><td><a href="https://github.com/ExpressLRS/ExpressLRS-Configurator" style="color:var(--accent)">GitHub</a></td></tr>
+            <tr><td>TBS Agent Lite</td><td>Crossfire configuration</td><td><a href="https://www.team-blacksheep.com" style="color:var(--accent)">TBS</a></td></tr>
+        </table>
+
+        <p style="margin-top:2rem"><a href="../pid-tuning/" style="color:var(--accent)">Next: PID Tuning & Filters →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

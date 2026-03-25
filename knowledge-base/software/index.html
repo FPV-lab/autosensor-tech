@@ -7,24 +7,22 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
         nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
         .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
         .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
-        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        section{padding:5rem 2rem;max-width:1000px;margin:0 auto}
         h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
-        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
-        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
         p{margin-bottom:1rem;color:var(--text-dim)}
-        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
-        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
         .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
-        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
-        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
-        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
-        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0}
+        .card{background:var(--secondary);border-radius:15px;padding:1.5rem;border:1px solid rgba(0,212,255,0.2);transition:all 0.3s;display:block;text-decoration:none}
+        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,0.1)}
+        .card h3{color:var(--accent);margin-bottom:0.5rem}
+        .card p{color:var(--text-dim);font-size:0.95rem}
+        .card .arrow{color:var(--accent2);margin-top:1rem;font-weight:bold}
         footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
-        @media(max-width:768px){.nav-links{display:none}}
+        @media(max-width:768px){.nav-links{display:none}.cards{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -36,200 +34,28 @@
             <a href="/forum/">Forum</a>
         </div>
     </nav>
-
     <section>
         <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Software</div>
-        
         <h1>💻 Betaflight & Software</h1>
-        <p>Flight controller firmware, configuration tools, and tuning guides</p>
-
-        <h2>What is Betaflight?</h2>
-        <p>Betaflight is the most popular open-source flight controller firmware for FPV drones. It runs on STM32 processors and provides real-time stabilization, PID control, OSD overlay, GPS rescue, and much more. As of 2026, Betaflight 4.5 is the latest stable release.</p>
-
-        <div class="info-box">
-            <strong>Key Fact:</strong> Betaflight supports 95%+ of all FPV flight controllers on the market. If you're flying FPV, you're almost certainly running Betaflight.
+        <p>Flight controller firmware, configuration tools, and tuning guides for FPV drones</p>
+        <div class="cards">
+            <a href="./betaflight/" class="card">
+                <h3>🔧 Betaflight Configuration</h3>
+                <p>Firmware flashing, ports setup, receiver config, motor testing, OSD, GPS rescue</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./pid-tuning/" class="card">
+                <h3>🎯 PID Tuning & Filters</h3>
+                <p>PID parameters explained, tuning tips, filters, rates, Blackbox analysis</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./elrs/" class="card">
+                <h3>📻 ELRS & ESC Firmware</h3>
+                <p>ExpressLRS setup, BLHeli configuration, motor direction, alternative firmware</p>
+                <div class="arrow">Learn more →</div>
+            </a>
         </div>
-
-        <h2>Betaflight Configurator</h2>
-        <p>The Betaflight Configurator is a Chrome/standalone app used to configure your flight controller. It connects via USB or Bluetooth.</p>
-
-        <table>
-            <tr><th>Version</th><th>Platform</th><th>Notes</th></tr>
-            <tr><td class="spec">10.10+</td><td>Standalone (Win/Mac/Linux)</td><td>Latest, recommended</td></tr>
-            <tr><td>10.9</td><td>Chrome App</td><td>Legacy, still works</td></tr>
-        </table>
-
-        <h3>Download</h3>
-        <ul>
-            <li><strong>GitHub:</strong> github.com/betaflight/betaflight-configurator/releases</li>
-            <li><strong>Chrome Web Store:</strong> Search "Betaflight Configurator"</li>
-        </ul>
-
-        <h2>Initial Setup (Fresh Build)</h2>
-
-        <h3>Step 1: Flash Firmware</h3>
-        <ol style="margin:1rem 0 1rem 2rem;color:var(--text-dim)">
-            <li>Connect FC via USB (boot button if needed)</li>
-            <li>Open Configurator → "Firmware Flasher" tab</li>
-            <li>Select your FC target (check FC label)</li>
-            <li>Choose latest stable release (4.5.x)</li>
-            <li>Click "Load Firmware" → "Flash"</li>
-        </ol>
-
-        <h3>Step 2: Ports Configuration</h3>
-        <table>
-            <tr><th>Peripheral</th><th>UART</th><th>Function</th></tr>
-            <tr><td>ELRS Receiver</td><td class="spec">UART 1 (or 2)</td><td>Serial RX ✅</td></tr>
-            <tr><td>DJI O3/O4 Air Unit</td><td class="spec">UART 2 (or 3)</td><td>VTX (MSP + DisplayPort)</td></tr>
-            <tr><td>GPS Module</td><td class="spec">UART 3</td><td>GPS (57600 baud)</td></tr>
-            <tr><td>HDZero/Walksnail</td><td class="spec">UART 2</td><td>VTX (MSP + DisplayPort)</td></tr>
-        </table>
-
-        <h3>Step 3: Configuration Tab</h3>
-        <ul>
-            <li><strong>Gyro/PID Loop:</strong> 8kHz/8kHz (default)</li>
-            <li><strong>Mixer:</strong> Select your frame type (Quad X)</li>
-            <li><strong>Receiver:</strong> Serial-based, CRSF protocol (for ELRS)</li>
-            <li><strong>Arming:</strong> Set AUX1 switch for arm/disarm</li>
-            <li><strong>Failsafe:</strong> Set to "GPS Rescue" (if GPS installed) or "Drop"</li>
-        </ul>
-
-        <h3>Step 4: Receiver Setup</h3>
-        <ul>
-            <li>Bind ELRS receiver to your transmitter</li>
-            <li>Go to "Receiver" tab → verify channel mapping</li>
-            <li>Roll/Pitch/Yaw/Throttle should respond to sticks</li>
-            <li>Set channel map: AETR1234 (standard)</li>
-        </ul>
-
-        <h3>Step 5: Motors Test</h3>
-        <div class="warn-box">
-            <strong>⚠️ Remove propellers before testing motors!</strong><br>
-            Go to "Motors" tab → enable motor test sliders → verify each motor spins correctly and in the right direction.
-        </div>
-
-        <h2>PID Tuning</h2>
-        <p>PIDs (Proportional-Integral-Derivative) control how aggressively the drone responds to your stick inputs. Getting PIDs right makes the difference between a shaky, unstable drone and a locked-in, smooth flyer.</p>
-
-        <h3>Default PIDs (Betaflight 4.5)</h3>
-        <table>
-            <tr><th>Axis</th><th>P</th><th>I</th><th>D</th></tr>
-            <tr><td>Roll</td><td class="spec">42</td><td class="spec">85</td><td class="spec">30</td></tr>
-            <tr><td>Pitch</td><td class="spec">46</td><td class="spec">90</td><td class="spec">32</td></tr>
-            <tr><td>Yaw</td><td class="spec">45</td><td class="spec">90</td><td class="spec">0</td></tr>
-        </table>
-
-        <h3>What Each PID Does</h3>
-        <ul>
-            <li><strong>P (Proportional):</strong> How aggressively it corrects errors. Too high = oscillation, too low = sluggish.</li>
-            <li><strong>I (Integral):</strong> Corrects long-term drift. Too high = slow wobble, too low = drifts in wind.</li>
-            <li><strong>D (Derivative):</strong> Dampens corrections. Too high = hot motors, too low = overshoot.</li>
-        </ul>
-
-        <h3>Quick Tuning Tips</h3>
-        <div class="info-box">
-            <ul>
-                <li><strong>Oscillation?</strong> → Lower P by 5-10 points</li>
-                <li><strong>Sluggish response?</strong> → Raise P by 5-10 points</li>
-                <li><strong>Drifts in wind?</strong> → Raise I by 10-20 points</li>
-                <li><strong>Hot motors?</strong> → Lower D by 5 points</li>
-                <li><strong>Overshoot on flips?</strong> → Raise D by 3-5 points</li>
-            </ul>
-        </div>
-
-        <h2>Filters</h2>
-        <p>Filters remove noise from gyro data before it reaches the PID controller. Proper filtering keeps motors cool and flights smooth.</p>
-
-        <h3>Key Filters</h3>
-        <table>
-            <tr><th>Filter</th><th>Purpose</th><th>Default</th></tr>
-            <tr><td>Lowpass Gyro</td><td>Remove high-freq gyro noise</td><td class="spec">Dynamic (250-500Hz)</td></tr>
-            <tr><td>Lowpass D</td><td>Filter D-term noise</td><td class="spec">Dynamic (150-350Hz)</td></tr>
-            <tr><td>Notch Filter</td><td>Target specific noise freqs</td><td class="spec">Disabled (clean builds)</td></tr>
-            <tr><td>Dynamic Notch</td><td>Auto-track prop wash</td><td class="spec">Enabled</td></tr>
-        </table>
-
-        <h2>OSD (On-Screen Display)</h2>
-        <p>OSD overlays flight data on your FPV feed. Essential for monitoring battery voltage, flight time, and GPS coordinates.</p>
-
-        <h3>Essential OSD Elements</h3>
-        <ul>
-            <li><strong>Battery Voltage:</strong> Always visible</li>
-            <li><strong>Flight Timer:</strong> Track remaining battery</li>
-            <li><strong>RSSI/Link Quality:</strong> ELRS shows LQ</li>
-            <li><strong>Throttle Position:</strong> Helps manage battery</li>
-            <li><strong>GPS Coordinates:</strong> Essential for long range</li>
-            <li><strong>Artificial Horizon:</strong> Useful for orientation</li>
-        </ul>
-
-        <h2>GPS Rescue Mode</h2>
-        <p>GPS Rescue is Betaflight's built-in failsafe. When activated, the drone automatically flies back to your home position and lands.</p>
-
-        <h3>Setup Requirements</h3>
-        <ul>
-            <li>GPS module (BN-220, BN-880, or Matek M10Q)</li>
-            <li>Configured UART for GPS</li>
-            <li>Minimum 8 satellites before arming</li>
-            <li>Set failsafe to "GPS Rescue"</li>
-        </ul>
-
-        <h3>Configuration</h3>
-        <table>
-            <tr><th>Parameter</th><th>Recommended</th></tr>
-            <tr><td>Min Distance</td><td class="spec">100m</td></tr>
-            <tr><td>Altitude</td><td class="spec">30-50m</td></tr>
-            <tr><td>Return Speed</td><td class="spec">3 m/s</td></tr>
-            <tr><td>Descent Distance</td><td class="spec">20m</td></tr>
-            <tr><td>Ground Speed</td><td class="spec">2 m/s</td></tr>
-        </table>
-
-        <h2>ExpressLRS Firmware</h2>
-        <p>ELRS receiver and transmitter firmware needs regular updates. Use the ELRS Configurator (web or desktop) to flash new firmware.</p>
-
-        <h3>ELRS Web Flasher</h3>
-        <ul>
-            <li><strong>URL:</strong> flasher.expresslrs.org</li>
-            <li>Select TX/RX target</li>
-            <li>Choose binding phrase</li>
-            <li>Set packet rate (250Hz recommended for range)</li>
-            <li>Flash via WiFi or USB</li>
-        </ul>
-
-        <h2>Other Firmware Options</h2>
-        <table>
-            <tr><th>Firmware</th><th>Best For</th><th>Notes</th></tr>
-            <tr><td class="spec">Betaflight</td><td>Most FPV pilots</td><td>Industry standard, best tuning</td></tr>
-            <tr><td>INAV</td><td>Wings, planes, long range</td><td>Waypoint missions, better GPS</td></tr>
-            <tr><td>ArduPilot</td><td>Professional/commercial</td><td>Most features, steep learning curve</td></tr>
-            <tr><td>Cleanflight</td><td>Legacy</td><td>Betaflight's predecessor</td></tr>
-            <tr><td>EmuFlight</td><td>Experimental</td><td>Presets focus</td></tr>
-        </table>
-
-        <h2>Useful CLI Commands</h2>
-        <table>
-            <tr><th>Command</th><th>Purpose</th></tr>
-            <tr><td><code>diff all</code></td><td>Export full configuration</td></tr>
-            <tr><td><code>get [param]</code></td><td>Read a parameter value</td></tr>
-            <tr><td><code>set [param]=[value]</code></td><td>Change a parameter</td></tr>
-            <tr><td><code>save</code></td><td>Save and reboot</td></tr>
-            <tr><td><code>defaults</code></td><td>Reset to factory defaults</td></tr>
-            <tr><td><code>resource</code></td><td>Show pin assignments</td></tr>
-        </table>
-
-        <h2>Useful Tools & Apps</h2>
-        <table>
-            <tr><th>Tool</th><th>Purpose</th><th>Platform</th></tr>
-            <tr><td class="spec">Betaflight Configurator</td><td>FC configuration</td><td>Win/Mac/Linux</td></tr>
-            <tr><td>BLHeli Suite / ESC Configurator</td><td>ESC firmware/motor direction</td><td>Win/Web</td></tr>
-            <tr><td>ELRS Configurator</td><td>ELRS firmware flashing</td><td>Win/Mac/Web</td></tr>
-            <tr><td>Blackbox Explorer</td><td>Analyze flight logs</td><td>Win/Mac/Linux</td></tr>
-            <tr><td>SpeedyBee App</td><td>Configure via Bluetooth</td><td>iOS/Android</td></tr>
-            <tr><td>uCenter</td><td>GPS configuration</td><td>Win</td></tr>
-        </table>
-
-        <p style="margin-top:2rem"><a href="/knowledge-base/build-guide/" style="color:var(--accent)">Next: Build Guide →</a></p>
     </section>
-
     <footer>
         <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
     </footer>

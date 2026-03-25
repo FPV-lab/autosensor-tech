@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic & Long Range - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/flying/">Flying</a> → Cinematic & Long Range</div>
+        <h1>Cinematic & Long Range</h1>
+        <p>Cinematic FPV creates breathtaking aerial footage that was previously impossible — flying through windows, chasing cars, diving down cliff faces. Long range pushes the boundaries of what's possible with extended flight time and radio/video range.</p>
+
+        <h2>Cinematic Techniques</h2>
+        <p>Cinematic flying is about intentional, planned shots. Unlike freestyle, every movement serves the story. Slow, smooth, deliberate.</p>
+        <table>
+            <tr><th>Technique</th><th>Description</th><th>Best Use</th></tr>
+            <tr><td class="spec">The Reveal</td><td>Rise up over an obstacle to reveal a landscape or subject. Starts hidden, ends spectacular.</td><td>Mountain tops, city skylines, ocean views</td></tr>
+            <tr><td class="spec">Orbit</td><td>Circle around a subject at constant distance and altitude. Smooth, continuous motion.</td><td>Buildings, monuments, events, people</td></tr>
+            <tr><td class="spec">Tracking Shot</td><td>Follow a moving subject (car, person, boat) at matched speed.</td><td>Action sequences, sports, vehicles</td></tr>
+            <tr><td class="spec">Fly-Through</td><td>Fly through windows, doorways, arches, or narrow spaces. Extreme proximity.</td><td>Architecture, abandoned buildings, forests</td></tr>
+            <tr><td class="spec">Top-Down</td><td>Camera pointing straight down, creating a flat map-like perspective.</td><td>Patterns, landscapes, shadows</td></tr>
+            <tr><td class="spec">Nose-Down Dive</td><td>Dive from altitude at steep angle, pulling up at last moment.</td><td>Cliffs, waterfalls, tall structures</td></tr>
+            <tr><td class="spec">Parallax Move</td><td>Move laterally while keeping subject centered, foreground blurs past.</td><td>Trees, fences, corridors</td></tr>
+            <tr><td class="spec">Dronie</td><td>Fly backward and up from a subject, revealing more of the scene.</td><td>Introductions, establishing shots</td></tr>
+        </table>
+
+        <h2>Filming Settings</h2>
+        <p>Getting great footage requires optimizing your camera settings. Here's what the pros use.</p>
+        <table>
+            <tr><th>Setting</th><th>Recommended</th><th>Notes</th></tr>
+            <tr><td class="spec">Resolution</td><td>4K or 2.7K</td><td>4K for final delivery, 2.7K for easier editing</td></tr>
+            <tr><td class="spec">Frame Rate</td><td>30fps (standard) / 60fps (slow-mo)</td><td>30fps for most shots, 60fps for slow motion</td></tr>
+            <tr><td class="spec">Shutter Speed</td><td>1/60 (30fps) or 1/120 (60fps)</td><td>Double frame rate for natural motion blur</td></tr>
+            <tr><td class="spec">Color Profile</td><td>D-Log / D-Cinelike / Flat</td><td>Flat profiles retain more dynamic range for grading</td></tr>
+            <tr><td class="spec">ISO</td><td>100-400</td><td>Lower = less noise. Use ND filters to keep ISO low</td></tr>
+            <tr><td class="spec">White Balance</td><td>Manual (5500K daylight)</td><td>Never use auto WB — it shifts mid-shot</td></tr>
+            <tr><td class="spec">ND Filter</td><td>ND8-ND32</td><td>Essential for maintaining 180° shutter rule</td></tr>
+            <tr><td class="spec">FOV</td><td>Narrow or Medium</td><td>Less distortion for cinematic look</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>The 180° Shutter Rule</h3>
+            <p>For natural motion blur, set shutter speed to double your frame rate. At 30fps → 1/60s shutter. At 60fps → 1/120s shutter. Since FPV cameras are bright outdoors, use ND filters to achieve these slow shutter speeds without overexposing.</p>
+        </div>
+
+        <h2>Best Setup for Cinematic</h2>
+        <table>
+            <tr><th>Component</th><th>Cinematic Specs</th><th>Why</th></tr>
+            <tr><td class="spec">Frame</td><td>7" or 5" with GoPro mount</td><td>7" for long range, 5" for tight spaces</td></tr>
+            <tr><td class="spec">Motors</td><td>2807 1300KV (7") or 2306 1750KV (5")</td><td>Smooth, efficient, quiet</td></tr>
+            <tr><td class="spec">Camera</td><td>DJI O4 + GoPro Hero 12/13</td><td>O4 for pilot view, GoPro for recording</td></tr>
+            <tr><td class="spec">Props</td><td>7x3.5x3 (7") or 51433 (5")</td><td>Low pitch = quiet, smooth thrust</td></tr>
+            <tr><td class="spec">Battery</td><td>6S 1550-1800mAh (5") / 6S 3000-4000mAh (7")</td><td>Longer flights, 5-10 minutes</td></tr>
+            <tr><td class="spec">Rates</td><td>400-600°/s max, high expo (0.4+)</td><td>Soft center for buttery smooth input</td></tr>
+            <tr><td class="spec">PIDs</td><td>Lower than freestyle defaults</td><td>No oscillation in footage</td></tr>
+            <tr><td class="spec">ND Filters</td><td>ND8, ND16, ND32</td><td>Maintain 180° shutter rule</td></tr>
+        </table>
+
+        <h2>Long Range FPV</h2>
+        <p>Long range flying means pushing beyond visual line of sight — exploring mountains, coastlines, valleys. It requires careful planning, redundant systems, and respect for the limits of your equipment.</p>
+
+        <h3>Long Range Requirements</h3>
+        <table>
+            <tr><th>Requirement</th><th>Minimum</th><th>Recommended</th></tr>
+            <tr><td class="spec">Radio Link</td><td>ELRS 900MHz @ 150Hz</td><td>ELRS 900MHz @ 50Hz + 1W TX power</td></tr>
+            <tr><td class="spec">Video System</td><td>DJI O4 at high power</td><td>DJI O4 Pro or Walksnail with patch antenna</td></tr>
+            <tr><td class="spec">GPS Module</td><td>Required</td><td>GPS + magnetometer + barometer</td></tr>
+            <tr><td class="spec">Battery</td><td>6S 3000mAh LiPo</td><td>6S 4000-6000mAh or Li-Ion pack</td></tr>
+            <tr><td class="spec">Frame</td><td>7" or 10"</td><td>7" stretched-X or 10" for max efficiency</td></tr>
+            <tr><td class="spec">Flight Time</td><td>8-10 min</td><td>15-30 min (Li-Ion packs)</td></tr>
+            <tr><td class="spec">Failsafe</td><td>GPS Rescue configured</td><td>GPS Rescue + RTH + landing</td></tr>
+        </table>
+
+        <h3>Long Range Safety Rules</h3>
+        <div class="warn-box">
+            <h3>⚠️ Long Range Safety — Non-Negotiable</h3>
+            <ul>
+                <li><strong>Always use GPS Rescue</strong> — Test it before flying long range</li>
+                <li><strong>Never fly beyond radio/video range</strong> — Check RSSI and LQ continuously</li>
+                <li><strong>Plan your flight path</strong> — Know where you'll be at all times</li>
+                <li><strong>Tell someone where you're flying</strong> — Leave a flight plan</li>
+                <li><strong>Check weather forecast</strong> — Wind, rain, temperature all matter</li>
+                <li><strong>Know your battery limits</strong> — Set voltage alarms, land with margin</li>
+                <li><strong>Carry spare batteries and tools</strong> — You're remote, stores are far</li>
+                <li><strong>Respect airspace regulations</strong> — Check NOTAMs, altitude limits, restricted zones</li>
+            </ul>
+        </div>
+
+        <h2>Best Setup for Long Range</h2>
+        <table>
+            <tr><th>Component</th><th>Long Range Specs</th><th>Notes</th></tr>
+            <tr><td class="spec">Frame</td><td>7" or 10" long range frame</td><td>Rekon7, Chimera7, Explorer LR</td></tr>
+            <tr><td class="spec">Motors</td><td>2807 1300KV (7") or 3115 900KV (10")</td><td>Efficient at cruise throttle</td></tr>
+            <tr><td class="spec">Props</td><td>7x3.5x3 or 10x5x3</td><td>Low pitch, folding for transport</td></tr>
+            <tr><td class="spec">Battery</td><td>Li-Ion 4S/6S 4000-6000mAh</td><td>Higher energy density than LiPo</td></tr>
+            <tr><td class="spec">Receiver</td><td>ELRS 900MHz diversity</td><td>Maximum range with redundancy</td></tr>
+            <tr><td class="spec">Video</td><td>DJI O4 Pro or Walksnail Moonlight</td><td>HD recording + long range link</td></tr>
+            <tr><td class="spec">GPS</td><td>BN-880 or BN-220</td><td>Ublox M8/M10, fast lock</td></tr>
+            <tr><td class="spec">Buzzer</td><td>Loud external buzzer</td><td>Find your quad if you crash remote</td></tr>
+        </table>
+
+        <p style="margin-top:2rem"><a href="../learning/" style="color:var(--accent)">Next: Learning to Fly →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

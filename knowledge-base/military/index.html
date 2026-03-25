@@ -7,26 +7,23 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
         nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
         .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
         .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
-        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        section{padding:5rem 2rem;max-width:1000px;margin:0 auto}
         h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
-        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
-        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
         p{margin-bottom:1rem;color:var(--text-dim)}
-        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
-        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
         .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0}
+        .card{background:var(--secondary);border-radius:15px;padding:1.5rem;border:1px solid rgba(0,212,255,0.2);transition:all 0.3s;display:block;text-decoration:none}
+        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,0.1)}
+        .card h3{color:var(--accent);margin-bottom:0.5rem}
+        .card p{color:var(--text-dim);font-size:0.95rem}
+        .card .arrow{color:var(--accent2);margin-top:1rem;font-weight:bold}
         .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
-        .stat-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
-        .stat{background:var(--secondary);padding:1.5rem;border-radius:10px;text-align:center}
-        .stat .num{font-size:2rem;color:var(--accent);font-weight:bold}
-        .stat .label{color:var(--text-dim);font-size:0.9rem}
-        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
         footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
-        @media(max-width:768px){.nav-links{display:none}}
+        @media(max-width:768px){.nav-links{display:none}.cards{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -38,178 +35,31 @@
             <a href="/forum/">Forum</a>
         </div>
     </nav>
-
     <section>
-        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Military Applications</div>
-        
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → Military</div>
         <h1>⚔️ Military Applications</h1>
         <p>How FPV drones are reshaping modern warfare</p>
-
         <div class="info-box">
-            <strong>Disclaimer:</strong> This page is for educational and research purposes. We document the technological evolution of military drone use based on publicly available information. AutoSensor Tech does not manufacture, sell, or develop weapons systems.
+            <strong>Disclaimer:</strong> For educational and research purposes only. AutoSensor Tech does not manufacture, sell, or develop weapons systems.
         </div>
-
-        <h2>The Paradigm Shift</h2>
-        <p>The Russia-Ukraine conflict (2022-present) has fundamentally changed military thinking about drones. A $500 FPV drone can destroy a $5 million tank. This asymmetric cost advantage has made small drones the most significant military technology development since the invention of the IED.</p>
-
-        <div class="stat-box">
-            <div class="stat">
-                <div class="num">$500</div>
-                <div class="label">Cost of attack FPV drone</div>
-            </div>
-            <div class="stat">
-                <div class="num">$5M+</div>
-                <div class="label">Cost of main battle tank</div>
-            </div>
-            <div class="stat">
-                <div class="num">10,000:1</div>
-                <div class="label">Cost ratio advantage</div>
-            </div>
-            <div class="stat">
-                <div class="num">100K+/mo</div>
-                <div class="label">Ukraine's drone production</div>
-            </div>
+        <div class="cards">
+            <a href="./attack-drones/" class="card">
+                <h3>💥 Attack FPV Drones</h3>
+                <p>Kamikaje drones, the $500 vs $5M paradigm, specs, hit rates, Ukraine production</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./loitering-munitions/" class="card">
+                <h3>🚀 Loitering Munitions & Swarm</h3>
+                <p>Switchblade, Lancet, Shahed comparison, swarm tech, recon drones</p>
+                <div class="arrow">Learn more →</div>
+            </a>
+            <a href="./country-programs/" class="card">
+                <h3>🌍 Country Programs</h3>
+                <p>USA, China, Turkey, Israel, Iran, Ukraine, Russia programs and market data</p>
+                <div class="arrow">Learn more →</div>
+            </a>
         </div>
-
-        <h2>Types of Military Drones</h2>
-
-        <h3>1. Attack/Kamikaze FPV Drones</h3>
-        <p>The most common type. Small FPV drones carrying 1-3 kg of explosive payload, flown directly into targets by an operator wearing FPV goggles.</p>
-        <ul>
-            <li><strong>Cost:</strong> $300-800 per unit</li>
-            <li><strong>Speed:</strong> 100-180 km/h</li>
-            <li><strong>Range:</strong> 5-20 km</li>
-            <li><strong>Payload:</strong> RPG-7 warhead, RKG-3, improvised charges</li>
-            <li><strong>Effectiveness:</strong> 50-80% hit rate with trained pilots</li>
-        </ul>
-
-        <h3>2. Reconnaissance Drones</h3>
-        <p>Used for real-time intelligence, artillery correction, and battle damage assessment.</p>
-        <ul>
-            <li><strong>Examples:</strong> DJI Mavic 3, custom fixed-wing</li>
-            <li><strong>Purpose:</strong> Real-time video feed to command</li>
-            <li><strong>Range:</strong> 10-50 km</li>
-            <li><strong>Endurance:</strong> 30-90 minutes</li>
-        </ul>
-
-        <h3>3. Loitering Munitions</h3>
-        <p>Larger than FPV, these are purpose-built weapons that can loiter over an area waiting for targets.</p>
-        <table>
-            <tr><th>System</th><th>Country</th><th>Range</th><th>Warhead</th><th>Cost</th></tr>
-            <tr><td class="spec">Switchblade 300</td><td>🇺🇸 USA</td><td>10 km</td><td>Small (anti-personnel)</td><td>$6,000</td></tr>
-            <tr><td class="spec">Switchblade 600</td><td>🇺🇸 USA</td><td>40 km</td><td>Anti-armor</td><td>$50,000+</td></tr>
-            <tr><td class="spec">Hero-120</td><td>🇮🇱 Israel</td><td>40+ km</td><td>Anti-armor</td><td>$100,000+</td></tr>
-            <tr><td class="spec">Lancet-3</td><td>🇷🇺 Russia</td><td>40 km</td><td>3 kg</td><td>$20,000-35,000</td></tr>
-            <tr><td class="spec">Shahed-136</td><td>🇮🇷 Iran</td><td>2,500 km</td><td>50 kg</td><td>$20,000-50,000</td></tr>
-        </table>
-
-        <h3>4. Swarm Drones</h3>
-        <p>Multiple drones operating in coordination to overwhelm air defenses.</p>
-        <ul>
-            <li><strong>Concept:</strong> 10-1000+ drones attack simultaneously</li>
-            <li><strong>Challenge:</strong> Coordination, communication, jamming resistance</li>
-            <li><strong>Status:</strong> Early stage, China and US leading development</li>
-            <li><strong>Application:</strong> Saturate enemy air defense systems</li>
-        </ul>
-
-        <h3>5. First-Person-View (FPV) Bomber Drones</h3>
-        <p>Larger FPV drones carrying multiple small munitions, dropping grenades on targets below.</p>
-        <ul>
-            <li><strong>Payload:</strong> 2-5 kg, multiple drops</li>
-            <li><strong>Advantage:</strong> Reusable (if not shot down)</li>
-            <li><strong>Use:</strong> Infantry trenches, soft targets</li>
-        </ul>
-
-        <h2>Key Conflicts & Deployments</h2>
-
-        <h3>🇺🇦🇷🇺 Russia-Ukraine War (2022-Present)</h3>
-        <p>The defining drone war. Both sides use drones extensively:</p>
-        <ul>
-            <li>Ukraine produces 100,000+ FPV drones per month</li>
-            <li>Russia deploys Shahed-136 in massive nightly waves</li>
-            <li>Drones account for 60-70% of vehicle kills in some sectors</li>
-            <li>"Drone walls" along front lines make movement deadly</li>
-            <li>Electronic warfare (jamming) is a major countermeasure</li>
-            <li>Fiber-optic guided drones emerging to counter jamming</li>
-        </ul>
-
-        <h3>Other Conflicts</h3>
-        <ul>
-            <li><strong>Nagorno-Karabakh (2020):</strong> Azerbaijan used TB2 Bayraktar and Israeli loitering munitions to devastating effect</li>
-            <li><strong>Syria/Libya:</strong> Turkish TB2 proven effective against conventional forces</li>
-            <li><strong>Houthi attacks:</strong> Cheap drones attacking Saudi oil infrastructure</li>
-            <li><strong>Red Sea:</strong> Houthi drone/missile attacks on shipping</li>
-        </ul>
-
-        <h2>Electronic Warfare & Countermeasures</h2>
-        <p>As drones became ubiquitous, electronic warfare (EW) became critical.</p>
-        <table>
-            <tr><th>Method</th><th>How It Works</th><th>Effectiveness</th></tr>
-            <tr><td class="spec">RF Jamming</td><td>Block control/video frequencies</td><td>High (but non-selective)</td></tr>
-            <tr><td>GPS Spoofing</td><td>Send false GPS signals</td><td>Medium (drone loses position)</td></tr>
-            <tr><td>Acoustic Detection</td><td>Detect drone motor sound</td><td>Short range only</td></tr>
-            <tr><td>Radar</td><td>Detect small flying objects</td><td>Improving (AI-enhanced)</td></tr>
-            <tr><td>Directed Energy</td><td>Laser or HPM to disable</td><td>Emerging technology</td></tr>
-            <tr><td>Nets</td><td>Physical capture</td><td>Close range only</td></tr>
-        </table>
-
-        <h2>Market Data</h2>
-        <div class="stat-box">
-            <div class="stat">
-                <div class="num">$201B</div>
-                <div class="label">Military drone market 2023</div>
-            </div>
-            <div class="stat">
-                <div class="num">$305B</div>
-                <div class="label">Projected 2028</div>
-            </div>
-            <div class="stat">
-                <div class="num">8.6%</div>
-                <div class="label">CAGR growth rate</div>
-            </div>
-            <div class="stat">
-                <div class="num">$50B</div>
-                <div class="label">Counter-UAS market 2025</div>
-            </div>
-        </div>
-
-        <h2>Technology Trends (2025-2030)</h2>
-        <ul>
-            <li><strong>AI Autonomy:</strong> Drones that identify and engage targets without human control (controversial)</li>
-            <li><strong>Fiber-Optic Guidance:</strong> Wire-guided drones immune to jamming (5-20 km range)</li>
-            <li><strong>Mesh Networking:</strong> Drones communicating and coordinating autonomously</li>
-            <li><strong>Counter-Countermeasures:</strong> Frequency hopping, spread spectrum, AI-driven EW resistance</li>
-            <li><strong>Swarm Intelligence:</strong> Hundreds of drones acting as a single organism</li>
-            <li><strong>Underwater Drones:</strong> USVs and UUVs expanding the battlespace</li>
-            <li><strong>Directed Energy Weapons:</strong> Lasers and high-power microwaves for drone defense</li>
-        </ul>
-
-        <h2>Major Programs by Country</h2>
-        <table>
-            <tr><th>Country</th><th>Programs</th><th>Investment</th></tr>
-            <tr><td class="spec">🇺🇸 USA</td><td>Replicator Initiative, Switchblade, Ghost</td><td>$1B+ annually</td></tr>
-            <tr><td class="spec">🇨🇳 China</td><td>Wing Loong, CH-series, swarm programs</td><td>Not disclosed (large)</td></tr>
-            <tr><td class="spec">🇹🇷 Turkey</td><td>TB2, TB3, Kızılelma (jet-powered UCAV)</td><td>Major exporter</td></tr>
-            <tr><td class="spec">🇮🇱 Israel</td><td>Hero series, Harop, Skylark</td><td>Leading exporter</td></tr>
-            <tr><td class="spec">🇮🇷 Iran</td><td>Shahed series (136, 131, 238)</td><td>Producing at scale</td></tr>
-            <tr><td class="spec">🇺🇦 Ukraine</td><td>Punisher, RAM II, Magura V5 (naval)</td><td>100K+ FPV/month</td></tr>
-            <tr><td class="spec">🇷🇺 Russia</td><td>Lancet, Orlan-10, Geran-2</td><td>Ramping production</td></tr>
-        </table>
-
-        <h2>Ethical Considerations</h2>
-        <div class="info-box">
-            <ul>
-                <li><strong>Autonomous weapons:</strong> Should machines decide who lives and dies?</li>
-                <li><strong>Proliferation:</strong> Small drones are easy to manufacture and hard to control</li>
-                <li><strong>International law:</strong> Existing treaties struggle to address drones</li>
-                <li><strong>Civilian impact:</strong> Drones lower the barrier to warfare</li>
-                <li><strong>Dual-use:</strong> The same tech used for agriculture can be weaponized</li>
-            </ul>
-        </div>
-
-        <p style="margin-top:2rem"><a href="/knowledge-base/c-uas-tech/" style="color:var(--accent)">Next: Counter-UAS Technology →</a></p>
     </section>
-
     <footer>
         <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
     </footer>

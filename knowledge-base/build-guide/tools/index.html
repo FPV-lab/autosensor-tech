@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Parts List - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/build-guide/">Build Guide</a> → Tools & Parts</div>
+        <h1>Tools & Parts List</h1>
+        <p>This guide covers everything you need to build a high-performance 5-inch FPV quad with DJI O4 digital video system. Prices are approximate (2025-2026). We'll also cover budget and analog alternatives.</p>
+
+        <h2>5-Inch DJI O4 Build — Complete Parts List</h2>
+        <table>
+            <tr><th>Component</th><th>Recommended Part</th><th>Price (USD)</th><th>Notes</th></tr>
+            <tr><td class="spec">Frame</td><td>TBS Source One V5 / SpeedyBee Mario 5</td><td>$30-45</td><td>5" true-X or stretched-X, durable</td></tr>
+            <tr><td class="spec">FC + ESC Stack</td><td>SpeedyBee F405 V4 Stack (FC + 55A ESC)</td><td>$55-70</td><td>F4/F7, 4-in-1 ESC, BLHeli_32</td></tr>
+            <tr><td class="spec">Motors (×4)</td><td>EMAX ECO II 2306 1700KV / T-Motor Pacer V2</td><td>$48-68</td><td>2306 size, 1700-1950KV for 6S</td></tr>
+            <tr><td class="spec">VTX (Video)</td><td>DJI O4 Air Unit / O4 Pro</td><td>$100-150</td><td>Digital HD, low latency</td></tr>
+            <tr><td class="spec">Camera</td><td>Included with O4 unit</td><td>—</td><td>Integrated wide-angle camera</td></tr>
+            <tr><td class="spec">Receiver</td><td>ELRS EP2 / BetaFPV SuperD</td><td>$12-20</td><td>ExpressLRS 2.4GHz</td></tr>
+            <tr><td class="spec">Antenna (VTX)</td><td>Lollipop V4 / TrueRC OCP</td><td>$10-25</td><td>Match antenna to goggles</td></tr>
+            <tr><td class="spec">Props (3 packs)</td><td>Gemfan Hurricane 51466 / HQProp Ethix S5</td><td>$9-15</td><td>5" tri-blade, 51xx size</td></tr>
+            <tr><td class="spec">Batteries (×2)</td><td>GNB 1300mAh 6S 100C / CNHL Black 1300mAh 6S</td><td>$30-50</td><td>6S LiPo, 1100-1500mAh</td></tr>
+            <tr><td class="spec">Battery Straps</td><td>Ummagrip / RDQ battery pads</td><td>$5-8</td><td>Non-slip, hold battery firmly</td></tr>
+            <tr><td class="spec">Zip Ties / Heat Shrink</td><td>Mixed pack</td><td>$3-5</td><td>For wire management</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Total Build Cost: $290 – $450</h3>
+            <p>This covers just the quad itself. You'll also need a radio transmitter ($100-250) and FPV goggles ($300-600 for DJI). See the full ecosystem cost below.</p>
+        </div>
+
+        <h2>Full FPV Ecosystem Cost</h2>
+        <table>
+            <tr><th>Category</th><th>Item</th><th>Price (USD)</th></tr>
+            <tr><td class="spec">Quad (this build)</td><td>All parts above</td><td>$290-450</td></tr>
+            <tr><td class="spec">Radio Transmitter</td><td>Radiomaster Pocket ELRS / TX16S MKII</td><td>$60-250</td></tr>
+            <tr><td class="spec">FPV Goggles</td><td>DJI Goggles 2 / Goggles 3 / Integra</td><td>$300-600</td></tr>
+            <tr><td class="spec">Charger</td><dt>ISDT D2 / ToolkitRC M4AC</dt><td>$40-80</td></tr>
+            <tr><td class="spec">Soldering Iron</td><td>Pinecil V2 / TS101</td><td>$25-60</td></tr>
+            <tr><td class="spec">Simulator</td><td>Liftoff / Velocidrone</td><td>$15-20</td></tr>
+        </table>
+        <p class="spec">Grand Total Entry: ~$730 – $1,460</p>
+
+        <h2>Required Tools</h2>
+        <p>Don't skip tools. Good tools make the build enjoyable and reliable. Cheap tools cause frustration and bad solder joints.</p>
+        <table>
+            <tr><th>Tool</th><th>Recommended</th><th>Price</th><th>Why You Need It</th></tr>
+            <tr><td class="spec">Soldering Iron</td><td>Pinecil V2 / TS101 / Hakko FX-888D</td><td>$25-100</td><td>For all electrical connections</td></tr>
+            <tr><td class="spec">Solder (60/40 or 63/37)</td><td>Kester 63/37 0.8mm</td><td>$10-15</td><td>Leaded solder flows best</td></tr>
+            <tr><td class="spec">Flux</td><td>Amtech NC-559-V2-TF</td><td>$8-15</td><td>Essential for clean joints</td></tr>
+            <tr><td class="spec">Hex Driver Set</td><td>MIP / Wiha 1.5/2.0/2.5mm</td><td>$15-30</td><td>For frame screws</td></tr>
+            <tr><td class="spec">Wire Stripper</td><td>Irwin self-adjusting</td><td>$10-15</td><td>Strip motor/battery wires</td></tr>
+            <tr><td class="spec">Flush Cutters</td><td>Hakko CHP-170</td><td>$5-8</td><td>Cut zip ties, trim wires</td></tr>
+            <tr><td class="spec">Multimeter</td><td>Any basic model</td><td>$10-20</td><td>Check continuity, voltage</td></tr>
+            <tr><td class="spec">Smoke Stopper</td><td>Vifly ShortSaver V2</td><td>$15-20</td><td>⚠️ Protects against shorts on first power-up</td></tr>
+            <tr><td class="spec">Helping Hands</td><td>PCB holder / blue tack</td><td>$5-15</td><td>Hold boards while soldering</td></tr>
+            <tr><td class="spec">Heat Shrink</td><td>Assorted pack 2-10mm</td><td>$5-8</td><td>Insulate connections</td></tr>
+            <tr><td class="spec">Electrical Tape</td><td>3M Super 33+</td><td>$3-5</td><td>Insulation and mounting</td></tr>
+            <tr><td class="spec">LOCTITE</td><td>Blue 242 (medium)</td><td>$5-8</td><td>Prevent screws from vibrating loose</td></tr>
+        </table>
+        <div class="warn-box">
+            <h3>⚠️ Smoke Stopper is MANDATORY</h3>
+            <p>A smoke stopper limits current on first power-up, preventing a short circuit from destroying your expensive electronics. It costs $15 and can save you $200+ in fried components. NEVER power up a new build without one.</p>
+        </div>
+
+        <h2>Alternative Builds</h2>
+        <h3>Budget Build (~$150-200 for quad only)</h3>
+        <table>
+            <tr><th>Component</th><th>Budget Option</th><th>Price</th></tr>
+            <tr><td>Frame</td><td>SpeedyBee Mario 5 / generic CF frame</td><td>$15-25</td></tr>
+            <tr><td>Stack</td><td>SpeedyBee F405 V3 Stack</td><td>$35-45</td></tr>
+            <tr><td>Motors</td><td>EMAX ECO II 2207 1700KV (4-pack)</td><td>$40-48</td></tr>
+            <tr><td>VTX</td><td>Rush Tiny Tank / AKK Race (analog)</td><td>$15-25</td></tr>
+            <tr><td>Camera</td><td>Caddx Ratel 2 / Foxeer Toothless 2</td><td>$15-20</td></tr>
+            <tr><td>Receiver</td><td>Happymodel EP2 ELRS</td><td>$10-12</td></tr>
+            <tr><td>Props</td><td>Gemfan 51433 (3 packs)</td><td>$6-9</td></tr>
+            <tr><td>Batteries ×2</td><td>CNHL Black 1300mAh 6S</td><td>$25-35</td></tr>
+        </table>
+        <p class="spec">Total: ~$160-220 + analog goggles ($50-100 for Eachine EV800DM)</p>
+
+        <h3>Tiny Whoop / Indoor Build (~$100-150 total)</h3>
+        <table>
+            <tr><th>Component</th><th>Option</th><th>Price</th></tr>
+            <tr><td>All-in-One</td><td>BetaFPV Cetus Pro / Meteor75 Pro</td><td>$80-120</td></tr>
+            <tr><td>Goggles</td><td>Eachine EV800DM / BetaFPV VR03</td><td>$40-80</td></tr>
+            <tr><td>Radio</td><td>BetaFPV LiteRadio 3</td><td>$30-50</td></tr>
+        </table>
+
+        <h2>Where to Buy</h2>
+        <table>
+            <tr><th>Store</th><th>Region</th><th>Best For</th></tr>
+            <tr><td><a href="https://www.racedayquads.com" style="color:var(--accent)">RaceDayQuads</a></td><td>USA</td><td>Fast shipping, great selection</td></tr>
+            <tr><td><a href="https://www.getfpv.com" style="color:var(--accent)">GetFPV</a></td><td>USA</td><td>Premium parts, expert support</td></tr>
+            <tr><td><a href="https://www.fpvknowitall.com" style="color:var(--accent)">FPV Know It All</a></td><td>USA</td><td>Curated recommendations</td></tr>
+            <tr><td><a href="https://www.unmannedtechshop.co.uk" style="color:var(--accent)">Unmanned Tech</a></td><td>UK/EU</td><td>European FPV specialists</td></tr>
+            <tr><td><a href="https://www.flying-tech.co.uk" style="color:var(--accent)">Flying Tech</a></td><td>UK</td><td>UK stock, quick delivery</td></tr>
+            <tr><td><a href="https://www.banggood.com" style="color:var(--accent)">Banggood</a></td><td>China</td><td>Cheapest prices, slow shipping</td></tr>
+            <tr><td><a href="https://www.aliexpress.com" style="color:var(--accent)">AliExpress</a></td><td>China</td><td>Direct from manufacturers</td></tr>
+            <tr><td><a href="https://www.amazon.com" style="color:var(--accent)">Amazon</a></td><td>Global</td><td>Convenience, fast shipping</td></tr>
+        </table>
+        <div class="info-box">
+            <h3>Pro Tip</h3>
+            <p>Buy from domestic FPV shops when possible. They test products, offer support, and handle warranties. Use Chinese stores for cheap spares (props, antennas, heat shrink). Always check community reviews before buying unfamiliar brands.</p>
+        </div>
+
+        <p style="margin-top:2rem"><a href="../assembly/" style="color:var(--accent)">Next: Assembly Steps →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

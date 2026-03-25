@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembly Steps - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/build-guide/">Build Guide</a> → Assembly</div>
+        <h1>Assembly Steps</h1>
+        <p>Building your first FPV quad is incredibly rewarding. Follow these steps carefully, take your time with soldering, and you'll have a machine that outperforms anything you can buy RTF. This guide covers steps 1-6: frame assembly through receiver installation.</p>
+        <div class="info-box">
+            <h3>Before You Start</h3>
+            <ul>
+                <li>Watch a full build video for your specific frame (YouTube is full of them)</li>
+                <li>Lay out all parts and verify everything is present</li>
+                <li>Have your tools ready: hex drivers, soldering iron, smoke stopper</li>
+                <li>Work on a clean, well-lit surface with a heat-resistant mat</li>
+                <li>Set aside 2-4 hours — don't rush your first build</li>
+            </ul>
+        </div>
+
+        <h2>Step 1: Frame Assembly</h2>
+        <p>Start by building the carbon fiber frame. This is the skeleton of your quad.</p>
+        <h3>Instructions</h3>
+        <ul>
+            <li>Lay out all frame pieces: bottom plate, top plate, arms, standoffs, hardware</li>
+            <li>Identify the front of the frame (usually has a different arm shape or cutout)</li>
+            <li>Slide the four arms into the bottom plate slots — arms should form an X pattern</li>
+            <li>Secure arms with the provided screws (usually M3 socket head)</li>
+            <li>Apply a tiny drop of <strong>Blue Loctite</strong> on each screw — these vibrate loose without it</li>
+            <li>Install standoffs on the bottom plate — these hold the FC stack at the correct height</li>
+            <li>Leave the top plate off for now — you'll install it after wiring</li>
+        </ul>
+        <div class="info-box">
+            <h3>Frame Tips</h3>
+            <ul>
+                <li>Tighten frame screws firmly but don't overtorque — carbon fiber can crack</li>
+                <li>If your arms have press-fit nuts, make sure they're fully seated</li>
+                <li>Dry-fit the stack on the standoffs to check clearance before proceeding</li>
+                <li>Some frames have TPU antenna mounts — install these now if they mount to the frame</li>
+            </ul>
+        </div>
+
+        <h2>Step 2: Install Motors</h2>
+        <p>Mount the four brushless motors to the arms. Correct placement is critical for motor direction.</p>
+        <h3>Motor Placement (Standard X-Frame)</h3>
+        <table>
+            <tr><th>Position</th><th>Motor #</th><th>Direction</th><th>Prop</th></tr>
+            <tr><td>Front Right</td><td class="spec">Motor 1</td><td>CW (clockwise)</td><td>CW prop (normal thread)</td></tr>
+            <tr><td>Rear Right</td><td class="spec">Motor 2</td><td>CCW (counter-clockwise)</td><td>CCW prop (reverse thread)</td></tr>
+            <tr><td>Rear Left</td><td class="spec">Motor 3</td><td>CW (clockwise)</td><td>CW prop (normal thread)</td></tr>
+            <tr><td>Front Left</td><td class="spec">Motor 4</td><td>CCW (counter-clockwise)</td><td>CCW prop (reverse thread)</td></tr>
+        </table>
+        <ul>
+            <li>Thread motor wires through the arm (some frames have built-in wire channels)</li>
+            <li>Secure motors with M3 screws — usually 6-8mm length</li>
+            <li>Use <strong>Blue Loctite</strong> on motor screws — they vibrate loose otherwise</li>
+            <li>Leave enough wire slack to reach the ESC pads comfortably</li>
+            <li>Label or remember which wire goes to which motor for later soldering</li>
+        </ul>
+        <div class="warn-box">
+            <h3>⚠️ CW/CCW Matters!</h3>
+            <p>Getting motor direction wrong causes your quad to flip on arming. Follow the standard layout above, or check your frame's documentation. When in doubt: props-in (front motors point inward at the top) is the standard configuration.</p>
+        </div>
+
+        <h2>Step 3: Solder ESC Power</h2>
+        <p>The 4-in-1 ESC needs power from the battery. This is the highest-current connection and must be solid.</p>
+        <h3>Power Connections</h3>
+        <ul>
+            <li><strong>Battery lead (XT60):</strong> Solder the positive (red) wire to the BAT+ pad, negative (black) to BAT-</li>
+            <li>Use thick wire (12-14 AWG silicone) for the battery lead</li>
+            <li>Tin the pads and wire ends before joining — pre-tinning makes better joints</li>
+            <li>Apply heat to the pad first, then feed solder — don't just melt solder onto cold pads</li>
+            <li>Hold still for 2-3 seconds after removing iron to let solder solidify</li>
+        </ul>
+        <div class="info-box">
+            <h3>ESC Placement</h3>
+            <p>Most builds stack the ESC on the bottom (closest to the frame) with the FC on top. Some prefer ESC on top for better cooling. Either works — just be consistent with your wiring plan. The ESC typically has a connector for the FC ribbon cable, plus solder pads for motor wires.</p>
+        </div>
+
+        <h2>Step 4: Connect Motors to ESC</h2>
+        <p>Solder the motor wires to the ESC's motor output pads. Each motor has 3 wires — all 3 must be connected.</p>
+        <h3>Soldering Order</h3>
+        <ul>
+            <li>Trim motor wires to length — not too short (no slack), not too long (excess weight)</li>
+            <li>Strip about 2-3mm of insulation from each wire</li>
+            <li>Tin each wire with a small amount of solder</li>
+            <li>Tin the ESC pads briefly</li>
+            <li>Solder wires to corresponding pads: Motor 1 → M1 pads, Motor 2 → M2, etc.</li>
+            <li>The wire order (1-2-3) doesn't matter at this stage — motor direction is configured in software later</li>
+            <li>Apply heat shrink to any exposed wire joints</li>
+        </ul>
+        <div class="warn-box">
+            <h3>⚠️ Don't Bridge Pads!</h3>
+            <p>Motor pads are close together on 4-in-1 ESCs. Use a fine solder tip and be precise. Check with a multimeter in continuity mode between adjacent motor pads — there should be NO continuity between different motor outputs. A bridged pad = dead ESC.</p>
+        </div>
+
+        <h2>Step 5: Stack the Flight Controller</h2>
+        <p>Mount the FC on top of the ESC using the standoffs. Connect them with the provided ribbon cable.</p>
+        <h3>Instructions</h3>
+        <ul>
+            <li>Place rubber grommets or O-rings on the standoffs (vibration dampening)</li>
+            <li>Set the ESC on the standoffs, threaded side up</li>
+            <li>Connect the FC to the ESC using the 8-pin ribbon cable (or 10-pin for some stacks)</li>
+            <li>Make sure the cable orientation matches — <strong>reversed cable = dead FC</strong></li>
+            <li>Place the FC on top, aligning the mounting holes with the standoffs</li>
+            <li>Secure with M3 nylon nuts (not metal — avoid shorting the FC)</li>
+            <li>Double-check: no wires pinched between boards, cable seated firmly</li>
+        </ul>
+        <div class="info-box">
+            <h3>Stack Height Check</h3>
+            <p>Before moving on, dry-fit the top plate to make sure the stack fits under it. If too tall, use shorter standoffs or check if the ribbon cable is routed efficiently. A tight fit is fine — just make sure nothing shorts against the carbon frame (cover exposed carbon with electrical tape if needed).</p>
+        </div>
+
+        <h2>Step 6: Install Receiver</h2>
+        <p>The ELRS receiver connects to the FC via serial (UART). Typically 3 wires: 5V, GND, and TX/RX.</p>
+        <h3>Wiring</h3>
+        <table>
+            <tr><th>Receiver Wire</th><th>FC Pad</th><th>Purpose</th></tr>
+            <tr><td class="spec">5V</td><td>5V pad on FC</td><td>Power the receiver</td></tr>
+            <tr><td class="spec">GND</td><td>GND pad on FC</td><td>Ground reference</td></tr>
+            <tr><td class="spec">TX</td><td>RX on FC (e.g., UART2 RX)</td><td>Receiver sends data to FC</td></tr>
+            <tr><td class="spec">RX</td><td>TX on FC (e.g., UART2 TX)</td><td>FC sends data to receiver</td></tr>
+        </table>
+        <ul>
+            <li>Mount the receiver antenna — it MUST extend away from carbon fiber and electronics</li>
+            <li>Use a zip tie on the antenna arm, or a 3D-printed antenna mount</li>
+            <li>Keep antenna wire away from ESC power wires (EMI interference)</li>
+            <li>If using a ceramic antenna (tiny whoop ELRS RX), position it facing upward with clear sky view</li>
+        </ul>
+        <div class="warn-box">
+            <h3>⚠️ Antenna Placement is Critical</h3>
+            <p>A poorly placed antenna causes failsafes — your quad drops out of the sky with no warning. The antenna must not be blocked by carbon fiber, ESC, or battery. Mount it on a zip tie extending 3-5cm from the frame, pointing up or back. Never coil or fold the antenna wire.</p>
+        </div>
+
+        <h2>What's Next?</h2>
+        <p>Steps 7-11 (DJI O4 installation, power-on test, Betaflight configuration, motor direction, final assembly) are covered in the <a href="../soldering/" style="color:var(--accent)">Soldering & Final Setup</a> guide.</p>
+
+        <p style="margin-top:2rem"><a href="../soldering/" style="color:var(--accent)">Next: Soldering & Final Setup →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

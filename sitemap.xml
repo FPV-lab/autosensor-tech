@@ -11,10 +11,26 @@
     <url><loc>https://www.autosensor.tech/knowledge-base/video-systems/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
     <url><loc>https://www.autosensor.tech/knowledge-base/radio/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
     <url><loc>https://www.autosensor.tech/knowledge-base/batteries/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://www.autosensor.tech/knowledge-base/software/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://www.autosensor.tech/knowledge-base/build-guide/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://www.autosensor.tech/knowledge-base/flying/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://www.autosensor.tech/knowledge-base/military/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://www.autosensor.tech/knowledge-base/c-uas-tech/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/software/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/software/betaflight/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/software/pid-tuning/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/software/elrs/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/build-guide/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/build-guide/tools/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/build-guide/assembly/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/build-guide/soldering/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/flying/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/flying/freestyle/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/flying/racing/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/flying/cinematic/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/flying/learning/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/military/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/military/attack-drones/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/military/loitering-munitions/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/military/country-programs/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/c-uas-tech/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/c-uas-tech/detection/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/c-uas-tech/jamming/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.autosensor.tech/knowledge-base/c-uas-tech/weapons/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
     <url><loc>https://www.autosensor.tech/ru/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

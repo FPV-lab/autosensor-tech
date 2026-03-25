@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freestyle Flying - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/flying/">Flying</a> → Freestyle</div>
+        <h1>Freestyle Flying</h1>
+        <p>Freestyle is the soul of FPV. It's about creative expression through flight — flowing through landscapes, performing tricks, and finding lines that feel impossible. There are no rules, no gates, no judges. Just you, your quad, and whatever environment you choose to shred.</p>
+
+        <h2>What is Freestyle?</h2>
+        <p>Freestyle FPV combines proximity flying with acrobatic maneuvers. Pilots fly through gaps, around objects, over buildings, and through forests — all while performing rolls, flips, dives, and power loops. The goal is to create visually stunning, fluid flights that feel like a first-person action movie.</p>
+        <div class="info-box">
+            <h3>What Makes Freestyle Special</h3>
+            <ul>
+                <li>No course or gates — you create your own path</li>
+                <li>Combines technical skill with creative vision</li>
+                <li>Can be done almost anywhere (with permission)</li>
+                <li>Emphasis on smooth, connected lines rather than raw speed</li>
+                <li>The video is the art — flying is the brushstroke</li>
+            </ul>
+        </div>
+
+        <h2>Key Maneuvers</h2>
+        <table>
+            <tr><th>Maneuver</th><th>Description</th><th>Difficulty</th><th>Key Sticks</th></tr>
+            <tr><td class="spec">Power Loop</td><td>Full vertical loop while moving forward. The signature FPV move.</td><td>★★★☆☆</td><td>Full back pitch + throttle management</td></tr>
+            <tr><td class="spec">Roll</td><td>Barrel roll along the flight path. Keep the line smooth.</td><td>★★☆☆☆</td><td>Full roll input while maintaining forward pitch</td></tr>
+            <tr><td class="spec">Split-S</td><td>Half roll inverted + pull back to descend. Beautiful for losing altitude.</td><td>★★★☆☆</td><td>Half roll + full back pitch</td></tr>
+            <tr><td class="spec">Matty Flip</td><td>Backward flip while moving forward. Looks impossible to viewers.</td><td>★★★★☆</td><td>Forward pitch + yaw + roll simultaneously</td></tr>
+            <tr><td class="spec">Gap Shot</td><td>Fly through a narrow gap at speed. Precision proximity.</td><td>★★★★☆</td><td>Precise throttle and pitch control</td></tr>
+            <tr><td class="spec">Proximity Flying</td><td>Close to ground, walls, trees — inches away. Pure adrenaline.</td><td>★★★★★</td><td>All sticks — constant micro-adjustments</td></tr>
+            <tr><td class="spec">Trippy Spin</td><td>Continuous yaw spin while orbiting an object. Hypnotic effect.</td><td>★★★★☆</td><td>Full yaw + pitch/roll for orbit</td></tr>
+            <tr><td class="spec">Dive</td><td>Nose-down dive from altitude, pull out at last moment.</td><td>★★★☆☆</td><td>Full forward pitch + throttle cut, then pull up</td></tr>
+            <tr><td class="spec">Rubik's Cube</td><td>Combination of rolls, flips, and direction changes.</td><td>★★★★★</td><td>Complex stick combinations</td></tr>
+            <tr><td class="spec">Orbit</td><td>Fly in a circle around an object, keeping it centered.</td><td>★★★☆☆</td><td>Roll + yaw + throttle balance</td></tr>
+        </table>
+
+        <h2>Best Setup for Freestyle</h2>
+        <h3>Recommended Specs</h3>
+        <table>
+            <tr><th>Component</th><th>Freestyle Specs</th><th>Why</th></tr>
+            <tr><td class="spec">Frame</td><td>5" true-X or stretched-X, 5mm arms</td><td>Durable, good balance of weight and strength</td></tr>
+            <tr><td class="spec">Weight</td><td>550-700g (dry)</td><td>Heavier than racing = more stable, carries momentum</td></tr>
+            <tr><td class="spec">Motors</td><td>2306 1700-1950KV (6S)</td><td>Smooth power delivery, not screaming fast</td></tr>
+            <tr><td class="spec">Props</td><td>51433, 51466, or S5</td><td>Mid-pitch for balanced thrust and efficiency</td></tr>
+            <tr><td class="spec">Battery</td><td>6S 1300-1550mAh</td><td>3-5 min flight time with punch-outs</td></tr>
+            <tr><td class="spec">Rates</td><td>600-800°/s max, medium expo</td><td>Smooth center for tricks, fast edges for rolls</td></tr>
+            <tr><td class="spec">PIDs</td><td>Default or slightly higher D</td><td>Locked in stops, smooth turns</td></tr>
+            <tr><td class="spec">Video</td><td>DJI O4 or Walksnail HD</td><td>HD quality for filming, good penetration</td></tr>
+        </table>
+
+        <h2>Freestyle Tips</h2>
+        <h3>Learn the Fundamentals First</h3>
+        <ul>
+            <li><strong>Master hovering</strong> — If you can't hold position smoothly, you're not ready for tricks</li>
+            <li><strong>Learn to fly backwards</strong> — Many maneuvers involve reversing direction</li>
+            <li><strong>Practice throttle control</strong> — Altitude management is everything in freestyle</li>
+            <li><strong>Use your environment</strong> — Trees, buildings, terrain features make lines interesting</li>
+        </ul>
+
+        <h3>Building Smooth Lines</h3>
+        <ul>
+            <li><strong>Think ahead</strong> — Always know your next 2-3 maneuvers before doing them</li>
+            <li><strong>Connect tricks</strong> — A power loop into a roll into a gap shot flows; random tricks don't</li>
+            <li><strong>Vary altitude</strong> — Mix high and low, dives and climbs</li>
+            <li><strong>Respect gravity</strong> — Use dives to build speed, climbs to bleed it off</li>
+            <li><strong>Find a spot</strong> — Returning to the same location lets you learn its potential</li>
+        </ul>
+
+        <h3>Camera Angle</h3>
+        <div class="info-box">
+            <h3>Camera Tilt for Freestyle</h3>
+            <p>Most freestyle pilots fly at <strong>20-35° camera angle</strong>. Lower angles (15-20°) are easier to learn but limit speed. Higher angles (35°+) are faster and more aggressive. Start at 25° and adjust based on feel. Remember: camera angle affects how you perceive the horizon — more tilt = more "looking down."</p>
+        </div>
+
+        <h3>Safety & Etiquette</h3>
+        <div class="warn-box">
+            <h3>⚠️ Freestyle Safety Rules</h3>
+            <ul>
+                <li>Never fly over people or populated areas</li>
+                <li>Get permission for private property spots</li>
+                <li>Check local regulations — many places restrict FPV flying</li>
+                <li>Always maintain visual line of sight or use a spotter</li>
+                <li>Don't fly near airports, helipads, or emergency operations</li>
+                <li>Respect wildlife — don't disturb birds or animals</li>
+                <li>Clean up after yourself — leave spots better than you found them</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:2rem"><a href="../racing/" style="color:var(--accent)">Next: FPV Racing →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

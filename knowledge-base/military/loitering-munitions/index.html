@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loitering Munitions & Swarm - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        code{background:rgba(0,212,255,0.15);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/military/">Military</a> → Loitering Munitions</div>
+        <h1>Loitering Munitions & Swarm Drones</h1>
+        <p>Loitering munitions bridge the gap between cruise missiles and reconnaissance drones. They fly to an area, loiter while searching for targets, then strike. Combined with swarm technology, they represent the future of autonomous warfare.</p>
+
+        <h2>What Are Loitering Munitions?</h2>
+        <p>Loitering munitions (LMs) are weapons that can fly to a target area, circle while the operator searches for targets, and then dive onto the target. Unlike missiles (fire-and-forget), LMs give the operator time to identify and select targets. Unlike FPV drones (piloted manually), LMs can operate semi-autonomously.</p>
+        <div class="info-box">
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li>Can loiter for 15-60+ minutes over target area</li>
+                <li>Operator selects targets via camera feed</li>
+                <li>Some models have autonomous target recognition</li>
+                <li>Can abort mission and return if no target found (recoverable models)</li>
+                <li>Larger payload and range than FPV drones</li>
+                <li>Significantly more expensive than improvised FPV drones</li>
+            </ul>
+        </div>
+
+        <h2>Loitering Munitions Comparison</h2>
+        <table>
+            <tr><th>System</th><th>Country</th><th>Range</th><th>Endurance</th><th>Warhead</th><th>Cost</th><th>Type</th></tr>
+            <tr><td class="spec">Switchblade 300</td><td>USA</td><td>10 km</td><td>15 min</td><td>Anti-personnel</td><td>$6,000</td><td>Tube-launched</td></tr>
+            <tr><td class="spec">Switchblade 600</td><td>USA</td><td>40 km</td><td>40 min</td><td>Anti-armor (Javelin warhead)</td><td>~$100K</td><td>Tube-launched</td></tr>
+            <tr><td class="spec">Hero-120</td><td>Israel</td><td>40 km</td><td>60 min</td><td>4.5 kg multi-purpose</td><td>~$100K</td><td>Canister-launched</td></tr>
+            <tr><td class="spec">Hero-400EC</td><td>Israel</td><td>40 km</td><td>120 min</td><td>10 kg warhead</td><td>~$200K</td><td>Canister-launched</td></tr>
+            <tr><td class="spec">Lancet-3</td><td>Russia</td><td>40 km</td><td>40 min</td><td>3 kg HE/thermobaric</td><td>$30-50K</td><td>Rail-launched</td></tr>
+            <tr><td class="spec">Shahed-136</td><td>Iran</td><td>2,500 km</td><td>6+ hours</td><td>40-50 kg warhead</td><td>$20-50K</td><td>Turbojet, one-way</td></tr>
+            <tr><td class="spec">KUB-BLA</td><td>Russia</td><td>30 km</td><td>30 min</td><td>3 kg warhead</td><td>~$50K</td><td>Canister-launched</td></tr>
+            <tr><td class="spec">Warmate</td><td>Poland</td><td>30 km</td><td>70 min</td><td>1.4 kg warhead</td><td>~$30K</td><td>Tube-launched</td></tr>
+        </table>
+
+        <h2>Swarm Drones</h2>
+        <p>Swarm technology coordinates multiple drones to operate as a unified system. Instead of one drone attacking a target, dozens or hundreds work together autonomously.</p>
+        <h3>Swarm Concepts</h3>
+        <ul>
+            <li><strong>Saturation Attack:</strong> Overwhelm air defenses with numbers — if 50 drones attack simultaneously, defenses can only engage a fraction</li>
+            <li><strong>Distributed Sensing:</strong> Multiple drones share intelligence, building a complete picture of the battlespace</li>
+            <li><strong>Autonomous Coordination:</strong> Drones communicate peer-to-peer, assigning targets without human intervention</li>
+            <li><strong>Resilience:</strong> Lose half the swarm and the rest adapts — no single point of failure</li>
+        </ul>
+        <div class="info-box">
+            <h3>Swarm Programs Worldwide</h3>
+            <table>
+                <tr><th>Program</th><th>Country</th><th>Description</th></tr>
+                <tr><td class="spec">DARPA OFFSET</td><td>USA</td><td>Offensive Swarm-Enabled Tactics — 250+ drone swarms in urban environments</td></tr>
+                <tr><td class="spec">Perdix</td><td>USA</td><td>Micro-drones launched from fighter jets, demonstrated 103-drone swarm</td></tr>
+                <tr><td class="spec">CH-901</td><td>China</td><td>Loitering munition swarm system, 15 drones in coordinated attack</td></tr>
+                <tr><td class="spec">Harop Cluster</td><td>Israel</td><td>IAI's multi-drone loitering munition coordination</td></tr>
+                <tr><td class="spec">Loyal Wingman</td><td>Multiple</td><td>Autonomous drones escorting manned aircraft</td></tr>
+            </table>
+        </div>
+
+        <h2>Reconnaissance Drones</h2>
+        <p>Military ISR (Intelligence, Surveillance, Reconnaissance) drones provide real-time battlefield awareness.</p>
+        <table>
+            <tr><th>System</th><th>Country</th><th>Role</th><th>Endurance</th></tr>
+            <tr><td>MQ-9 Reaper</td><td>USA</td><td>MALE ISR + strike</td><td>27 hours</td></tr>
+            <tr><td>RQ-4 Global Hawk</td><td>USA</td><td>High-altitude ISR</td><td>34 hours</td></tr>
+            <tr><td>TB2 Bayraktar</td><td>Turkey</td><td>MALE ISR + strike</td><td>27 hours</td></tr>
+            <tr><td>Wing Loong II</td><td>China</td><td>MALE ISR + strike</td><td>20 hours</td></tr>
+            <tr><td>Orlan-10</td><td>Russia</td><td>Tactical ISR</td><td>16 hours</td></tr>
+            <tr><td>Leleka-100</td><td>Ukraine</td><td>Tactical ISR</td><td>2.5 hours</td></tr>
+        </table>
+
+        <h2>Bomber Drones</h2>
+        <p>A newer category: modified commercial or custom drones carrying mortar rounds, grenades, or small bombs for precision dropping.</p>
+        <ul>
+            <li>Typically use release mechanisms to drop small munitions from altitude</li>
+            <li>More precise than artillery but slower and limited payload</li>
+            <li>Used extensively in Ukraine for trench warfare</li>
+            <li>Carry VOG-17 grenades, mortar rounds, or custom munitions</li>
+            <li>Some systems use AI-assisted targeting for accuracy</li>
+        </ul>
+
+        <h2>Technology Trends</h2>
+        <table>
+            <tr><th>Trend</th><th>Status</th><th>Impact</th></tr>
+            <tr><td class="spec">AI Target Recognition</td><td>Rapidly advancing</td><td>Autonomous target identification reduces operator load</td></tr>
+            <tr><td class="spec">Counter-Counter-UAS</td><td>Active development</td><td>Drones designed to evade jamming and interceptors</td></tr>
+            <tr><td class="spec">Mesh Networking</td><td>Emerging</td><td>Drones share data and coordinate without central control</td></tr>
+            <tr><td class="spec">Fiber-Optic Guidance</td><td>Field deployed</td><td>Immune to electronic warfare</td></tr>
+            <tr><td class="spec">Directed Energy</td><td>Testing</td><td>Drones equipped with small lasers for precision strikes</td></tr>
+        </table>
+
+        <p style="margin-top:2rem"><a href="../country-programs/" style="color:var(--accent)">Next: Military Programs by Country →</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>

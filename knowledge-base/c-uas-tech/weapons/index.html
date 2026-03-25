@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directed Energy & Kinetic Defense - AutoSensor Tech Knowledge Base</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.8}
+        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,0.2)}
+        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
+        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color 0.3s}.nav-links a:hover{color:var(--accent)}
+        section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        h1{font-size:2.5rem;color:var(--accent);margin-bottom:1rem}
+        h2{font-size:1.8rem;color:var(--accent);margin:2rem 0 1rem;border-bottom:1px solid rgba(0,212,255,0.2);padding-bottom:0.5rem}
+        h3{color:var(--accent2);margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1rem;color:var(--text-dim)}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{padding:0.7rem;text-align:left;border-bottom:1px solid rgba(0,212,255,0.15)}
+        th{color:var(--accent);background:rgba(0,212,255,0.1)}.spec{color:var(--accent2);font-weight:bold}
+        .breadcrumb{color:var(--text-dim);margin-bottom:2rem;font-size:0.9rem}.breadcrumb a{color:var(--accent);text-decoration:none}
+        .info-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1.5rem 0}
+        .warn-box{background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff6b35;margin:1.5rem 0}
+        .stat-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+        .stat{background:var(--secondary);padding:1.5rem;border-radius:10px;text-align:center}
+        .stat .num{font-size:2rem;color:var(--accent);font-weight:bold}
+        .stat .label{color:var(--text-dim);font-size:0.9rem}
+        ul{margin:1rem 0 1rem 2rem;color:var(--text-dim)}
+        footer{background:var(--secondary);padding:2rem;text-align:center;border-top:1px solid rgba(0,212,255,0.2);margin-top:3rem}
+        @media(max-width:768px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/knowledge-base/">Knowledge Base</a>
+            <a href="/forum/">Forum</a>
+        </div>
+    </nav>
+
+    <section>
+        <div class="breadcrumb"><a href="/knowledge-base/">Knowledge Base</a> → <a href="/knowledge-base/c-uas-tech/">Counter-UAS</a> → Weapons</div>
+
+        <h1>💥 Directed Energy & Kinetic Defense</h1>
+        <p>Destroying or disabling hostile drones</p>
+
+        <h2>Kinetic (Physical) Solutions</h2>
+
+        <h3>Interceptor Drones</h3>
+        <p>Drones designed to crash into hostile drones, physically destroying them mid-air.</p>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">Method</td><td>Autonomous or guided drone collides with target</td></tr>
+            <tr><td>Range</td><td>1-5 km</td></tr>
+            <tr><td>Cost per engagement</td><td>$1,000-10,000</td></tr>
+            <tr><td>Success rate</td><td>70-90%</td></tr>
+            <tr><td>Examples</td><td>Anduril Anvil, Fortem DroneHunter F700</td></tr>
+        </table>
+
+        <h3>Anti-Drone Missiles</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">Method</td><td>Guided missile with proximity fuze warhead</td></tr>
+            <tr><td>Range</td><td>1-10+ km</td></tr>
+            <tr><td>Cost per engagement</td><td>$50,000-200,000+</td></tr>
+            <tr><td>Problem</td><td>Cost ratio — missile costs 100-1000x more than drone</td></tr>
+            <tr><td>Examples</td><td>Raytheon Coyote, SM-6, Patriot</td></tr>
+        </table>
+
+        <h3>Net-Based Systems</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">Method</td><td>Fires a net to physically capture drone</td></tr>
+            <tr><td>Range</td><td>50-300m</td></tr>
+            <tr><td>Cost per engagement</td><td>$200-500</td></tr>
+            <tr><td>Advantage</td><td>Captures without destroying — enables forensics</td></tr>
+            <tr><td>Examples</td><td>OpenWorks SkyWall, Fortem TruView</td></tr>
+        </table>
+
+        <h3>Conventional Firearms</h3>
+        <ul>
+            <li><strong>Shotguns:</strong> Effective at 50-100m, low cost, limited range</li>
+            <li><strong>Anti-aircraft guns:</strong> Old tech, limited against small/slow drones</li>
+            <li><strong>Last resort:</strong> Not a primary defense solution</li>
+        </ul>
+
+        <h2>Directed Energy Weapons (DEW)</h2>
+        <p>Directed energy weapons use focused electromagnetic energy to disable drones. They offer near-unlimited "ammunition" and extremely low cost per shot.</p>
+
+        <h3>High-Energy Lasers (HEL)</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Focused laser beam heats drone body until electronics fail or structure melts</td></tr>
+            <tr><td>Power class</td><td>10-300 kW (current systems)</td></tr>
+            <tr><td>Speed</td><td>Light speed — instant hit, no lead calculation</td></tr>
+            <tr><td>Cost per shot</td><td>$1-10 (electricity only)</td></tr>
+            <tr><td>Range</td><td>1-5 km (atmospheric absorption limits range)</td></tr>
+            <tr><td>Engagement time</td><td>2-15 seconds on target to disable</td></tr>
+        </table>
+
+        <h3>Major HEL Systems</h3>
+        <table>
+            <tr><th>System</th><th>Power</th><th>Manufacturer</th><th>Status</th></tr>
+            <tr><td class="spec">Iron Beam</td><td>100 kW</td><td>Rafael (🇮🇱)</td><td>Operational</td></tr>
+            <tr><td class="spec">HELWS</td><td>30-50 kW</td><td>Raytheon (🇺🇸)</td><td>Deployed</td></tr>
+            <tr><td class="spec">Drone Dome Laser</td><td>10-20 kW</td><td>Rafael (🇮🇱)</td><td>Operational</td></tr>
+            <tr><td class="spec">Skyguard ODIN</td><td>50 kW</td><td>Rheinmetall (🇩🇪)</td><td>Testing</td></tr>
+            <tr><td class="spec">LDEW</td><td>50 kW</td><td>MBDA (🇪🇺)</td><td>Development</td></tr>
+        </table>
+
+        <h3>HEL Advantages</h3>
+        <ul>
+            <li>Near-zero cost per shot ($1-10)</li>
+            <li>Unlimited magazine — as long as power supply works</li>
+            <li>Light speed engagement — no leading required</li>
+            <li>Scalable — can engage small and large targets</li>
+            <li>Minimal collateral damage (focused beam)</li>
+        </ul>
+
+        <h3>HEL Limitations</h3>
+        <ul>
+            <li>Atmospheric absorption — rain, fog, dust reduce range</li>
+            <li>Dwell time — must hold beam on target for seconds</li>
+            <li>Power requirements — 100+ kW systems need generator/grid</li>
+            <li>Line of sight only — cannot engage over terrain</li>
+            <li>Thermal blooming — beam can scatter in humid air</li>
+        </ul>
+
+        <h3>High-Power Microwave (HPM)</h3>
+        <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td class="spec">How it works</td><td>Burst of microwave energy fries drone electronics</td></tr>
+            <tr><td>Range</td><td>100m - 1 km</td></tr>
+            <tr><td>Advantage</td><td>Can affect entire swarms simultaneously (wide beam)</td></tr>
+            <tr><td>Cost per shot</td><td>Near zero</td></tr>
+            <tr><td>Collateral</td><td>Can affect friendly electronics in range</td></tr>
+        </table>
+
+        <h3>Major HPM Systems</h3>
+        <table>
+            <tr><th>System</th><th>Manufacturer</th><th>Details</th></tr>
+            <tr><td class="spec">Leonidas</td><td>Epirus (🇺🇸)</td><td>Solid-state, truck-mounted</td></tr>
+            <tr><td class="spec">PHASER</td><td>Raytheon (🇺🇸)</td><td>Microwave cannon, containerized</td></tr>
+            <tr><td class="spec">THOR</td><td>AFRL (🇺🇸)</td><td>Counter-swarm HPM</td></tr>
+        </table>
+
+        <h2>Integrated Defense Layers</h2>
+        <p>Effective C-UAS requires multiple layers working together:</p>
+
+        <div style="background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent);margin:1rem 0">
+            <strong>Layer 1: Outer Detection (5-15 km)</strong><br>
+            Long-range radar + RF detection → Early warning → Time to prepare
+        </div>
+        <div style="background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent2);margin:1rem 0">
+            <strong>Layer 2: Mid-Range Engagement (1-5 km)</strong><br>
+            EW jamming + GPS spoofing + interceptor drones + missiles
+        </div>
+        <div style="background:var(--secondary);padding:1.5rem;border-radius:10px;border-left:4px solid #ff4444;margin:1rem 0">
+            <strong>Layer 3: Close Defense (0-1 km)</strong><br>
+            HEL lasers + HPM + nets + firearms (last resort)
+        </div>
+
+        <h2>Key Industry Players</h2>
+        <table>
+            <tr><th>Company</th><th>Country</th><th>Specialty</th></tr>
+            <tr><td class="spec">Dedrone</td><td>🇩🇪 Germany</td><td>RF detection, software platform</td></tr>
+            <tr><td class="spec">DroneShield</td><td>🇦🇺 Australia</td><td>RF detection + jamming</td></tr>
+            <tr><td class="spec">Rafael</td><td>🇮🇱 Israel</td><td>Drone Dome (laser + EW)</td></tr>
+            <tr><td class="spec">Raytheon (RTX)</td><td>🇺🇸 USA</td><td>HELWS, PHASER, Coyote</td></tr>
+            <tr><td class="spec">Epirus</td><td>🇺🇸 USA</td><td>Leonidas HPM</td></tr>
+            <tr><td class="spec">Anduril</td><td>🇺🇸 USA</td><td>Lattice AI + Anvil interceptor</td></tr>
+            <tr><td class="spec">Robin Radar</td><td>🇳🇱 Netherlands</td><td>Drone-specific radar</td></tr>
+            <tr><td class="spec">Rheinmetall</td><td>🇩🇪 Germany</td><td>Skyguard laser systems</td></tr>
+        </table>
+
+        <h2>Challenges</h2>
+        <div class="warn-box">
+            <ul>
+                <li><strong>Cost asymmetry:</strong> $100K missile vs $500 drone is unsustainable</li>
+                <li><strong>Swarm defense:</strong> 100+ drones overwhelm single engagement systems</li>
+                <li><strong>Autonomous drones:</strong> No RF to jam, need kinetic or DEW</li>
+                <li><strong>Fiber-optic drones:</strong> Immune to all electronic warfare</li>
+                <li><strong>False positives:</strong> Distinguishing hostile from civilian drones</li>
+                <li><strong>Collateral damage:</strong> DEW can affect friendly electronics</li>
+            </ul>
+        </div>
+
+        <h2>Market Data</h2>
+        <div class="stat-box">
+            <div class="stat"><div class="num">$50B</div><div class="label">C-UAS market 2025</div></div>
+            <div class="stat"><div class="num">$150B+</div><div class="label">Projected 2030</div></div>
+            <div class="stat"><div class="num">25-30%</div><div class="label">Annual growth rate</div></div>
+            <div class="stat"><div class="num">200+</div><div class="label">C-UAS systems worldwide</div></div>
+        </div>
+
+        <h2>Technology Roadmap (2025-2030)</h2>
+        <ul>
+            <li><strong>Laser cost reduction:</strong> HEL from $100M → $10M per unit</li>
+            <li><strong>Swarm-on-swarm:</strong> Counter-drone swarms fight drone swarms</li>
+            <li><strong>AI integration:</strong> Autonomous detection and engagement</li>
+            <li><strong>Mesh networks:</strong> Distributed sensor coverage</li>
+            <li><strong>Commercial C-UAS:</strong> Affordable systems ($50K-200K)</li>
+            <li><strong>Regulatory frameworks:</strong> Government drone zone enforcement</li>
+        </ul>
+
+        <p style="margin-top:2rem"><a href="/knowledge-base/" style="color:var(--accent)">← Back to Knowledge Base</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutoSensor Tech | <a href="/knowledge-base/" style="color:var(--accent)">Back to Knowledge Base</a></p>
+    </footer>
+</body>
+</html>
