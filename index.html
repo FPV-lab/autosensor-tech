@@ -1,225 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoSensor Tech - Counter-UAS & FPV Technology</title>
-    <meta name="description" content="Comprehensive resource for Counter-UAS and FPV drone technology. Detection, identification, tracking, and defeat systems.">
-    <link rel="alternate" hreflang="ru" href="/ru/">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#0a1628;--secondary:#1a2d4a;--accent:#00d4ff;--accent2:#ff6b35;--text:#e0e6ed;--text-dim:#8899aa}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7}
-        .lang-switch{position:fixed;top:80px;right:20px;z-index:1001;background:var(--secondary);border-radius:25px;padding:5px;display:flex;gap:5px}
-        .lang-switch a{padding:5px 15px;color:var(--text-dim);text-decoration:none;border-radius:20px;font-size:.85rem;transition:all .3s}
-        .lang-switch a.active{background:var(--accent);color:var(--primary)}
-        nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,.95);backdrop-filter:blur(10px);z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,212,255,.2)}
-        .logo{font-size:1.5rem;font-weight:bold;color:var(--accent);text-decoration:none}.logo span{color:var(--accent2)}
-        .nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;transition:color .3s}.nav-links a:hover{color:var(--accent)}
-        .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(10,22,40,0.7),rgba(10,22,40,0.9)),url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1920&q=80') center/cover;position:relative}
-        .hero h1{font-size:4rem;margin-bottom:1rem;position:relative;z-index:1;text-shadow:0 2px 20px rgba(0,0,0,0.5)}.hero h1 span{color:var(--accent)}
-        .hero p{font-size:1.5rem;color:var(--text-dim);margin-bottom:2rem;position:relative;z-index:1}
-        .hero-btn{padding:1rem 2rem;background:var(--accent);color:var(--primary);text-decoration:none;border-radius:50px;font-weight:bold;transition:all .3s;position:relative;z-index:1}
-        .hero-btn:hover{background:var(--accent2);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,212,255,.3)}
-        section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
-        .section-title{text-align:center;margin-bottom:3rem}.section-title h2{font-size:2.5rem;color:var(--accent);margin-bottom:.5rem}.section-title p{color:var(--text-dim)}
-        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-        .card{background:var(--secondary);border-radius:15px;padding:0;border:1px solid rgba(0,212,255,.2);transition:all .3s;overflow:hidden}
-        .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px rgba(0,212,255,.1)}
-        .card img{width:100%;height:200px;object-fit:cover}
-        .card-body{padding:1.5rem}
-        .card-icon{font-size:3rem;margin-bottom:1rem}.card h3{color:var(--accent);margin-bottom:1rem}.card p{color:var(--text-dim)}
-        .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding:3rem 0}
-        .stat{text-align:center;padding:2rem;background:var(--secondary);border-radius:15px}
-        .stat-number{font-size:3rem;font-weight:bold;color:var(--accent)}.stat-label{color:var(--text-dim);margin-top:.5rem}
-        .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
-        .tech-item{background:linear-gradient(135deg,var(--secondary),var(--primary));padding:1.5rem;border-radius:10px;border-left:4px solid var(--accent)}
-        .tech-item h4{color:var(--accent);margin-bottom:.5rem}
-        .timeline{position:relative;padding-left:3rem}
-        .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent)}
-        .timeline-item{margin-bottom:2rem;position:relative}
-        .timeline-item::before{content:'';position:absolute;left:-3rem;top:0;width:12px;height:12px;background:var(--accent);border-radius:50%}
-        .timeline-date{color:var(--accent);font-weight:bold}
-        .page-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
-        .page-link{background:var(--secondary);padding:1.5rem;border-radius:10px;text-align:center;border:1px solid rgba(0,212,255,.2);transition:all .3s;text-decoration:none;display:block}
-        .page-link:hover{border-color:var(--accent);transform:translateY(-3px)}
-        .page-link h4{color:var(--accent);margin-bottom:.5rem}.page-link p{color:var(--text-dim);font-size:.9rem}
-        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin:2rem 0}
-        .gallery img{width:100%;height:250px;object-fit:cover;border-radius:10px;transition:transform .3s}
-        .gallery img:hover{transform:scale(1.02)}
-        footer{background:var(--secondary);padding:3rem 2rem;text-align:center;border-top:1px solid rgba(0,212,255,.2)}
-        @media(max-width:768px){.hero h1{font-size:2.5rem}.stats{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoSensor Tech — Counter-UAS & FPV Technology Research</title>
+  <meta name="description" content="AutoSensor Tech provides in-depth research and analysis on Counter-UAS systems, FPV drone technology, and unmanned aerial defense. Based in Shenzhen, China.">
+  <meta name="keywords" content="C-UAS, counter drone, FPV drone, anti-drone, radar, jammer, drone defense, UAV">
+  <meta property="og:title" content="AutoSensor Tech — Counter-UAS & FPV Research">
+  <meta property="og:description" content="In-depth research on Counter-UAS systems and FPV drone technology.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.autosensor.tech/">
+  <link rel="canonical" href="https://www.autosensor.tech/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <nav>
-        <a href="/" class="logo">Auto<span>Sensor</span> Tech</a>
-                        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/fpv/">FPV</a>
-            <a href="/c-uas/">Counter-UAS</a>
-            <a href="/knowledge-base/">Knowledge Base</a>
-            <a href="/products/">Products</a>
-            <a href="/forum/">Forum</a>
-            <a href="/history/">History</a>
-            <a href="/contact/">Contact</a>
-        </div>
-    </nav>
 
-    <div class="lang-switch">
-        <a href="/" class="active">EN</a>
-        <a href="/ru/">RU</a>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#00d4ff" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="5" fill="#00d4ff" opacity="0.2"/></svg>
+        Auto<span>Sensor</span>&nbsp;Tech
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="/" class="nav__link nav__link--active">Home</a></li>
+          <li class="nav__item">
+            <a href="/technology/" class="nav__link">C-UAS Technology <span class="arrow"></span></a>
+            <div class="dropdown">
+              <a href="/technology/#detection" class="dropdown__link">Detection Systems</a>
+              <a href="/technology/#identification" class="dropdown__link">Identification &amp; AI</a>
+              <a href="/technology/#tracking" class="dropdown__link">Tracking Technology</a>
+              <a href="/technology/#defeat" class="dropdown__link">Defeat Systems</a>
+            </div>
+          </li>
+          <li class="nav__item"><a href="/solutions/" class="nav__link">Solutions</a></li>
+          <li class="nav__item"><a href="/fpv/" class="nav__link">FPV Guide</a></li>
+          <li class="nav__item"><a href="/news/" class="nav__link">News</a></li>
+          <li class="nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
 
-    <section class="hero">
-        <h1>Counter-UAS <span>FPV</span> Technology</h1>
-        <p>Detect · Identify · Track · Defeat — Comprehensive Low-Altitude Security</p>
-        <a href="/c-uas/" class="hero-btn">Explore Technology →</a>
-    </section>
+  <!-- Mobile nav -->
+  <div class="mobile-nav">
+    <a href="/" class="mobile-nav__link">Home</a>
+    <a href="/technology/" class="mobile-nav__link">C-UAS Technology</a>
+    <div class="mobile-nav__sub">
+      <a href="/technology/#detection" class="mobile-nav__link">Detection Systems</a>
+      <a href="/technology/#identification" class="mobile-nav__link">Identification &amp; AI</a>
+      <a href="/technology/#tracking" class="mobile-nav__link">Tracking Technology</a>
+      <a href="/technology/#defeat" class="mobile-nav__link">Defeat Systems</a>
+    </div>
+    <a href="/solutions/" class="mobile-nav__link">Solutions</a>
+    <a href="/fpv/" class="mobile-nav__link">FPV Guide</a>
+    <a href="/news/" class="mobile-nav__link">News</a>
+    <a href="/contact/" class="mobile-nav__link">Contact</a>
+  </div>
 
-    <section id="about">
-        <div class="section-title"><h2>About AutoSensor Tech</h2><p>Dedicated to Counter-UAS FPV Technology Research & Development</p></div>
-        <div class="cards">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=600&q=80" alt="Drone Detection">
-                <div class="card-body">
-                    <h3>Mission</h3>
-                    <p>As FPV drones become widely deployed in modern warfare and security operations, counter-UAS technology has become critical infrastructure. We are committed to driving innovation in anti-drone technology.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Technology Research">
-                <div class="card-body">
-                    <h3>Research Areas</h3>
-                    <p>Comprehensive coverage of full-stack counter-UAS technology including radar detection, RF analysis, EO/IR identification, electronic warfare, and laser interception.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Global Network">
-                <div class="card-body">
-                    <h3>Global Perspective</h3>
-                    <p>Tracking global counter-UAS technology development from leading nations including the United States, Israel, Europe, and China.</p>
-                </div>
-            </div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__grid"></div>
+    <div class="hero__content">
+      <div class="hero__badge">📡 Counter-UAS &amp; FPV Research</div>
+      <h1 class="hero__title">
+        Understanding the<br>
+        <span class="accent">Unmanned Aerial</span> Threat<br>
+        <span class="accent2">&amp; Defense Landscape</span>
+      </h1>
+      <p class="hero__sub">
+        AutoSensor Tech delivers technical research, market intelligence, and deep-dive analysis on Counter-UAS systems, FPV drone technology, and the evolving aerial defense ecosystem.
+      </p>
+      <div class="hero__actions">
+        <a href="/technology/" class="btn btn--primary">Explore C-UAS Technology →</a>
+        <a href="/fpv/" class="btn btn--outline">FPV Drone Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT WE DO ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__label">What We Do</div>
+        <h2 class="section-header__title">Research &amp; Analysis Across Three Pillars</h2>
+        <p class="section-header__text">From radar systems to FPV build guides, we cover the full spectrum of unmanned aerial technology and counter-drone defense.</p>
+      </div>
+      <div class="cards cards--3">
+        <div class="card">
+          <div class="card__icon">🛡️</div>
+          <h3 class="card__title">C-UAS Technology Research</h3>
+          <p class="card__text">Deep technical analysis of detection radar, RF sensors, EO/IR systems, electronic warfare jammers, laser weapons, and HPM defeat systems. Real product data, specifications, and comparison tables.</p>
+          <a href="/technology/" class="btn btn--sm btn--outline mt-2">Learn More →</a>
         </div>
-    </section>
-
-    <section id="gallery">
-        <div class="section-title"><h2>Technology Gallery</h2><p>FPV drones and counter-UAS systems in action</p></div>
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&q=80" alt="FPV Racing Drone">
-            <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80" alt="Military Drone">
-            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600&q=80" alt="Radar System">
-            <img src="https://images.unsplash.com/photo-1563201515-adbe35c669c5?w=600&q=80" alt="Aerial Surveillance">
-            <img src="https://images.unsplash.com/photo-1521405924368-64c5b84bec60?w=600&q=80" alt="Technology Components">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Drone in Flight">
+        <div class="card">
+          <div class="card__icon card__icon--orange">🚁</div>
+          <h3 class="card__title">FPV Drone Technology</h3>
+          <p class="card__text">Comprehensive FPV drone guides covering types, components, video transmission systems (DJI O4, Analog, Walksnail, HDZero), build recommendations, and military FPV applications.</p>
+          <a href="/fpv/" class="btn btn--sm btn--outline mt-2">FPV Guide →</a>
         </div>
-    </section>
-
-    <section id="stats">
-        <div class="stats">
-            <div class="stat"><div class="stat-number">$50B+</div><div class="stat-label">2025 Global C-UAS Market</div></div>
-            <div class="stat"><div class="stat-number">30%</div><div class="stat-label">CAGR Growth Rate</div></div>
-            <div class="stat"><div class="stat-number">$150B+</div><div class="stat-label">2030 Market Forecast</div></div>
-            <div class="stat"><div class="stat-number">150+</div><div class="stat-label">Identifiable UAV Models</div></div>
+        <div class="card">
+          <div class="card__icon">📊</div>
+          <h3 class="card__title">Industry &amp; Market Analysis</h3>
+          <p class="card__text">Daily tracking of C-UAS market developments, defense contracts, technology breakthroughs, regulatory changes, and FPV industry trends. Real news, real data.</p>
+          <a href="/news/" class="btn btn--sm btn--outline mt-2">Latest News →</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section>
-        <div class="section-title"><h2>Explore Our Content</h2><p>Detailed technical resources on FPV and Counter-UAS technology</p></div>
-        <div class="page-links">
-            <a href="/fpv/" class="page-link"><h4>🛩️ FPV Technology</h4><p>Complete guide to FPV drones: components, video systems, build guides, flying styles</p></a>
-            <a href="/c-uas/" class="page-link"><h4>🛡️ Counter-UAS Systems</h4><p>Detection, identification, tracking, and defeat technologies explained in detail</p></a>
-            <a href="/forum/" class="page-link"><h4>💬 Technical Forum</h4><p>Community discussions on FPV builds, C-UAS systems, military applications</p></a>
-            <a href="/history/" class="page-link"><h4>📜 Development History</h4><p>Timeline from 2005 to 2026: how FPV and anti-drone tech evolved</p></a>
-            <a href="/ru/" class="page-link"><h4>🇷🇺 Russian Version</h4><p>Complete Russian translation of all content</p></a>
+  <!-- ===== KEY STATS ===== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__label">Market Overview</div>
+        <h2 class="section-header__title">The Counter-UAS Market by Numbers</h2>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__number">$50B+</div>
+          <div class="stat__label">Global C-UAS Market (2025)</div>
         </div>
-    </section>
-
-    <section>
-        <div class="section-title"><h2>Core Technology Stack</h2></div>
-        <div class="cards">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Detection">
-                <div class="card-body">
-                    <h3>📡 Detection</h3>
-                    <p><strong>Radar:</strong> Pulse Doppler / FMCW / Phased Array<br><strong>RF:</strong> Signal monitoring & protocol analysis<br><strong>EO/IR:</strong> Visible + thermal imaging<br><strong>Acoustic:</strong> Microphone arrays</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="AI Identification">
-                <div class="card-body">
-                    <h3>🧠 Identification</h3>
-                    <p><strong>AI Vision:</strong> Deep learning object detection<br><strong>Signal Analysis:</strong> Spectrum fingerprinting<br><strong>Threat Assessment:</strong> Model & behavior analysis<br><strong>Fusion:</strong> Multi-sensor correlation</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80" alt="Tracking">
-                <div class="card-body">
-                    <h3>🎯 Tracking</h3>
-                    <p><strong>Radar Track:</strong> Multi-target continuous tracking<br><strong>EO Track:</strong> PTZ gimbal auto-track<br><strong>Prediction:</strong> Kalman filtering<br><strong>Operator Loc:</strong> Reverse RF tracking</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Defeat">
-                <div class="card-body">
-                    <h3>⚡ Defeat</h3>
-                    <p><strong>Soft Kill:</strong> GPS/RC/Video jamming<br><strong>Laser:</strong> 5-100kW destruction<br><strong>HPM:</strong> Electromagnetic pulse<br><strong>Kinetic:</strong> Nets / interceptor drones</p>
-                </div>
-            </div>
+        <div class="stat">
+          <div class="stat__number stat__number--orange">$150B+</div>
+          <div class="stat__label">Projected Market (2030)</div>
         </div>
-    </section>
-
-    <section id="news">
-        <div class="section-title"><h2>📰 Latest Updates</h2><p>Industry news and developments — Updated March 27, 2026</p></div>
-        <div class="cards">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="DJI Avata 360">
-                <div class="card-body">
-                    <span style="color:var(--accent);font-size:.85rem">Mar 27, 2026 — FPV</span>
-                    <h3>DJI Avata 360 Global Launch Begins, US Delayed to March 30</h3>
-                    <p>DJI kicks off the global rollout of the Avata 360 — its first 360-degree capture drone. US launch delayed to March 30 8AM EST on Amazon. Meanwhile, DJI drops prices across five popular drone models to all-time lows.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=600&q=80" alt="Skydio Army">
-                <div class="card-body">
-                    <span style="color:var(--accent);font-size:.85rem">Mar 23, 2026 — Defense</span>
-                    <h3>U.S. Army Places Largest-Ever Single-Vendor Drone Order: Skydio X10D ($52M+)</h3>
-                    <p>The U.S. Army has placed its biggest single-vendor drone order exceeding $52 million with Skydio for the X10D platform — a landmark moment for American drone manufacturing and military adoption of autonomous systems.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="BRINC Factory">
-                <div class="card-body">
-                    <span style="color:var(--accent);font-size:.85rem">Mar 24, 2026 — Industry</span>
-                    <h3>BRINC Opens New Seattle Drone Factory, Launches American-Made 911 Drone</h3>
-                    <p>BRINC builds a new Seattle-based drone manufacturing facility and launches a domestic-first responder drone. A clear response to the FCC's foreign drone ban and growing demand for US-made UAS.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Echodyne Radar">
-                <div class="card-body">
-                    <span style="color:var(--accent);font-size:.85rem">Mar 2026 — C-UAS</span>
-                    <h3>Echodyne: New Factory, Laser C-UAS Support, Project Fly Trap 4.5</h3>
-                    <p>Echodyne opens major manufacturing facility, showcased laser effector integration at DiDEX 2025, and was selected as range radar for NATO's Project Fly Trap 4.5 in Germany. Partnerships with Moog and DFT expand radar ecosystem.</p>
-                </div>
-            </div>
+        <div class="stat">
+          <div class="stat__number">25-30%</div>
+          <div class="stat__label">CAGR Growth Rate</div>
         </div>
-    </section>
-
-    <section id="contact">
-        <div class="section-title"><h2>Contact Us</h2></div>
-        <div class="cards">
-            <div class="card" style="text-align:center"><div class="card-body"><div class="card-icon">📧</div><h3>Email</h3><p>contact@autosensor.tech</p></div></div>
-            <div class="card" style="text-align:center"><div class="card-body"><div class="card-icon">🌐</div><h3>Website</h3><p>www.autosensor.tech</p></div></div>
-            <div class="card" style="text-align:center"><div class="card-body"><div class="card-icon">📍</div><h3>Location</h3><p>Shenzhen, China</p></div></div>
+        <div class="stat">
+          <div class="stat__number stat__number--orange">200+</div>
+          <div class="stat__label">C-UAS Products Globally</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 AutoSensor Tech. All Rights Reserved.</p>
-        <p style="margin-top:.5rem;font-size:.9rem">Counter-UAS FPV Technology Research & Development</p>
-    </footer>
+  <!-- ===== C-UAS ARCHITECTURE OVERVIEW ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__label">Technology</div>
+        <h2 class="section-header__title">Counter-UAS System Architecture</h2>
+        <p class="section-header__text">Every effective counter-drone system follows a four-layer architecture: Detect, Identify, Track, and Defeat.</p>
+      </div>
+      <div class="pipeline">
+        <div class="pipeline__step">
+          <div class="pipeline__step-num">1</div>
+          <h4>Detect</h4>
+          <p>Radar, RF sensors, EO/IR cameras, acoustic arrays</p>
+        </div>
+        <div class="pipeline__step">
+          <div class="pipeline__step-num">2</div>
+          <h4>Identify</h4>
+          <p>AI classification, signal analysis, threat assessment</p>
+        </div>
+        <div class="pipeline__step">
+          <div class="pipeline__step-num">3</div>
+          <h4>Track</h4>
+          <p>Multi-sensor fusion, Kalman filtering, operator localization</p>
+        </div>
+        <div class="pipeline__step">
+          <div class="pipeline__step-num">4</div>
+          <h4>Defeat</h4>
+          <p>RF jamming, GPS spoofing, laser, HPM, kinetic intercept</p>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/technology/" class="btn btn--primary">Full Technology Breakdown →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LATEST NEWS ===== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__label">Latest Updates</div>
+        <h2 class="section-header__title">Industry News &amp; Analysis</h2>
+      </div>
+      <div class="cards cards--3">
+        <div class="card news-card" data-category="defense">
+          <div class="card__tag tag--defense">Defense</div>
+          <h3 class="card__title">Russia Launches 1,000+ Drones Against Ukraine in Single Week</h3>
+          <p class="card__text">Massive wave attacks including 556 drones in a single day. Ukraine's air defense achieved 97.3% interception rate, demonstrating advanced C-UAS effectiveness.</p>
+          <div class="card__meta">
+            <span class="card__date">📅 Mar 27, 2026</span>
+          </div>
+        </div>
+        <div class="card news-card" data-category="tech">
+          <div class="card__tag tag--tech">Technology</div>
+          <h3 class="card__title">Epirus Leonidas Autonomous HPM Counter-UAS Vehicle Unveiled</h3>
+          <p class="card__text">Fully autonomous mobile high-power microwave platform. Defends against individual, swarm, and fiber-optic controlled drone attacks.</p>
+          <div class="card__meta">
+            <span class="card__date">📅 Mar 27, 2026</span>
+          </div>
+        </div>
+        <div class="card news-card" data-category="defense">
+          <div class="card__tag tag--defense">Defense</div>
+          <h3 class="card__title">Ukraine &amp; NATO Launch EUR 10M UNITE-BRAVE C-UAS Competition</h3>
+          <p class="card__text">Joint innovation program focusing on active protection against FPV drones, SIGINT capabilities, and autonomous guidance systems.</p>
+          <div class="card__meta">
+            <span class="card__date">📅 Mar 27, 2026</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/news/" class="btn btn--outline">View All News →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="mb-2">Stay Informed on Counter-UAS &amp; FPV Technology</h2>
+      <p class="text-muted mb-4" style="max-width:600px;margin-left:auto;margin-right:auto;">
+        Whether you're a defense professional, researcher, or FPV enthusiast — AutoSensor Tech is your source for technical depth and industry intelligence.
+      </p>
+      <div class="hero__actions">
+        <a href="/technology/" class="btn btn--primary">C-UAS Deep Dive</a>
+        <a href="/fpv/" class="btn btn--secondary">FPV Technology Guide</a>
+        <a href="/contact/" class="btn btn--outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="logo">Auto<span>Sensor</span>&nbsp;Tech</a>
+          <p>Technical research and analysis on Counter-UAS systems, FPV drone technology, and unmanned aerial defense. Based in Shenzhen, China.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Technology</div>
+          <a href="/technology/#detection" class="footer__link">Detection Systems</a>
+          <a href="/technology/#identification" class="footer__link">Identification &amp; AI</a>
+          <a href="/technology/#tracking" class="footer__link">Tracking</a>
+          <a href="/technology/#defeat" class="footer__link">Defeat Systems</a>
+        </div>
+        <div>
+          <div class="footer__heading">Resources</div>
+          <a href="/solutions/" class="footer__link">Solutions</a>
+          <a href="/fpv/" class="footer__link">FPV Guide</a>
+          <a href="/news/" class="footer__link">News</a>
+        </div>
+        <div>
+          <div class="footer__heading">Company</div>
+          <a href="/contact/" class="footer__link">Contact</a>
+          <a href="/ru/" class="footer__link">Русская версия</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 AutoSensor Tech. All rights reserved.</span>
+        <span>Shenzhen, China</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="/js/main.js"></script>
 </body>
 </html>
